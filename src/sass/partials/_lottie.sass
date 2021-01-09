@@ -1,0 +1,35 @@
+@import 'alias-mixins'
+.e-lottie
+    position: fixed;
+    //z-index: 20;
+    left: 0
+    top: 0
+
+    &__fader
+        left: 0
+        top: 0
+        
+    &__circ-expand
+        //will-change: transform
+        z-index: 2
+        background: red
+        border-radius: 50%;
+        background: #000;
+        opacity: 0;
+        width: 20vw;
+        height: 20vw;
+        @include desk
+            width: 7vw;
+            height: 7vw;
+
+
+    .lottie-ctn 
+        z-index: 1
+        opacity: 0
+        svg
+            @include mobile
+                transform: scale(2.5) !important
+            @include tablet
+                transform: scale(2.5) !important
+            path
+                //stroke: #fff;

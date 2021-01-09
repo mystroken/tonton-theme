@@ -1,0 +1,182 @@
+extends ../index
+block title
+    <?php
+    |   //Template Name: Home
+    |?>
+
+block content
+    .barba-container.page-home.e-wp(data-barba="container", data-barba-namespace="home", data-namespace="home" data-current!="" data-scroll-content)
+        .imgs-hidden.e-hidden
+            //-each list, index in['1','2','3','4','5','6']
+                img(src!='<?php echo get_template_directory_uri(); ?>/images/texture'+list+'.jpg', alt='').js-img.img-load
+                //-img(src!='https://raw.githubusercontent.com/Efetivos/gallery/master/nicole/slider-nicole0'+list+'.jpg', alt='').js-img.img-load
+
+            <?php if(have_rows('folio_rpt','option')): while(have_rows('folio_rpt','option')) : the_row(); ?>
+                img(src!="<?php echo get_sub_field('image_project')['url']; ?>" alt!="<?php echo get_sub_field('image_project')['alt']; ?>").js-img.img-load
+            <?php endwhile; else : endif; ?>
+
+        //-a(href!="<?php echo get_site_url(); ?>/single")
+            h1 go to single
+
+        .e-hold
+            //- =========================  HEADER  ========================= -//
+            //- =========================  HEADER  ========================= -//
+            header.header-home.e-wp
+                button.header-home__welcome.no-mobile.e-rel.e-curp.hover-line.scale
+                    .t-switch-gray.e-rel.wrap
+                        .wrapped Bienvenue
+                        .line.e-wp.e-switch-gray.e-switch
+                .header-home__gif.e-abs.no-mobile
+                    img(src!='<?php echo get_template_directory_uri(); ?>/images/seinfield.gif').e-wp
+
+                .header-home__title
+                    .hold-home
+                        h1.title-home.t-switch.pushoff.wrap
+                            .wrapped Welcome to
+                        h1.title-home.t-switch.wrap
+                            .wrapped Tonton's
+                        h1.title-home.t-switch.wrap
+                            .wrapped Portfolio
+
+                .header-home__infos
+                    .header-home__infos__name 
+                        h2.t-switch-gray.wrap
+                            .wrapped Jaslin Tonton
+                    .header-home__infos__role
+                        h2.t-switch-gray.wrap
+                            .wrapped Independent Art Director
+                        h2.t-switch-gray.wrap
+                            .wrapped & UI/UX Designer
+                    .header-home__infos__available
+                        h2.t-switch-gray.wrap
+                            .wrapped Available for Freelance Work
+                        a(href="mailto:hello#hellotonton.com") 
+                            button.e-curp.hover-line.scale
+                                .t-switch-gray.wrap
+                                    .wrapped hello[at]hellotonton.com
+                                    .line.e-wp.e-switch-gray.e-switch
+
+            main.main-home.e-wp
+                //- =========================  OPTIONS  ========================= -//
+                //- =========================  OPTIONS  ========================= -//
+                section.options.no-mobile.e-wp
+                    .options__menu
+                        - var list = []
+                        - list.push({title: 'About', path:'about'})
+                        - list.push({title: 'Work', path:'works'})
+                        - list.push({title: 'Contact', path:'footer'})
+                        each item, index in list
+                            a(href!='<?php echo get_site_url(); ?>/'+item.path, data-to=""+item.path).options__menu__each
+                                button.btn-scroll-to.e-curp.hover-line.scale(data-scroll-to=""+item.path)
+                                    .e-sans.t-switch-gray.t-switch.wrap
+                                        .wrapped=item.title
+                                        .line-link.e-wp.e-switch
+                        
+                    .options__scroll
+                        .t-switch-gray.t-switch.e-bold.wrap
+                            .wrapped SCROLL
+                        
+                    .options__switch-mode.e-flex
+                        button.e-curp.scale
+                            .t-switch.wrap.switch-dark
+                                .wrapped DARK
+
+                        .separator.e-switch-gray.e-switch
+
+                        button.e-curp.switch-light.scale
+                            .t-light.t-switch-gray.t-switch.wrap.t-switch.wrap
+                                .wrapped LIGHT
+
+                //- =========================  ABOUT  ========================= -//
+                //- =========================  ABOUT  ========================= -//
+                section.about
+                    .hold-home.scroll-about
+                        h1.title-home.t-switch.pushoff.wrap.start-about
+                            .wrapped A Little
+                        h1.title-home.t-switch.wrap
+                            .wrapped About
+                        h1.title-home.t-switch.wrap
+                            .wrapped Me
+                        
+                        .hold-p
+                            p.t-switch Tonton. Name's so nice,</br> you say it twice.
+                            p.t-switch Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            p.t-switch  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                //- =========================  WORKS HOME  ========================= -//
+                //- =========================  WORKS HOME  ========================= -//
+                section.works
+                    .hold-home.scroll-works
+                        h1.title-home.t-switch.wrap.start-works
+                            .wrapped Featured
+                        h1.title-home.t-switch.text-padding
+                            .wrapped Work
+
+                        .links-folio#folio-ctn
+                            //-
+                            <?php if(have_rows('folio_rpt','option')): while(have_rows('folio_rpt','option')) : the_row(); ?>
+                                .links-folio__each
+                                    //-div( data-to="single" data-from="home" data-color!=""+item.color)
+                                    a(href!="<?php echo get_site_url(); ?>/<?php the_sub_field('url_project'); ?>" data-to="single" data-from="home" data-color!="<?php the_sub_field('color_project'); ?>")
+                                        button.e-curp.hover-line
+                                            h1.e-sans.t-switch.wrap
+                                                .wrapped.title-folio <?php the_sub_field('title_project'); ?>
+                                                .line-link.e-wp.e-switch
+                            <?php endwhile; else : endif; ?>
+                        
+                            //-
+                                - var list = []
+                                - list.push({title: 'Enjine', path:'single', color: '#FFB608'})
+                                - list.push({title: 'Amalise', path:'single', color: '#2ECC71'})
+                                - list.push({title: 'A Brilliant Lie', path:'single', color: '#2980B9'} )
+                                - list.push({title: 'MyString', path:'single', color: '#ff0000'})
+                                each item, index in list
+                                    .links-folio__each
+                                        //-div( data-to="single" data-from="home" data-color!=""+item.color)
+                                        //-a(href!="<?php echo get_site_url(); ?>/"+item.path data-to="single" data-from="home" data-color!=""+item.color)
+                                        a( data-to="single" data-from="home" data-color!=""+item.color)
+                                            button.e-curp.hover-line
+                                                h1.e-sans.t-switch.wrap
+                                                    .wrapped.title-folio=item.title
+                                                    .line-link.e-wp.e-switch
+
+                            .view-all.hover-line
+                                //-a(href!="<?php echo get_site_url(); ?>")
+                                button.e-curp
+                                    .e-sans.t-switch-gray.wrap
+                                        .wrapped VIEW WORK LIST
+                                
+                                .line.e-switch-gray.e-switch
+                    .gap-black
+
+        //- =========================  AWARDS  ========================= -//
+        //- =========================  AWARDS  ========================= -//
+        section.awards.e-wp
+            .award__hold.e-hold
+                .hold-home
+                    .inline
+                        .awards__title.start-awards
+                            h1.e-bold.t-switch.wrap
+                                .wrapped Awards 
+                            h1.e-bold.t-switch.wrap
+                                .wrapped & Recognition
+                            
+                        .awards__fields
+                            .each-field
+                                .site
+                                    .e-bold.wrap
+                                        .wrapped Behance
+                                .recog
+                                    .t-switch-gray.wrap
+                                        .wrapped Pantone
+                                    .t-switch-gray.wrap
+                                        .wrapped Student Show
+                            
+                            .each-field
+                                .site
+                                    .e-bold.t-switch-gray.wrap
+                                        .wrapped Awwwards
+                                .recog
+                                    .t-switch-gray.wrap
+                                        .wrapped SOTD
+        <?php include 'includes/myfooter.php'; ?>

@@ -1,0 +1,209 @@
+@import './partials/alias-mixins'
+.page-about
+    p
+        color: var(--gray)
+
+    .svg-path-white
+
+        & > * 
+            fill: #fff
+    
+    .t-white
+        color: #fff !important
+
+//- =========================  HEADER  ========================= -//
+//- =========================  HEADER  ========================= -//
+.header-about
+    
+    &__hold
+    &__title
+        padding-top: 117px
+        @include desk
+            padding-top: 17vw
+        
+        h1
+            font-size: 55px
+            line-height: 60px
+            @include desk
+                font-size: 12.1vw
+                line-height: 8.4vw;
+
+            .wrapped
+                padding: 1vw 0 3vw;
+
+    &__content
+        margin-top: 58px
+        @include desk
+            margin-top: 0
+            display: flex
+            justify-content: space-between
+            margin-top: 9.3vw
+            width: 92.9vw
+            justify-content: flex-start
+
+        &__img
+            width: 100%
+            height: 558px
+            position: relative
+            @include desk
+                width: 35vw
+                height: 52.5vw
+
+
+            picture
+                display: block
+                width: 100%
+                height: 100%
+                left: 0
+                top: 0
+                position: absolute
+            img
+                @include tablet
+                    object-position: 0px -20vh
+
+            .tt_real
+                opacity: 0
+                transition: .3s opacity ease-out
+
+        &__texts
+            margin-top: 15px
+            @include desk
+                width: 49.7vw
+                margin-left: 6.5vw
+                margin-top: -1.7vw
+
+            p + p
+                margin-top: 62px
+            p
+                @include desk
+                    letter-spacing: -.08vw
+
+            svg
+                margin: 0 0.2vw;
+                cursor: pointer;
+                width: 20px
+                transition: .15s fill ease-out
+                @include desk
+                    width: 2vw;
+
+            .sun
+                pointer-events: none
+            span.redact
+                display: inline-block
+                color: #000
+                position: relative
+                font-family: pangramblack,sans-serif
+                cursor: pointer
+                transition: .15s background ease-out
+                &:hover
+                    &:after
+                        transform: scaleY(0)
+                        transform-origin: top right;
+
+                &:after
+                    content: ''
+                    background: #000
+                    width: 100%
+                    height: 100%
+                    position: absolute
+                    z-index: 1
+                    left: 0
+                    opacity: 1
+                    transform-origin: bottom left
+                    transition: .3s transform ease-out, .15s background ease-out
+
+
+            .redact-dark
+                color: #fff !important
+                &:after
+                    background: #fff !important
+
+
+
+//- =========================  code  ========================= -//
+//- =========================  code  ========================= -//
+.code
+    padding-top: 75px
+    @include desk
+        padding-top: 9.4vw
+
+    &__hold
+        @include desk
+            display: flex
+            justify-content: flex-start
+
+    &__title
+
+        h1 
+            font-size: 44px
+            line-height: 58px
+            @include desk
+                width: 46vw
+                font-size: 3.3vw
+                width: 17vw
+
+    &__items
+        margin-top: 59px
+        padding-left: 66px
+        @include desk
+            padding-left: 0
+            margin: 0 0 0 8.6vw
+            width: 54.3vw
+
+        &__line
+            margin-bottom: 25px
+            @include desk
+                display: flex
+                justify-content: flex-start
+                margin-bottom: 5.3vw
+
+        span 
+            display: block
+            font-size: 30px
+
+            &:first-child
+                @include desk
+                    width: 25.7vw
+            &:last-child
+                font-size: 20.9px
+                margin-top: 12px
+                color: var(--gray)
+                @include desk
+                    font-size: 1.8vw
+                    margin-top: 0.6vw
+
+
+
+
+
+//- =========================  mon  ========================= -//
+//- =========================  mon  ========================= -//
+.mom
+    padding-top: 54px
+    padding-bottom: 15vw;
+    @include desk
+        padding-top: 2.7vw
+        padding-left: 35.4vw
+
+    &__hold
+        @include desk
+            width: 58vw
+            margin: 0
+
+        p
+            margin-bottom: 40px
+            @include desk
+                margin-bottom: 2.2vw
+                letter-spacing: -.065vw
+
+        h6
+            font-size: 30px
+            line-height: 40px
+            @include desk
+                font-size: 3.3vw
+                line-height: 4.8vw
+                
+
+        .this-mom
+            text-align: right
+            margin-top: 12px

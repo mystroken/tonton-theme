@@ -1,0 +1,200 @@
+@import './partials/alias-mixins'
+#main-archived
+    position: fixed
+    width: 100vw
+    height: 100vh
+    background: #eee
+.page-archived
+    @include desk
+        height: 1200vh
+
+    & > *
+        font-family: 'pangramlight';
+
+    [data-scroll-content]
+
+
+    .gallery
+        @include desk
+            will-change: transform
+        @include mobile
+            height: auto
+        @include mobile
+            height: auto
+
+        &__text
+            @include desk
+                pointer-events: none
+                will-change: transform
+                left: 0
+                top: 0
+                z-index: 1
+                opacity: 0
+
+            &__hold
+                margin-top: -10vh
+                margin-left: -2vw
+            h1
+                font-size: 12.6vw;
+                letter-spacing: -1vw;
+            
+
+            p
+                text-align: center;
+                margin-top: 0vw;
+                font-weight: 800;
+                font-size: 1.9vw;
+            
+        &__travel
+            @include desk
+                will-change: transform
+                width: 400vw
+                display: inline-flex
+                justify-content: space-around
+            @include mobile
+                width: 90vw;
+                margin-left: 5vw;
+                margin-top: 83px;
+            @include tablet
+                width: 90vw;
+                margin-left: 5vw;
+                margin-top: 83px;
+
+        &__each
+            cursor: pointer
+            @include mobile
+                margin-bottom: 39px;
+            @include tablet
+                margin-bottom: 39px;
+
+            img
+                @include desk
+                    opacity: 0
+                    width: 120%
+                    will-change: transform
+
+    @include desk
+        [data-zindex="2"]
+            z-index: 2
+
+        [data-item="1"]
+            width: 19vw
+            height: 61vh
+            margin-top: 18vh
+            transform: translateX(6vw);
+
+
+        [data-item="2"]
+            width: 27vw
+            height: 35vh
+            margin-top: 54vh
+            transform: translateX(17vw);
+
+
+        [data-item="3"]
+            width: 12vw
+            height: 34vh
+            margin-top: 6vh
+            transform: translateX(-6vw);
+
+
+        [data-item="4"]
+            width: 19vw
+            height: 61vh
+            margin-top: 48vh
+
+
+        [data-item="5"]
+            width: 9vw
+            height: 30vh
+            margin-top: 13vh
+            transform: translateX(20vw);
+
+
+        [data-item="6"]
+            width: 12vw
+            height: 38vh
+            margin-top: 45vh
+            
+
+
+        [data-item="7"]
+            width: 31vw
+            height: 42vh
+            margin-top: 14vh
+            transform: translateX(15vw);
+
+
+        [data-item="8"]
+            width: 14vw
+            height: 44vh
+            margin-top: 50vh
+            transform: translateX(-9vw);
+
+        [data-item="9"]
+            width: 18vw
+            height: 57vh
+            margin-top: 17vh
+            transform: translateX(1vw);
+
+
+        [data-item="10"]
+            width: 12vw
+            height: 37vh
+            margin-top: 11vh
+            transform: translateX(18vw);
+
+
+        [data-item="11"]
+            width: 9vw
+            height: 29vh
+            margin-top: 52vh
+
+
+        [data-item="12"]
+            width: 32vw
+            height: 40vh
+            margin-top: 9vh
+            transform: translateX(11vw);
+
+
+        [data-item="13"]
+            width: 13vw
+            height: 41vh
+            margin-top: 44vh
+
+
+        [data-item="14"]
+            width: 22vw
+            height: 69vh
+            margin-top: 15vh
+
+
+.modal-zoom
+    z-index: 3
+    &__img
+        height: 75vh
+
+        img
+            object-fit: contain
+
+    &__close
+        font-family: 'pangramlight';
+        width: 70px;
+        height: 70px;
+        border: 1px solid rgba(255, 255, 255, .15);
+        border-radius: 50%;
+        left: 8vw;
+        font-size: 10px;
+        cursor: pointer;
+        transition: .5s border ease-out
+        &:hover
+            border: 1px solid rgba(255, 255, 255, 1);
+
+
+
+    .modal-zoom__bg
+        will-change: transform
+        border-radius: 50%;
+        height: 120vw;
+        width: 120vw;

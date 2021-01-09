@@ -1,0 +1,24 @@
+extends ../index
+block title
+    <?php
+    |   //Template Name: 404
+    |?>
+
+block content
+    .barba-container.page-404.e-wp(data-barba="container", data-barba-namespace="notFound", data-namespace="notFound" data-current!="" data-scroll-content)
+        main.main-404.e-wp.e-hvh.e-black.e-flex
+            .main-404__hold.e-flex-col
+                h1.e-sans.t-white.e-bold 404
+                span.t-gray This is a page about nothing
+                .gif.e-rel
+                    img(src!='<?php echo get_template_directory_uri(); ?>/images/404.gif').e-wp.img-load
+                
+                .all-projects
+                    a(href!="<?php echo get_site_url(); ?>" data-to="home" data-from="single")
+                        button.e-curp.e-rel.e-flex.scale.hover-line
+                            .cross.e-rel
+                                .cross__line.line1.e-black.e-abs
+                                .cross__line.line2.e-black.e-abs
+                            span.e-bold.e-sans.t-white Just Go Home
+                                .line-link.e-wp.e-switch-gray.e-switch
+        <?php wp_footer(); ?>

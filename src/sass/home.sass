@@ -1,0 +1,301 @@
+@import './partials/alias-mixins'
+
+.hold-home
+    @include desk
+        width: 67.5vw
+        margin-left: 15.7vw;
+
+
+h1.title-home
+    font-size: 48px
+    line-height: 52px
+    letter-spacing: 1px
+    @include desk
+        font-size: 10.1vw;
+        line-height: 11vw
+        letter-spacing: -5px
+        
+.page-home
+    //-background: #000
+
+    
+    .e-hold
+        @include desk
+            width: 93.2%
+
+
+//- =========================  HEADER  ========================= -//
+//- =========================  HEADER  ========================= -//
+
+.header-home
+
+
+    &__welcome
+        padding-top: 35px;
+        font-size: 26px;
+        @include desk
+            padding-top: 0
+            margin-top: 145px
+
+        .line
+            width: 120px;
+            margin-top: 4px;
+
+    &__gif
+        width: 275px;
+        margin-top: 25px;
+        opacity: 0
+
+
+    &__title
+        text-align: right
+        margin-top: 105px
+        white-space: nowrap;
+        @include desk
+            margin-top: -31px
+
+
+        .pushoff
+            @include desk
+                transform: translateX(-9px);
+                
+                
+
+    &__infos
+        text-align: right
+        width: 100%;
+        padding-top: 26px;
+        font-size: 10px;
+        display: inline-flex;
+        justify-content: space-between;
+        line-height: 16px
+        @include desk
+            width: 91.3%;
+            font-size: 1.6vw;
+            padding-top: 60px;
+            line-height: 3vw;
+
+        &__role
+            @include desk
+                margin-left: -13%
+
+        &__available
+            text-align: left
+
+            span
+                @include desk
+                    font-size: 19px
+        
+
+
+
+
+
+
+
+
+//- =========================  OPTIONS  ========================= -//
+//- =========================  OPTIONS  ========================= -//
+
+.options
+    display: none
+    @include desk
+        display: block
+        margin-top: 214px;
+        display: inline-flex;
+        justify-content: space-between;
+    
+
+    &__menu
+        button
+            padding: 4px 0;
+            font-size: 22px;
+            @include desk
+                font-size: 1.4vw;
+            
+        span
+            
+    &__scroll
+        font-size: 13px;
+        letter-spacing: 2px;
+        transform-origin: center center 0px;
+        transform: matrix(0, 1, -1, 0, 0, 25);
+        
+        
+    &__switch-mode
+        font-size: 10px;    
+        margin-top: 79px;
+        @include desk
+            font-size: 0.8vw;
+
+        .separator
+            height: 1px;
+            width: 66px;
+            margin: 0 11px;
+        
+
+
+
+
+
+
+
+
+
+
+
+
+//- =========================  ABOUT  ========================= -//
+//- =========================  ABOUT  ========================= -//
+.about
+    padding-top: 180px
+    @include desk
+        padding-top: 430px;
+
+    .hold-p
+        @include desk
+            margin-left: 424px;
+            margin-top: -112px;
+            width: 42%;
+            
+
+    p
+        margin-top: 35px
+        opacity: 0.7
+        @include desk
+            font-size: 1.9vw;
+            line-height: 3vw;
+            margin-top: 20px;
+
+
+
+
+
+
+//- =========================  WORKS HOME  ========================= -//
+//- =========================  WORKS HOME  ========================= -//
+
+.works
+    padding-top: 180px
+    @include desk
+        padding-top: 415px;
+
+    .text-padding
+        padding-bottom: 29px
+        @include desk
+            padding-bottom: 102px;
+
+    .links-folio
+        text-align: right;
+            
+
+        button
+            padding: 11px 0;
+            @include desk
+                padding: 15px 0;
+                
+            
+        h1
+            font-size: 46.7px;
+            @include desk
+                opacity: 0
+                font-size: 12vw;
+                
+            .wrapped
+                @include desk
+                    white-space: nowrap
+                    
+
+        .line-link
+            @include desk
+                height: 2px
+                
+    .view-all
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 84px;
+        align-items: center;
+        @include desk
+            padding-bottom: 15vh
+        span
+            font-size: 17px;
+        .line 
+            width: 46px;
+            margin-left: 14px;
+
+    .gap-black
+        display: none
+        @include desk
+            display: block
+            width: 102vw
+            background: #000
+            height: 25vh
+            display: block
+            margin-left: -4vw;
+
+
+
+
+
+//- =========================  AWARDS  ========================= -//
+//- =========================  AWARDS  ========================= -//
+.awards
+    padding-top: 180px
+    z-index: 1
+    position: relative
+    background: #000
+    @include desk
+        padding: 22vh 0 5vh  
+
+    .inline
+        @include desk
+            display: inline-flex
+            transform: translateY(-20vh)
+
+    &__title
+        h1
+            font-size: 43px;
+            margin-bottom: 20px;
+            @include desk
+                    line-height: 3.5vw;
+                    font-size: 2.7vw;
+
+    &__fields
+        width: 56%;
+        margin-top: 65px;
+        margin-left: 83px;
+        @include desk
+            margin-top: 0;
+            margin-left: 181px;
+            width: 52%;
+            
+
+        .each-field
+            margin-bottom: 33px;
+            @include desk
+                display: inline-flex;
+                width: 100%;
+                
+
+            .site
+                font-size: 30px;
+                @include desk
+                    width: 326px
+                    font-size: 1.9vw;
+
+                .e-bold
+                    @include desk
+                        @include sans;
+                        color: rgba(255, 255, 255, .25);
+
+            .recog
+                margin-top: 4px;
+                font-size: 21px;
+
+                .t-opac
+                    @include desk
+                        line-height: 31px;
+                        font-size: 22px;
+                        margin: 0;
+                        margin-bottom: 7px;
+

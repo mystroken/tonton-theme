@@ -1,0 +1,536 @@
+@import './partials/alias-mixins'
+.lineParent 
+    overflow: hidden
+
+.single
+
+
+    header
+
+
+
+        h3
+            padding-top: 103px
+            font-size: 14.3px
+            line-height: 25px
+            @include desk
+                padding-top: 160px
+                line-height: 47px
+                font-size: 1.55vw;
+
+        h1
+            //opacity: 0
+            padding-top: 55px
+            font-size: 126px
+            letter-spacing: -8px
+            @include desk
+                font-size: 22.6vw;
+                letter-spacing: -27px
+                margin-left: -2.1vw
+                padding-top: 5px
+                //padding-top: 0
+                
+        
+        h2
+            font-size: 30px
+            padding-top: 64px
+            line-height: 48px
+            @include desk
+                width: 39.9%
+                margin-left: 60.1%
+                padding-top: 66px
+                font-size: 1.9vw
+                
+                
+
+
+
+
+//- =========================  ROLE  ========================= -//
+//- =========================  ROLE  ========================= -//
+
+.role
+    margin-top: 119px
+    @include desk
+        margin-top: 193px
+        height: 710px
+        display: -ms-grid
+        display: grid
+        grid-template-areas: "infos brand" "motto brand"
+
+
+
+
+    &__infos
+        color: #000
+        background: #FFB608
+        padding: 52px 6.6vw 39px
+        letter-spacing: 2px
+        @include desk
+            padding: 0
+            grid-area: infos
+            height: 461px
+            width: 35.6vw
+            display: flex
+            justify-content: center
+            flex-direction: column
+
+            
+
+
+        .info
+            padding-bottom: 28px
+            @include desk
+                margin-left: 9.6vw
+                padding-bottom: 14px
+                
+
+
+            
+            button , h2, p
+                padding-bottom: 13px
+                font-size: 20px
+                color: #000
+                margin: 0
+                @include desk
+                    font-size: 1vw !important
+                    padding-bottom: 9.5px
+                    
+
+            p
+                line-height: 29px !important
+
+            .website button
+                text-decoration: underline
+        
+        
+
+    &__brand
+        color: #fff
+        background: #001b2e
+        height: 360px
+        @include desk
+            grid-area:  brand
+            width: 64.4vw
+            height: 100%
+
+        &__img
+            max-width: 160px
+            @include desk
+                max-width: 35%
+            img
+                width: 100%;
+                object-fit: contain
+
+
+        h1
+            font-size: 68px
+
+
+    &__motto
+        background: #FCFCFC
+        height: 215px
+        padding: 0 6.6vw
+        @include desk
+            padding: 0
+            grid-area:  motto
+            width: 35.6vw
+            height: 249px
+            display: flex
+            justify-content: center
+            flex-direction: column
+
+        h2
+            padding-top: 90px
+            font-size: 39px
+            @include desk
+                font-size: 2.4vw;
+                white-space: nowrap
+                margin-left: 9.6vw
+                padding: 0
+                
+        
+
+
+
+
+
+
+
+
+//- =========================  descr  ========================= -//
+//- =========================  descr  ========================= -//
+
+.mission
+    @include desk
+        padding-top: 25.2vh
+        
+
+    &__hold
+
+    p
+        width: 90%
+        margin-bottom: 53px
+        @include desk
+            margin: 0 auto
+            width: 81.9%
+            margin-bottom: 61px
+            text-align: center
+            
+        
+
+
+
+
+
+
+
+
+//- =========================  descr  ========================= -//
+//- =========================  descr  ========================= -//
+
+.colors
+    padding-top: 91px
+    @include desk
+        padding-top: 255px
+
+
+    p
+        line-height: 50px
+        margin-top: 24px
+        @include desk
+            font-size: 31px
+
+    .inline
+        @include desk
+            display: inline-flex
+            
+
+
+    &__texts
+
+        @include desk
+            width: 45.5%
+            
+        p
+            @include desk
+                width: 70%
+
+
+    &__interact
+        padding-top: 49px
+        @include desk
+            padding: 0
+            width: 54.5%
+            position: relative
+            
+
+            
+
+        .svg-color
+            height: 20px
+            width: 20px
+            margin-right: 26px
+
+            svg
+                width: 100%
+                height: 100%
+
+    &__ctn-colors
+        padding-top: 84px
+        @include desk
+            padding: 0
+            @include desk
+                width: 100%
+
+    &__travel
+        display: inline-flex
+        height: 333px
+        @include desk
+            width: 100%
+            justify-content: space-between
+
+    .each-color + .each-color
+        margin-left: 18px
+    .each-color
+        width: 267px
+        @include desk
+            overflow: hidden
+            width: 50%
+
+
+        .texts
+            margin-left: 15px
+            display: flex
+            flex-direction: column
+            height: calc(100% - 40px)
+            justify-content: space-between
+            margin-top: 20px
+            font-size: 13.5px
+
+
+    .white
+        border: 1px solid #dadada
+            
+
+
+
+
+
+
+
+//- =========================  MOCKUP  ========================= -//
+//- =========================  MOCKUP  ========================= -//
+
+.mockup
+    padding-top: 44.2%    
+    @include desk
+        padding-top: 400px
+        
+    img
+        margin-left: -15%
+        width: 130%
+        object-fit: contain
+
+
+
+
+
+
+//- =========================    ========================= -//
+//- =========================    ========================= -//
+
+.descr
+    padding: 93px 0
+    @include desk
+        padding: 220px 0
+        
+
+    p
+        @include desk
+            font-size: 31.3px
+            width: 74%
+            line-height: 48px
+            margin-bottom: 46px
+            
+
+
+
+
+
+
+
+
+//- =========================  DESCRIBE  ========================= -//
+//- =========================  DESCRIBE  ========================= -//
+
+.quote
+    padding: 103px 0
+    @include desk
+        padding: 151px 0
+        
+
+
+    &__svg
+        width: 54px
+        height: 54px
+        padding-bottom: 38px
+        margin: 0 auto
+        @include desk
+            width: 85px
+            height: 85px
+            padding-bottom: 50px
+            
+
+        svg
+            width: 100%
+            height: 100%
+
+            path
+                fill: #fff
+
+    &__text
+
+        p
+            @include desk
+                text-align: center
+
+
+
+
+
+
+
+//- =========================  homepage  ========================= -//
+//- =========================  homepage  ========================= -//
+
+.home-page
+    padding: 66px 0
+    @include desk
+        padding: 204px 0
+        
+
+    .inline
+        @include desk
+            display: flex
+            flex-direction: row-reverse
+            justify-content: space-between
+            
+    
+    &__hold
+
+    .fake
+        opacity: 0
+
+    &__text
+        padding-bottom: 65px
+        position: relative
+        @include desk
+            position: fixed
+            width: 32%
+            padding: 0
+            padding-top: 125px
+
+        p
+            @include desk
+                font-size: 29.8px
+                line-height: 49px
+
+
+    &__image
+        @include desk
+            width: 56.4%
+            margin-right: 48%
+            left: 0
+
+            img
+                padding-bottom: 5vh
+
+
+            
+
+
+
+
+
+//- =========================  INNERPAGES  ========================= -//
+//- =========================  INNERPAGES  ========================= -//
+.inner-pages > *
+    box-sizing: border-box
+.inner-pages
+    margin-bottom: 162px
+    @include desk
+        width: 80vw
+        margin-bottom: 329px
+        margin-left: 10vw
+
+
+    &__hold
+        @include mobile
+            width: 90vw !important;
+            margin-left: 5vw
+        @include tablet
+            width: 90vw !important;
+            margin-left: 5vw
+
+    &__texts
+        margin-bottom: 75px
+
+    &__imgs
+        @include desk
+            height: 590px
+            width: 100%;
+
+        &__travel
+            @include desk
+                height: 590px
+                display: inline-flex
+            @include mobile
+                display: block;
+                width: 100% !important;
+            @include tablet
+                display: block;
+                width: 100% !important;
+                
+
+        .each-inner-page
+            margin-bottom: 45px
+            @include desk
+                margin: 0
+                height: 590px
+                width: 875px
+                margin-right: 145px
+
+    &__cntrl
+        @include desk
+            width: 875px
+            margin-top: 36px;
+            display: inline-flex;
+            margin-left: 27px;
+            justify-content: space-between;
+            width: 981px;
+
+        .numbers
+            font-size: 35px
+
+            .static
+                position: relative
+                margin-top: 18px;
+                opacity: .15
+
+        .indicator
+            width: 845px;
+            height: 2px;
+            margin-top: 37px;
+
+            .indic-static
+                opacity: 0.15
+            
+
+
+
+
+
+
+
+
+
+
+
+//- =========================  NEXT PROJECT  ========================= -//
+//- =========================  NEXT PROJECT  ========================= -//
+.next
+    position: relative
+    z-index: 1
+    background: #fff
+    @include desk
+        padding-top: 180px
+        padding-bottom: 120px
+
+    &__hold
+
+
+    &__subt
+        letter-spacing: 3px;
+        font-size: 16px;
+        margin-bottom: 28px;
+
+
+    &__title
+
+        h1
+            font-size: 89px;
+            @include desk
+                font-size: 17.3vw;
+            
+
+
+    &__previous
+        left: -9vw;
+        top: 25%;
+        transform: rotate(270deg);
+
+        span
+            font-size: 14px;
+            
+

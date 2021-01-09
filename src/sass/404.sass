@@ -1,0 +1,29 @@
+@import './partials/alias-mixins'
+.main-404
+
+    &__hold > * 
+        padding: 10px 0
+        @include desk
+            font-size: 16px
+
+    &__hold
+        @include desk
+            margin-top: -4vh
+
+        h1
+            @include desk
+                font-size: 5vw
+
+        span
+            @include desk
+                font-size: 1.6vw
+
+        .gif
+            width: 85%
+            @include desk
+                75%
+
+        .all-projects
+            span
+                @include desk
+                    font-size: 2vw

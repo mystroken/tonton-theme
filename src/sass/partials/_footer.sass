@@ -1,0 +1,150 @@
+.footer
+	padding-top: 147px
+	background: #fff;
+	@include desk
+		position: relative
+		width: 100vw;
+		padding: 0;
+		height: 100vh;
+		z-index: -1
+		
+		
+
+	span.t-white
+		@include desk
+			opacity: 0.875
+
+	.hold-home
+		@include desk
+			height: 100%;
+			display: flex
+			flex-direction: column;
+			justify-content: center;
+		@include mobile
+			width: 90vw
+			margin-left: 5vw
+		@include tablet
+			width: 90vw
+			margin-left: 5vw
+
+	h1.title-home
+		@include desk
+			font-size: 9.4vw;
+			line-height: 9.5vw
+			
+	&__fader
+		z-index: 1
+		left: 0
+		top: 0
+
+	&__cta
+		@include desk
+
+		&__email
+			padding-top: 87px;
+			font-size: 26.6px;
+			@include desk
+				display: inline-flex;
+				justify-content: flex-end;
+				width: 100%;
+				padding: 0;
+				font-size: 3vw;
+				padding-top: 9vh;
+				
+				
+
+			.line
+				margin-top: 14px !important
+				background: #000
+				@include desk
+					margin-top: 10px !important
+
+
+	&__options
+		padding-top: 74px;
+		display: inline-flex;
+		width: 100%;
+		justify-content: space-between;
+		@include desk
+			display: none
+			padding-top: 0px;
+
+		.options__switch-mode
+			margin: 0;
+			margin-top: 72px;
+
+		.back-top
+			transform-origin: center center 0px;
+			transform: matrix(0, 1, -1, 0, -14, 0);
+			font-size: 9px;
+			@include desk
+				transform: matrix(0,1,-1,0,-14,76);
+				font-size: 14px;
+
+	&__sociais
+		padding-top: 80px;
+		font-size: 21px;
+		display: inline-flex;
+		justify-content: space-between;
+		@include desk
+			//padding-top: 213px;
+			//font-size: 32px;
+			width: 81%;
+			margin-left: 10%;
+			padding: 0;
+			padding-top: 6vh;
+			font-size: 1.5vw;
+			
+
+
+
+	&__rights
+		display: inline-flex;
+		justify-content: space-between;
+		padding-top: 77px;
+		font-size: 9px;
+		padding-bottom: 60px;
+		@include desk
+			font-size: 1.2vw;
+			width: 105.6%;
+			margin-left: -7%;
+			padding: 0;
+			padding-top: 12vh;
+			
+
+
+
+
+.footer
+	.t-switch
+		color: #000
+
+	.t-switch-gray
+		color: #666
+	.e-switch-gray
+		background: #666
+
+
+	.e-switch
+		background-color: #000
+
+				
+
+footer.is-single
+	background: #000!important
+	
+	.t-switch
+		color: #fff
+
+
+	.footer__fader
+		background: #fff !important
+	.t-white
+		color: #fff !important
+
+
+.dark-footer
+	background: #000!important
+	
+	.t-switch
+		color: #fff

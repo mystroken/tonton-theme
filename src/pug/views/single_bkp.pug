@@ -1,0 +1,280 @@
+extends ../index
+block title
+    <?php
+    |   //Template Name: Single bkp
+    |?>
+
+block content
+    - var arrowLeft = '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 492 492"><path d="M464.3 207.4l0.8 0.2H135.9l103.5-103.7c5.1-5.1 7.8-11.9 7.8-19.1 0-7.2-2.8-14-7.8-19.1L223.3 49.5c-5.1-5.1-11.8-7.9-19-7.9 -7.2 0-14 2.8-19 7.8L7.8 226.9C2.8 232 0 238.8 0 246c0 7.2 2.8 14 7.8 19.1l177.4 177.4c5.1 5.1 11.8 7.8 19 7.8 7.2 0 13.9-2.8 19-7.8l16.1-16.1c5.1-5.1 7.8-11.8 7.8-19 0-7.2-2.8-13.6-7.8-18.7L134.7 284.4h330c14.8 0 27.3-12.8 27.3-27.6v-22.8C492 219.2 479.2 207.4 464.3 207.4z"/></svg>'
+    - var arrowRight = '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 492 492"><path d="M484.1 226.9L306.5 49.2c-5.1-5.1-11.8-7.9-19-7.9 -7.2 0-14 2.8-19 7.9l-16.1 16.1c-5.1 5.1-7.9 11.8-7.9 19 0 7.2 2.8 14.2 7.9 19.3L355.9 207.5H26.6C11.7 207.5 0 219.2 0 234v22.8c0 14.9 11.7 27.6 26.6 27.6h330.5L252.2 388.9c-5.1 5.1-7.9 11.7-7.9 18.9 0 7.2 2.8 13.9 7.9 18.9l16.1 16.1c5.1 5.1 11.8 7.8 19 7.8 7.2 0 14-2.8 19-7.9l177.7-177.7c5.1-5.1 7.9-11.9 7.9-19.1C492 238.8 489.2 232 484.1 226.9z"/></svg>'
+    - var svgQuote = '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 95.3 95.3"><style>.svg-quote{fill:#FFF;}</style><path d="M30.5 43.9c-2.3-0.7-4.7-1-7-1 -3.5 0-6.5 0.8-8.8 1.8 2.2-8.1 7.5-22 18-23.5 1-0.1 1.8-0.8 2-1.8l2.3-8.2c0.2-0.7 0.1-1.4-0.3-2s-1-1-1.7-1.1c-0.8-0.1-1.6-0.2-2.4-0.2 -12.6 0-25.2 13.2-30.4 32.1 -3.1 11.1-4 27.7 3.6 38.2 4.3 5.9 10.5 9 18.5 9.3 0 0 0.1 0 0.1 0 9.9 0 18.7-6.7 21.3-16.2 1.6-5.7 0.9-11.7-2-16.9C41 49.3 36.2 45.6 30.5 43.9z" data-original="#000000" class="active-path" data-old_color="#000000" class="svg-quote"/><path d="M92.5 54.4c-2.9-5.1-7.6-8.8-13.3-10.5 -2.3-0.7-4.7-1-7-1 -3.5 0-6.5 0.8-8.8 1.8 2.2-8.1 7.5-22 18-23.5 1-0.1 1.8-0.8 2-1.8l2.3-8.2c0.2-0.7 0.1-1.4-0.3-2 -0.4-0.6-1-1-1.7-1.1 -0.8-0.1-1.6-0.2-2.4-0.2 -12.6 0-25.2 13.2-30.4 32.1 -3.1 11.1-4 27.7 3.6 38.2 4.3 5.9 10.5 9 18.5 9.3 0 0 0.1 0 0.1 0 9.9 0 18.7-6.7 21.3-16.2C96.1 65.6 95.4 59.6 92.5 54.4z" data-original="#000000" class="active-path" data-old_color="#000000" class="svg-quote"/></svg>'
+    .barba-container.single.e-wp.e-white(data-barba="container", data-barba-namespace="single", data-namespace="single" data-current!="" data-scroll-content)
+
+
+        
+        //- =========================  HEADER  ========================= -//
+        //- =========================  HEADER  ========================= -//
+        
+        header.header-single.e-wvw.e-rel.anima-text
+
+            .all-projects.e-abs
+                a(href!="<?php echo get_site_url(); ?>" data-to="home" data-from="single")
+                    button.e-curp.e-rel.e-flex
+                        .cross.e-rel
+                            .cross__line.line1.e-black.e-abs
+                            .cross__line.line2.e-black.e-abs
+                        span.t-black.e-sans.js-text All Projects
+            
+            .e-hold
+                h3.js-text Web Design Branding updates</br>2019
+                //-h1.h1-header.e-abs.t-white <?php the_title(); ?>
+                h1.e-light.js-text Enjine
+                h2.js-text ENJINE creates sophisticated software for quantitatively oriented investiment managers
+
+
+
+
+        //- =========================  MAIN  ========================= -//
+        //- =========================  MAIN  ========================= -//
+        
+
+        main.main-single
+
+
+            //- =========================  ROLE  ========================= -//
+            //- =========================  ROLE  ========================= -//
+
+            section.role.e-rel.e-wvw.anima-role
+
+                .role__infos
+
+                    .info
+                        h2.e-bold.js-text LINK
+                        a(href!="#").no-desk
+                            button.e-curp.t-black.js-text www.enjine.ca
+                        a(href!="#").website.no-mobile
+                            button.e-curp.t-black.js-text Website
+
+                    .info
+                        h2.e-bold.js-text DATE
+                        p.js-text July - September 2019
+
+                    .info
+                        h2.js-text.e-bold DESIGN ROLE
+                        p.js-text Art Director
+                        p.js-text Design Concepts
+                        p.js-text User Experience
+                        p.js-text Visual Design
+
+                .role__brand.e-flex
+                    h1.e-sans ENJINE
+
+                .role__motto
+                    h2.e-bold.js-text Time to Invest.
+
+
+
+
+
+
+            //- =========================  descr  ========================= -//
+            //- =========================  descr  ========================= -//
+
+            section.mission.e-rel.e-wvw.anima-text
+                .mission__hold.e-hold
+
+                    p.js-text The team at Enjine came to me because they were looking to elevate their brand and boost site traffics.
+                    p.js-text The project entailed a revamp of their brand's color as well as a complete redesig of their current website.
+
+
+
+
+
+
+            //- =========================  COLOR  ========================= -//
+            //- =========================  COLOR  ========================= -//
+
+            section.colors.e-rel.e-wvw.anima-text
+                .colors__hold.e-hold.e-rel
+                    .inline.e-wp
+
+                        .colors__texts
+                            h4.js-text.e-serif BRANDING COLORS
+                            p.js-text Dark Blue (Expertise & Stability) and yellow (intellect, Clarity & Energy) as the primary colors.
+
+
+                        .colors__interact
+                            .colors__interact__arrows.no-desk
+                                button.svg-color !{arrowLeft}
+                                button.svg-color !{arrowRight}
+                            .colors__ctn-colors.e-rel.e-hidden
+                                .colors__travel
+                                    - var list = []
+                                    - list.push({color: 'Dark Blue', hex: '#001B2E', rgb:'rgb(0, 27, 26)', pcolor: 'white'})
+                                    - list.push({color: 'Yellow', hex: '#FFB608', rgb:'rgb(255, 182, 8)', pcolor: 'black'})
+                                    - list.push({color: 'White', hex: '#FFF', rgb:'rgb(255, 255, 255)', pcolor: 'black', iswhite: 'white'})
+                                    - list.push({color: 'Gray', hex: '#666', rgb:'rgb(106, 106, 106)', pcolor: 'white'})
+                                    - list.push({color: 'Black', hex: '#000', rgb:'rgb(0, 0, 0)', pcolor: 'white'})
+                                    each item, index in list
+                                        .each-color(style="background-color:"+item.hex class=""+item.iswhite).e-hp.e-curp
+                                            .texts(style="color:"+item.pcolor)
+                                                .color-name.e-bold=item.color
+                                                .bottom-color
+                                                    div=item.hex
+                                                    div=item.rgb
+
+
+
+
+
+
+
+            //- =========================  MOCKUP  ========================= -//
+            //- =========================  MOCKUP  ========================= -//
+
+            section.mockup.e-rel.e-wvw.e-hidden
+                img(src!="<?php echo get_template_directory_uri(); ?>/images/mockup.png" alt="").e-wp.img-load
+
+
+
+
+
+
+
+
+            //- =========================  DESCRIBE  ========================= -//
+            //- =========================  DESCRIBE  ========================= -//
+
+            section.descr.e-rel.e-wvw.anima-text
+                .descr__hold.e-hold.e-rel
+
+                    .descr__texts
+                        h4.e-serif.js-text NEW WEBSITE
+                        p.js-text It was time to put the new colors to the test in a </br>real-world setting.
+                        p.js-text Using all the elements of the brand - the colors, shapes, typefacesm tone of voice, and all the rest the site is designer to tell Enjine story in a way that feels true to the brand, consistent, trust worthy and convincing.
+
+
+
+
+
+
+
+
+
+
+            //- =========================  homepage  ========================= -//
+            //- =========================  homepage  ========================= -//
+
+            section.home-page.e-rel.e-wvw(style="background-color:#FFB608").anima-text
+                .home-page__hold.e-hold
+                
+                    .inline.e-rel.e-wp
+
+                        .home-page__text.e-fixed
+                            h4.e-serif.js-text HOME PAGE
+                            p.js-text The complete redesigned of Enjine homepage. Bold typograph, strong colors and a clear CTA.
+
+                        .home-page__text.fake
+                            h4.e-serif.js-text HOME PAGE
+                            p.js-text The complete redesigned of Enjine homepage. Bold typograph, strong colors and a clear CTA.
+
+
+                        .home-page__image
+                            img(src!="<?php echo get_template_directory_uri(); ?>/images/home-page.png" alt="").e-wp.img-load
+
+            .js-release-text-home-page
+
+
+            //- =========================  DESCRIBE  ========================= -//
+            //- =========================  DESCRIBE  ========================= -//
+
+            section.descr.e-rel.e-wvw.anima-text
+                .descr__hold.e-hold.e-rel
+
+                    .descr__texts
+                        h4.e-serif.js-text MY APPROACH
+                        p.js-text It was time to put the new colors to the test in a </br>real-world setting.
+                        p.js-text I spen a lot of time with the Enjine teams to learn more about the specific challanges with their existing messaging and website.
+                        p.js-text I laid out the information archicture for the new site and  a more intuitive sitemap. I created detailed wireframes for each template specifically designed to emphasize and hightlight  their expertise. Along with the updated fonts and an augmented color palettes, I also work complete Design system for them.
+
+
+
+
+
+            //- =========================  INNERPAGES  ========================= -//
+            //- =========================  INNERPAGES  ========================= -//
+
+            section.inner-pages.e-rel.e-wvw.anima-text
+                .inner-pages__hold.e-hold.e-rel
+
+                    .inner-pages__texts
+                        h4.e-serif.js-text INNER PAGES
+
+                
+                    .inner-pages__imgs.ctn
+                        .inner-pages__imgs__travel.holder
+                            each list, index in['our-story.png','home-page_resized.jpg','our-story.png','home-page_resized.jpg','our-story.png']
+                                .each-inner-page.e-hidden.box
+                                    img(src!="<?php echo get_template_directory_uri(); ?>/images/"+list alt="").e-wp.img-load
+
+                    .inner-pages__cntrl.no-mobile
+                        .numbers.e-flex
+                            .dyna.e-bold.actv.js-text 01
+                            .static.e-bold.js-text #[span.e-sans /]05
+
+                        .indicator.e-rel
+                            .indic-static.e-wp.e-black.e-hp.e-abs
+                            .indic-dyna.e-wp.e-black.e-hp.e-abs
+
+
+
+
+
+
+
+
+
+
+
+            //- =========================  DESCRIBE  ========================= -//
+            //- =========================  DESCRIBE  ========================= -//
+
+            section.quote.e-wvw.e-rel(style="background-color:#001B2E").anima-text
+                .quote__hold.e-hold
+
+                    .quote__svg  !{svgQuote}
+                    .quote__text
+                        p.t-white.js-text "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio quis ipsam officia laudantium voluptate a eum quo natus! Repudiandae nemo ipsum delectus incidunt distinctio sint aliquid animi non repellat minus ipsum delectus incidunt."
+
+
+
+
+
+
+
+
+            //- =========================  NEXT PROJECT  ========================= -//
+            //- =========================  NEXT PROJECT  ========================= -//
+            .next.e-wvw.e-hvh.e-rel.anima-text
+                .next__hold.e-hold.e-flex-col.e-hp
+                    
+                    .next__subt.e-serif.js-text NEXT PROJECT
+
+                    .next__title
+                        //-a(href!="<?php echo get_site_url(); ?>/single")
+                        a(href!="<?php echo get_site_url(); ?>/")
+                            button.e-curp
+                                h1.t-black.e-sans.t-center.js-text Amalise
+
+                    .next__previous.e-abs
+                        a(href!="<?php echo get_site_url(); ?>/single")
+                            button.e-curp.e-rel
+                                span.t-black.e-sans.js-text PREV PROJECT
+
+
+
+
+
+
+            
+        <?php include 'includes/myfooter.php'; ?>

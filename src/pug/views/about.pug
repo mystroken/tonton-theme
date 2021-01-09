@@ -1,0 +1,71 @@
+extends ../index
+block title
+    <?php
+    |   //Template Name: About
+    |?>
+
+block content
+    .barba-container.page-about.e-wp(data-barba="container", data-barba-namespace="about", data-namespace="about" data-current!="" data-scroll-content)
+        header.header-about.e-rel
+            .all-projects.e-abs
+                a(href!="<?php echo get_site_url(); ?>" data-to="home")
+                    button.e-curp.e-rel.e-flex.scale.hover-line
+                        .cross.e-rel
+                            .cross__line.line1.e-black.e-abs
+                            .cross__line.line2.e-black.e-abs
+                        span.t-black.e-sans.t-switch-a Home
+                            .line-link.e-wp.e-switch-gray.e-switch
+
+            .header-about__title.e-hold
+                h1.t-switch-a Hello Again, Stranger
+
+            .header-about__content.e-hold
+                .header-about__content__img.full-rell
+                    picture.tt_emoji
+                        source(srcset!='<?php echo get_template_directory_uri(); ?>/images/webp/tonton_emoji.webp 1x', type='image/webp')
+                        source(srcset!='<?php echo get_template_directory_uri(); ?>/images/jpg/tonton_emoji.jpg 1x', type='image/jpg')
+                        img(src!='<?php echo get_template_directory_uri(); ?>/images/jpg/tonton_emoji.jpg' alt='#').e-hp.e-wp.e-img-fit.img-load
+
+                    picture.tt_real
+                        source(srcset!='<?php echo get_template_directory_uri(); ?>/images/webp/tonton_real.webp 1x', type='image/webp')
+                        source(srcset!='<?php echo get_template_directory_uri(); ?>/images/jpg/tonton_real.jpg 1x', type='image/jpg')
+                        img(src!='<?php echo get_template_directory_uri(); ?>/images/jpg/tonton_real.jpg' alt='#').e-hp.e-wp.e-img-fit.img-load
+
+                - var svgSun = '<svg xmlns="http://www.w3.org/2000/svg" class="sun" viewBox="0 0 307.2 307.2"><circle cx="153.6" cy="153.6" r="68.267"/><path d="M153.6 0c-9.426 0-17.067 7.641-17.067 17.067v17.067c0 9.426 7.641 17.067 17.067 17.067s17.067-7.641 17.067-17.067V17.067C170.667 7.641 163.026 0 153.6 0zM153.6 256c-9.426 0-17.067 7.641-17.067 17.067v17.067c0 9.426 7.641 17.067 17.067 17.067s17.067-7.641 17.067-17.067v-17.067c0-9.426-7.641-17.067-17.067-17.067zM290.133 136.533h-17.067c-9.426 0-17.067 7.641-17.067 17.067s7.641 17.067 17.067 17.067h17.067c9.426 0 17.067-7.641 17.067-17.067s-7.641-17.067-17.067-17.067zM34.133 136.533H17.067C7.641 136.533 0 144.174 0 153.6s7.641 17.067 17.067 17.067h17.067c9.426 0 17.067-7.641 17.067-17.067s-7.642-17.067-17.068-17.067zM261.794 44.988c-6.614-6.388-17.1-6.388-23.714 0l-12.066 12.066c-6.664 6.666-6.662 17.472.004 24.136a17.066 17.066 0 0012.063 4.997 17.066 17.066 0 0012.066-5.001l12.066-12.066c6.548-6.78 6.36-17.584-.419-24.132zM81.606 226.014c-6.548-6.78-17.353-6.968-24.132-.419-.142.137-.282.277-.419.419L44.988 238.08c-6.78 6.548-6.968 17.352-.419 24.132 6.548 6.78 17.353 6.968 24.132.419.142-.137.282-.277.419-.419l12.066-12.066c6.78-6.548 6.968-17.352.42-24.132zM262.212 238.08l-12.066-12.066c-6.78-6.548-17.584-6.36-24.132.42-6.387 6.614-6.387 17.099 0 23.712l12.066 12.066c6.78 6.548 17.584 6.36 24.132-.42 6.388-6.613 6.388-17.098 0-23.712zM81.606 57.474a20.79 20.79 0 00-.42-.42L69.12 44.988c-6.78-6.548-17.584-6.36-24.132.419-6.388 6.614-6.388 17.099 0 23.713l12.066 12.066c6.548 6.78 17.352 6.968 24.132.42 6.78-6.548 6.968-17.352.42-24.132z"/></svg>'
+
+                - var svgNight = '<svg xmlns="http://www.w3.org/2000/svg" class="night" viewBox="0 0 312.812 312.812"><path d="M305.2 178.159c-3.2-.8-6.4 0-9.2 2-10.4 8.8-22.4 16-35.6 20.8-12.4 4.8-26 7.2-40.4 7.2-32.4 0-62-13.2-83.2-34.4-21.2-21.2-34.4-50.8-34.4-83.2 0-13.6 2.4-26.8 6.4-38.8 4.4-12.8 10.8-24.4 19.2-34.4 3.6-4.4 2.8-10.8-1.6-14.4-2.8-2-6-2.8-9.2-2-34 9.2-63.6 29.6-84.8 56.8-20.4 26.8-32.4 60-32.4 96 0 43.6 17.6 83.2 46.4 112s68 46.4 112 46.4c36.8 0 70.8-12.8 98-34 27.6-21.6 47.6-52.4 56-87.6 1.6-5.6-1.6-11.2-7.2-12.4z"/></svg>'
+                .header-about__content__texts.js-wrap
+                        p In case you don’t remember—the name is Tonton. Yup, it’s so nice you say it twice.
+                        p I am a UI/UX Designer by !{svgSun} and a #[span.redact Redacted] by !{svgNight}
+                        p I designed my first digital piece for my Myspace page when I was in high school, and I thought, this design thing is pretty easy. Ah, the blissful ignorance of youth.  
+                        p A decade later, I'm much wiser, #[span.redact Redacted], and a much better designer than I've ever been (seriously, I'm embarrassed by those Myspace pages now. )  
+                        p I've won awards, worked for some fantastic clients, but most importantly, my final designs handoff only have 14 shades of grays. 
+
+        main.main-about
+            section.code.e-white
+                .code__hold.e-hold
+                    .code__title
+                        h1.t-switch-a Codes of Honor
+
+                    .code__items
+                        .code__items__line
+                            span.t-switch-a Accountability
+                            span Yeah, my bad that’s on me.
+                        .code__items__line
+                            span.t-switch-a Credibility
+                            span Word is bond!
+                        .code__items__line
+                            span.t-switch-a Consistency
+                            span Wu-tang Forever
+
+            section.mom.e-white
+                .mom__hold.e-hold
+                    .js-wrap
+                        p When I'm not crafting pixels, you'll find me with my family doing something silly, or watching Bluey with my 4-and-6-year-old daughters. 
+
+                    .js-wrap
+                        h6.e-serif.t-switch-a Hire him—he's a good kid. He calls, and not just on holidays. 
+                    .js-wrap
+                        h6.e-serif.this-mom.t-switch-a  — Mom
+        
+        <?php include 'includes/myfooter.php'; ?>

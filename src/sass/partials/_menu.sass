@@ -1,0 +1,386 @@
+//?  ----------------- 	preloader
+.preloader-master
+	z-index: 9999
+	top: 0
+	left: 0
+	position: fixed
+
+
+//?  ----------------- 	logo
+.logo-main
+    position: fixed
+    cursor: pointer;
+    z-index: 11;
+    right: 15px;
+    top: 15px;
+    width: 45px;
+    height: 45px;
+    opacity: 0
+    visibility: hidden
+    transition: .6s opacity ease-out, .6s visibility ease-out
+    @include desk
+        right: 3vw
+        top: 4vw
+        width: 4vw;
+        height: 4vw;
+    
+    svg
+        width: 100%;
+        height: 100%;
+
+        
+        .fill-logo
+            transition: .6s fill ease-out
+
+
+//?  ----------------- 	cursor
+#cursor
+	left: 0
+	top: 0
+	z-index: 9
+	width: 120px
+	height: 120px
+	border-radius: 50%
+	pointer-events: none
+
+	.border
+		border: 1px solid #777;
+		border-radius: 50%;
+		width: 66%;
+		height: 66%;
+
+	.drag
+		font-size: 12px
+		opacity: 0
+		
+
+	.arrows
+		justify-content: space-between
+
+		&__each
+			height: 100%;
+			opacity: 0
+			width: 11px
+
+
+
+
+
+//? ----------------- 	TRG MENU
+.trg-menu
+    cursor: pointer
+    z-index: 11
+    right: 15px
+    top: 15px
+    transition: .6s opacity ease-out, .6s visibility ease-out
+    width: 45px;
+    height: 45px;
+    @include desk
+        right: 3vw
+        top: 4vw
+        width: 4vw
+        height: 4vw
+
+    
+    &__hold
+        width: 100%
+        height: 100%
+        position: relative
+
+    &__open
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+		
+
+        .lines
+            .line
+                width: 24px
+                height: 2px
+            .line + .line
+                margin-top: 3px
+
+    &__close
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0    
+        cursor: pointer
+        width: 60px
+        height: 60px
+        left: 3vw
+        top: 3vw
+
+
+        .line
+            width: 24px
+            height: 2px
+
+        .line0
+            transform: rotate(45deg)
+        .line1
+            transform: rotate(-45deg)
+
+
+
+//? ----------------- 	TRG MENU
+.bg-menu
+    cursor: pointer
+    z-index: 9
+    right: 15px
+    top: 15px
+    width: 45px
+    height: 45px
+    transition: .6s opacity ease-out, .6s visibility ease-out
+    @include desk
+        right: 3vw
+        top: 4vw
+        width: 4vw
+        height: 4vw
+
+
+    &__hold
+        position: relative
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+
+    &__white
+        will-change: transform
+        width: 100%
+        height: 100%
+        position: absolute
+        border-radius: 50%
+        clip-path: url("#clip-shape")
+        -webkit-clip-path: url("#clip-shape")
+
+    &__mask
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+            
+		
+		
+//? ----------------- 	MENU FS
+.menu-fs
+    z-index: 10
+    left: 0
+    top: 0
+    position: fixed
+    --e-black: #000
+    @include desk
+        display: flex
+        align-items: center
+        justify-content: center
+
+    .wrap
+        overflow: hidden
+
+    .wrapped
+        display: block
+
+    &__hold
+        height: auto
+        position: relative
+        align-items: flex-start
+        padding-left: 8vw
+        margin-top: 22vh
+        @include desk
+            align-items: center
+            margin-top: 3vw
+            padding-left: 0
+            width: 72vw
+            justify-content: space-between
+            flex-direction: row
+        
+
+        & > *
+            @include desk
+                width: 35vw
+
+
+    &__main
+        text-transform: capitalize
+
+        .link-menu
+            padding: 1.3vw 0
+            transition: .3s padding ease-out
+            font-size: 63px
+            @include desk
+                font-size: 7vw
+                &:before
+                    content: ''
+                    position: absolute
+                    left: 0
+                    border-radius: 50%
+                    background: var(--e-black)
+                    width: 7px
+                    height: 7px
+                    top: 50%
+                    opacity: 0
+                    transform: translateY(30px)
+                    transition: .3s transform ease-out,  .3s opacity ease-out
+
+                &:hover
+                    padding-left: 1.5vw
+                    &:before
+                        transform: translateY(0)
+                        opacity: 1
+                
+            
+        
+
+    &__secund
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        margin-top: 14vh
+        @include desk
+            height: 25vw
+            width: 27vw
+            margin-top: 2vw
+
+    &__email
+        a, span 
+            font-size: 19px
+            padding-bottom: 0.7vw
+            @include desk
+                font-size: 1.3vw
+
+
+        a
+            position: relative
+            height: 0.8vw;
+            display: inline-block;
+            &:after
+                @include desk
+                    position: absolute
+                    content: ''
+                    bottom: 0vw
+                    height: 1px
+                    width: 100%
+                    background: var(--e-black)
+                    left: 0
+                    transform: scaleX(1)
+                    transition: .3s transform ease-out
+                    transform-origin: left
+
+            &:hover
+                &:after
+                    transform: scaleX(0)
+                    transform-origin: right
+        
+            
+    &__social-right
+        margin-top: 16vh
+        @include desk
+            margin-top: auto
+            display: flex
+            justify-content: space-between
+            align-items: flex-end
+
+        &__each-r
+            display: none
+            @include desk
+                display: block
+
+            & > * 
+                padding: 0.6vw 0 0.2vw
+
+            &:last-child
+                margin-top: 1.5vw
+                position: relative
+                @include mobile
+                    display: block !important
+                &:after
+                    position: absolute
+                    content: ''
+                    bottom: 0vw
+                    height: 1px
+                    width: 100%
+                    background: var(--e-black)
+                    transform: scaleX(0)
+                    left: 0
+                    transition: .3s transform ease-out
+                    transform-origin: right
+
+                
+                &:hover
+                    &:after
+                        transform: scaleX(1)
+                        transform-origin: left
+                
+                
+        &__right
+            margin-bottom: 0.6vw
+
+        &__each-soc 
+            a
+                font-size: 2.1vw
+                padding: 0.7vw 0px
+                &:after
+                    position: absolute
+                    content: ''
+                    bottom: 0.4vw
+                    height: 1px
+                    width: 100%
+                    background: var(--e-black)
+                    left: 0
+                    transition: .3s transform ease-out
+                    transform: scaleX(0)
+                    transform-origin: right
+                &:hover
+                    &:after
+                        transform: scaleY(1)
+                        transform-origin: left
+
+
+.menu-dark 
+    --e-black: #fff
+    .e-black
+        background: #fff
+
+    .e-white
+        background: #000
+
+    .t-black
+        color: #fff
+
+        
+    .fill-logo
+        fill: #fff !important
+
+
+
+.is-top
+    .trg-menu, .bg-menu
+        opacity: 0
+        visibility: hidden
+
+    .logo-main
+        opacity: 1
+        visibility: visible
+
+
+
+
+
+.is-menuOpen
+    .logo-main
+        opacity: 1
+        visibility: visible
+
+    .fill-logo
+        fill: #000
+
+
+.is-top .menu-dark 
+    .fill-logo
+        fill: #000 !important

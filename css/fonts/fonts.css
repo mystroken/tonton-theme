@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'pangramblack';
+    src: url('pangram-black-tonton.eot');
+    src: url('pangram-black-tonton.eot?#iefix') format('embedded-opentype'),
+        url('pangram-black-tonton.woff2') format('woff2'),
+        url('pangram-black-tonton.woff') format('woff'),
+        url('pangram-black-tonton.svg#pangramblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'pangrambold';
+    src: url('pangram-bold-tonton.eot');
+    src: url('pangram-bold-tonton.eot?#iefix') format('embedded-opentype'),
+        url('pangram-bold-tonton.woff2') format('woff2'),
+        url('pangram-bold-tonton.woff') format('woff'),
+        url('pangram-bold-tonton.svg#pangrambold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'pangramlight';
+    src: url('pangram-light-tonton.eot');
+    src: url('pangram-light-tonton.eot?#iefix') format('embedded-opentype'),
+        url('pangram-light-tonton.woff2') format('woff2'),
+        url('pangram-light-tonton.woff') format('woff'),
+        url('pangram-light-tonton.svg#pangramlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

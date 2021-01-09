@@ -1,0 +1,16 @@
+#webgl.e-fixed.no-mobile
+script#shaderFrag(type='x-shader/x-vertex').
+    precision mediump float;
+    varying vec2 vTextureCoord;
+    uniform sampler2D uSampler;
+    uniform float time;
+    uniform float frequency;
+    uniform float amplitude;
+    uniform float amplitudeY;
+    uniform float speed;
+    void main() {
+    vec2 position = vTextureCoord;
+    float distortion = sin(position.y * frequency + time * speed) * amplitude;
+    float distortion2 = sin(position.x * frequency + time * speed) * amplitudeY;
+    gl_FragColor = texture2D(uSampler, vec2(position.x + distortion, position.y + distortion2));
+    }
