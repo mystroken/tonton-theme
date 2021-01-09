@@ -1,0 +1,24 @@
+name: Deployment
+on:
+  # Trigger the workflow on push,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Push to server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST  }}
+        username: ${{ secrets.USERNAME  }}
+        key: ${{ secrets.SSHKEY  }}
+        port: ${{ secrets.PORT  }}
+        script: |
+          cd ${{ secrets.PROJECT_PATH  }}
+          git pull
