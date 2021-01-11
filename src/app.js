@@ -66,6 +66,7 @@ var ExpandTransition = Barba.BaseTransition.extend({
 		$('.shape-overlays').find('path').removeAttr("d");
 		TweenMax.set($ctnOverlay, { zIndex: "4", })
 
+
 		//
 		// SINGLE ROUTE
 		// ===========================================================================
@@ -123,10 +124,10 @@ var ExpandTransition = Barba.BaseTransition.extend({
 		overlayJs()
 		//tlTransition.play(0)
 		TweenMax.delayedCall(1.5, () => {
-			this.done();
+			this.done()
 
 			TweenMax.set($ctnOverlay, { zIndex: "0", })
-			$('.shape-overlays').find('path').removeAttr("d");
+			$('.shape-overlays').find('path').removeAttr("d")
 		})
 	}
 });
@@ -155,7 +156,7 @@ let homeBase = Barba.BaseView.extend({
 			scroll.init('home', false, contentPage)
 		}
 	},
-	onLeave: function () {
+	onLeaveCompleted: function() {
 		webglRender.destroy()
 	}
 });
