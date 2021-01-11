@@ -179,7 +179,8 @@ class Smooth {
 
 		this.bindMethods()
 		this.data = {
-			ease: 0.045,
+			// ease: 0.045,
+			ease: 0.08,
 			current: 0,
 			last: 0
 		}

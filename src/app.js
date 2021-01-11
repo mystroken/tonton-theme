@@ -51,7 +51,7 @@ Barba.Dispatcher.on('linkClicked', function (el) {
 	nameTo = $(el).data('to')
 });
 
-// ------------------- INIT TRANSITION  ............. 
+// ------------------- INIT TRANSITION  .............
 var ExpandTransition = Barba.BaseTransition.extend({
 	start: function () {
 		Promise
@@ -255,7 +255,7 @@ Barba.Dispatcher.on('initStateChange', function (currentStatus, oldStatus, conta
 	//TweenMax.set('body', { overflowY: 'hidden' })
 	//window.scrollTo(0, 0);
 
-	//? ------ GOOGLE ANALYTICS 
+	//? ------ GOOGLE ANALYTICS
 	/*window.dataLayer = window.dataLayer || [];
 	function gtag() { dataLayer.push(arguments); }
 	var path = (window.location.href).replace(window.location.origin, '').toLowerCase();
