@@ -156,7 +156,7 @@ let homeBase = Barba.BaseView.extend({
 			scroll.init('home', false, contentPage)
 		}
 	},
-	onLeaveCompleted: function() {
+	onLeave: function() {
 		webglRender.destroy()
 	}
 });
