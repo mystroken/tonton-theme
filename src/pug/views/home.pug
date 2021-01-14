@@ -57,36 +57,6 @@ block content
                                     .line.e-wp.e-switch-gray.e-switch
 
             main.main-home.e-wp
-                //- =========================  OPTIONS  ========================= -//
-                //- =========================  OPTIONS  ========================= -//
-                section.options.no-mobile.e-wp
-                    .options__menu
-                        - var list = []
-                        - list.push({title: 'About', path:'about'})
-                        - list.push({title: 'Work', path:'works'})
-                        - list.push({title: 'Contact', path:'footer'})
-                        each item, index in list
-                            a(href!='<?php echo get_site_url(); ?>/'+item.path, data-to=""+item.path).options__menu__each
-                                button.btn-scroll-to.e-curp.hover-line.scale(data-scroll-to=""+item.path)
-                                    .e-sans.t-switch-gray.t-switch.wrap
-                                        .wrapped=item.title
-                                        .line-link.e-wp.e-switch
-
-                    .options__scroll
-                        .t-switch-gray.t-switch.e-bold.wrap
-                            .wrapped SCROLL
-
-                    .options__switch-mode.e-flex
-                        button.e-curp.scale
-                            .t-switch.wrap.switch-dark
-                                .wrapped DARK
-
-                        .separator.e-switch-gray.e-switch
-
-                        button.e-curp.switch-light.scale
-                            .t-light.t-switch-gray.t-switch.wrap.t-switch.wrap
-                                .wrapped LIGHT
-
                 //- =========================  ABOUT  ========================= -//
                 //- =========================  ABOUT  ========================= -//
                 section.about

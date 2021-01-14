@@ -287,6 +287,10 @@
     @include desk
         padding-top: 400px
 
+	&:not(:first-child)
+		@include desk
+			padding-top: 0
+
     img
         margin-left: -15%
         width: 130%
@@ -511,6 +515,7 @@
 	span,
 	div
 		text-align: center
+		font-family: pangramlight, sans-serif
 		font-size: 21px !important
 		font-weight: 900 !important
 		color: black

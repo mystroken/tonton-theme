@@ -114,6 +114,13 @@ block content
 									p.js-text <?php the_sub_field('p_presection'); ?>
 								<?php endwhile; else : endif; ?>
 
+				//- =========================  PARALLAX  ========================= -//
+				//- =========================  PARALLAX  ========================= -//
+
+				<?php elseif( get_row_layout() == 'parallax' ): ?>
+					section.parallax.e-rel.e-wvw.e-hidden
+						img(src!="<?php echo get_sub_field('parallax_img')['url']; ?>" alt!="<?php echo get_sub_field('parallax_img')['alt']; ?>").e-wp.img-load
+
 				//- =========================  homepage  ========================= -//
 				//- =========================  homepage  ========================= -//
 				<?php elseif( get_row_layout() == 'presentation' ): ?>
