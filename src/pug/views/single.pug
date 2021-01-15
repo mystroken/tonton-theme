@@ -167,9 +167,10 @@ block content
 				//- =========================  VISIT THE LINK  ========================= -//
 				//- =========================  VISIT THE LINK  ========================= -//
 				<?php elseif (get_row_layout() == 'visit_the_site'): ?>
-					section.visit-the-site.e-rel.e-wvw.anima-text
-						a(href!="<?php the_sub_field( 'link' ); ?>" target!="_blank" rel!="nofollow") !{svgVisitLink}
-							span(class!="js-text") Visit the site
+					section.visit-the-site.e-rel.e-wvw
+						a(href!="<?php the_sub_field( 'link' ); ?>" target!="_blank" rel!="nofollow").scale.hover !{svgVisitLink}
+							span.t-black.e-sans Visit the site
+							.line-link.e-wp.e-switch-gray.e-switch
 
 				//- =========================  QUOTE  ========================= -//
 				//- =========================  QUOTE  ========================= -//
