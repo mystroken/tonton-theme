@@ -3,11 +3,7 @@
     overflow: hidden
 
 .single
-
-
     header
-
-
 
         h3
             padding-top: 103px
@@ -16,7 +12,7 @@
             @include desk
                 padding-top: 160px
                 line-height: 47px
-                font-size: 1.55vw;
+                font-size: 1.55vw
 
         h1
             //opacity: 0
@@ -24,7 +20,7 @@
             font-size: 126px
             letter-spacing: -8px
             @include desk
-                font-size: 22.6vw;
+                font-size: 22.6vw
                 letter-spacing: -27px
                 margin-left: -2.1vw
                 padding-top: 5px
@@ -42,6 +38,8 @@
                 font-size: 1.9vw
 
 
+.header-single
+	background-color: #fff
 
 
 
@@ -50,9 +48,12 @@
 //- =========================  ROLE  ========================= -//
 
 .role
-    margin-top: 119px
+	background-color: #fff
+
+.role
+    padding-top: 119px
     @include desk
-        margin-top: 193px
+        padding-top: 193px
         height: 710px
         display: -ms-grid
         display: grid
@@ -119,7 +120,7 @@
             @include desk
                 max-width: 35%
             img
-                width: 100%;
+                width: 100%
                 object-fit: contain
 
 
@@ -144,7 +145,7 @@
             padding-top: 90px
             font-size: 39px
             @include desk
-                font-size: 2.4vw;
+                font-size: 2.4vw
                 white-space: nowrap
                 margin-left: 9.6vw
                 padding: 0
@@ -162,6 +163,9 @@
 //- =========================  descr  ========================= -//
 
 .mission
+	background-color: #fff
+
+.mission
     @include desk
         padding-top: 25.2vh
 
@@ -177,6 +181,9 @@
             margin-bottom: 61px
             text-align: center
 
+    p:last-of-type
+        margin-bottom: 0
+
 
 
 
@@ -188,6 +195,9 @@
 
 //- =========================  descr  ========================= -//
 //- =========================  descr  ========================= -//
+
+.colors
+	background-color: #fff
 
 .colors
     padding-top: 91px
@@ -283,13 +293,13 @@
 //- =========================  MOCKUP  ========================= -//
 
 .mockup
+	background-color: #fff
+
+.mockup
     padding-top: 44.2%
     @include desk
         padding-top: 400px
 
-	&:not(:first-child)
-		@include desk
-			padding-top: 0
 
     img
         margin-left: -15%
@@ -301,8 +311,64 @@
 
 
 
+
+
+//- =========================  PARALLAX  ========================= -//
+//- =========================  PARALLAX  ========================= -//
+
+.parallax
+    padding-top: 93px
+    @include desk
+        padding-top: 220px
+
+.parallax
+	position: relative
+	width: 100%
+	height: 782px
+	max-height: 80vh
+	overflow: hidden
+
+	.parallax__bg
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+		z-index: -1
+
+	.parallax__bg
+		@include desk
+			position: fixed
+			top: 5vh
+			height: 90vh
+			width: 100vw
+
+
+.parallax
+	&::after
+		content: ''
+		position: absolute
+		background-color: #fff
+		top: 0
+		left: 0
+		width: 100%
+		height: 93px
+
+.parallax
+	&::after
+    	@include desk
+        	height: 220px
+
+
+
 //- =========================    ========================= -//
 //- =========================    ========================= -//
+
+.descr
+	background-color: #fff
 
 .descr
     padding: 93px 0
@@ -419,22 +485,25 @@
 
 //- =========================  INNERPAGES  ========================= -//
 //- =========================  INNERPAGES  ========================= -//
+
+.inner-pages
+	background-color: #fff
 .inner-pages > *
     box-sizing: border-box
 .inner-pages
-    margin-bottom: 162px
+    padding-bottom: 162px
     @include desk
-        width: 80vw
-        margin-bottom: 329px
-        margin-left: 10vw
+        width: 100vw
+        padding-bottom: 329px
+        padding-left: 10vw
 
 
     &__hold
         @include mobile
-            width: 90vw !important;
+            width: 90vw !important
             margin-left: 5vw
         @include tablet
-            width: 90vw !important;
+            width: 90vw !important
             margin-left: 5vw
 
     &__texts
@@ -443,18 +512,18 @@
     &__imgs
         @include desk
             height: 590px
-            width: 100%;
+            width: 100%
 
         &__travel
             @include desk
                 height: 590px
                 display: inline-flex
             @include mobile
-                display: block;
-                width: 100% !important;
+                display: block
+                width: 100% !important
             @include tablet
-                display: block;
-                width: 100% !important;
+                display: block
+                width: 100% !important
 
 
         .each-inner-page
@@ -468,24 +537,24 @@
     &__cntrl
         @include desk
             width: 875px
-            margin-top: 36px;
-            display: inline-flex;
-            margin-left: 27px;
-            justify-content: space-between;
-            width: 981px;
+            margin-top: 36px
+            display: inline-flex
+            margin-left: 27px
+            justify-content: space-between
+            width: 981px
 
         .numbers
             font-size: 35px
 
             .static
                 position: relative
-                margin-top: 18px;
+                margin-top: 18px
                 opacity: .15
 
         .indicator
-            width: 845px;
-            height: 2px;
-            margin-top: 37px;
+            width: 845px
+            height: 2px
+            margin-top: 37px
 
             .indic-static
                 opacity: 0.15
@@ -507,6 +576,7 @@
 	display: flex
 	justify-content: center
 	align-items: center
+	background-color: #fff
 	padding-bottom: 162px
 	@include desk
 		padding-bottom: 329px
@@ -549,26 +619,26 @@
 
 
     &__subt
-        letter-spacing: 3px;
-        font-size: 16px;
-        margin-bottom: 28px;
+        letter-spacing: 3px
+        font-size: 16px
+        margin-bottom: 28px
 
 
     &__title
 
         h1
-            font-size: 89px;
+            font-size: 89px
             @include desk
-                font-size: 17.3vw;
+                font-size: 17.3vw
 
 
 
     &__previous
-        left: -9vw;
-        top: 25%;
-        transform: rotate(270deg);
+        left: -9vw
+        top: 25%
+        transform: rotate(270deg)
 
         span
-            font-size: 14px;
+            font-size: 14px
 
 

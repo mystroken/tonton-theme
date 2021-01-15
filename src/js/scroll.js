@@ -25,6 +25,13 @@ class Smooth {
 		}
 	}
 
+	//? - =========================  SINGLE PARALLAX  ========================= -//
+	//? - =========================  SINGLE PARALLAX  ========================= -//
+	singleParallax(scrolled) {
+		const $parallaxBackground = document.querySelector('.parallax__bg')
+		$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0)`
+	}
+
 	//? - =========================  FOOTER PARALLAX  ========================= -//
 	//? - =========================  FOOTER PARALLAX  ========================= -//
 	footerParallax(scrolled) {
@@ -54,6 +61,7 @@ class Smooth {
 			$('html').removeClass('is-top')
 		}
 	}
+
 
 	//? - =========================  SCROLL  ========================= -//
 	//? - =========================  SCROLL  ========================= -//
@@ -97,6 +105,7 @@ class Smooth {
 		//! - =========================  conditions  ========================= -//
 		if (this.isPage === 'single' && window.innerWidth > 1024) {
 			this.isSingle(this.data.last.toFixed(0))
+			this.singleParallax(this.data.last.toFixed(0))
 		}
 
 		if (this.isPage === 'archived' && window.innerWidth > 1024) {

@@ -118,8 +118,8 @@ block content
 				//- =========================  PARALLAX  ========================= -//
 
 				<?php elseif( get_row_layout() == 'parallax' ): ?>
-					section.parallax.e-rel.e-wvw.e-hidden
-						img(src!="<?php echo get_sub_field('parallax_img')['url']; ?>" alt!="<?php echo get_sub_field('parallax_img')['alt']; ?>").e-wp.img-load
+					section.parallax.e-hidden
+						div(style!="background-image: url(<?php echo get_sub_field('parallax_img')['url']; ?>)").parallax__bg
 
 				//- =========================  homepage  ========================= -//
 				//- =========================  homepage  ========================= -//
