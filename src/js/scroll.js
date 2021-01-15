@@ -29,7 +29,9 @@ class Smooth {
 	//? - =========================  SINGLE PARALLAX  ========================= -//
 	singleParallax(scrolled) {
 		const $parallaxBackground = document.querySelector('.parallax__bg')
-		$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0)`
+		if ($($parallaxBackground).length > 0) {
+			$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0)`
+		}
 	}
 
 	//? - =========================  FOOTER PARALLAX  ========================= -//
