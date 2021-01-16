@@ -28,9 +28,30 @@ class Smooth {
 	//? - =========================  SINGLE PARALLAX  ========================= -//
 	//? - =========================  SINGLE PARALLAX  ========================= -//
 	singleParallax(scrolled) {
-		const $parallaxBackground = document.querySelector('.parallax__bg')
-		if ($($parallaxBackground).length > 0) {
-			$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0)`
+		const h = window.innerHeight
+		const $parallaxContainer = document.querySelector('.parallax')
+		const $parallaxBackground = $parallaxContainer.querySelector('.parallax__bg')
+
+		if ($($parallaxContainer).length > 0) {
+			const paddingTop = 220;
+			const { top, height, bottom } = $parallaxContainer.getBoundingClientRect()
+			const bgScaleMin = 2
+			const bgScaleMaxToAdd = -1
+
+			// When positive,
+			// The section is below the screen.
+			// When Negative,
+			// The section is in view
+			// Until
+			// -height
+			// console.log((top + paddingTop)-h)
+			const computedTop = (top + paddingTop)-h
+			const inView = (computedTop < 0 && bottom > 0)
+			const scrollableMax = (height + h) - paddingTop
+			const currentScrolled = -1 * computedTop
+			const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled/scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin
+
+			$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
 		}
 	}
 
