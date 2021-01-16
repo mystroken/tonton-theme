@@ -278,25 +278,40 @@ class webGL {
 		let that = this
 
 		$(window).resize(function () {
-			if ($('.page-home').length > 0) {
-				$titles.forEach(function (item, index) {
-					let posX = item.getBoundingClientRect().left
-					let posY = item.getBoundingClientRect().top
-					$arrays.pixiTitles[index].position.x = posX
-					$arrays.pixiTitles[index].position.y = posY
-					$arrays.pixiTitlesMask[index].position.x = posX
-					$arrays.pixiTitlesMask[index].position.y = posY
+			w = window.innerWidth
+			h = window.innerHeight
+			sizeW = w / 3.2
+			sizeH = h / 1.875
+			that.destroy()
+			that.init()
+
+			// if ($('.page-home').length > 0) {
+
+			// 	that.bgDyna.width = sizeW
+			// 	that.bgDyna.height = sizeH
+
+			// 	$titles.forEach(function (item, index) {
+			// 		let posX = item.getBoundingClientRect().left
+			// 		let posY = item.getBoundingClientRect().top
+			// 		$arrays.pixiTitles[index].position.x = posX
+			// 		$arrays.pixiTitles[index].position.y = posY
+			// 		$arrays.pixiTitlesMask[index].position.x = posX
+			// 		$arrays.pixiTitlesMask[index].position.y = posY
 
 
-					sizeW = w / 2.25
-					sizeH = h / 2.25
-					$bgDyna[index].width = sizeW
-					$bgDyna[index].height = sizeH
-					that.mask.width = sizeW
-					that.mask.height = sizeH
-				});
-				that.app.renderer.resize(window.innerWidth, that.sizes.ctnTitleHeight + (h / 3));
-			}
+			// 		// console.log(w, h)
+
+			// 		// sizeW = w / 2.25
+			// 		// sizeH = h / 2.25
+			// 		// $bgDyna[index].width = sizeW
+			// 		// $bgDyna[index].height = sizeH
+			// 		// that.bgDyna.width = sizeW
+			// 		// that.bgDyna.height = sizeH
+			// 		that.mask.width = sizeW
+			// 		that.mask.height = sizeH
+			// 	});
+			// 	that.app.renderer.resize(window.innerWidth, that.sizes.ctnTitleHeight + (h / 3));
+			// }
 		})
 	}
 
@@ -332,7 +347,7 @@ class webGL {
 	}
 
 	destroy() {
-		console.log(this.app)
+		// console.log(this.app)
 		this.offTicker()
 		this.app.renderer.destroy(true);
 		this.app.renderer = null;

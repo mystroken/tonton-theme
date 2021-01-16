@@ -30,7 +30,6 @@ class Smooth {
 	singleParallax(scrolled) {
 		const h = window.innerHeight
 		const $parallaxContainer = document.querySelector('.parallax')
-		const $parallaxBackground = $parallaxContainer.querySelector('.parallax__bg')
 
 		if ($($parallaxContainer).length > 0) {
 			const paddingTop = 220;
@@ -51,7 +50,8 @@ class Smooth {
 			const currentScrolled = -1 * computedTop
 			const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled/scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin
 
-			$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
+			const $parallaxBackground = $parallaxContainer.querySelector('.parallax__bg')
+			if ($($parallaxBackground).length > 0) $parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
 		}
 	}
 
@@ -69,9 +69,9 @@ class Smooth {
 
 		let sizeDocument = $('[data-scroll-content]').height()
 		if ($(window).width() > 1024) {
-			if (scrolled > sizeDocument - (h * 2)) {
+			if (scrolled - 100 > sizeDocument - (h * 2)) {
 				let percentageFromTop = ((sizeDocument - h) - scrolled) / h
-				//console.log(percentageFromTop)
+				// console.log(percentageFromTop)
 				TweenMax.set($footer, { y: - (h * percentageFromTop) })
 				TweenMax.set($footer, { yPercent: (30 * percentageFromTop) })
 			}
@@ -109,6 +109,7 @@ class Smooth {
 	resize() {
 		this.setHeight()
 		this.scroll()
+		this.footerParallax(this.data.last.toFixed(0))
 	}
 
 	scroll() {
