@@ -29,29 +29,35 @@ class Smooth {
 	//? - =========================  SINGLE PARALLAX  ========================= -//
 	singleParallax(scrolled) {
 		const h = window.innerHeight
-		const $parallaxContainer = document.querySelector('.parallax')
+		const $parallaxContainer = document.querySelectorAll('.parallax')
 
 		if ($($parallaxContainer).length > 0) {
-			const paddingTop = 220;
-			const { top, height, bottom } = $parallaxContainer.getBoundingClientRect()
-			const bgScaleMin = 2
-			const bgScaleMaxToAdd = -1
+			$parallaxContainer.forEach(container => {
+				const paddingTop = 220;
+				const { top, height, bottom } = container.getBoundingClientRect()
+				const bgScaleMin = 2
+				const bgScaleMaxToAdd = -1
 
-			// When positive,
-			// The section is below the screen.
-			// When Negative,
-			// The section is in view
-			// Until
-			// -height
-			// console.log((top + paddingTop)-h)
-			const computedTop = (top + paddingTop)-h
-			const inView = (computedTop < 0 && bottom > 0)
-			const scrollableMax = (height + h) - paddingTop
-			const currentScrolled = -1 * computedTop
-			const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled/scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin
+				// When positive,
+				// The section is below the screen.
+				// When Negative,
+				// The section is in view
+				// Until
+				// -height
+				// console.log((top + paddingTop)-h)
+				const computedTop = (top + paddingTop)-h
+				const inView = (computedTop < 0 && bottom > 0)
+				const scrollableMax = (height + h) - paddingTop
+				const currentScrolled = -1 * computedTop
+				const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled/scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin
+				const opacity = (inView) ? 1 : 0
 
-			const $parallaxBackground = $parallaxContainer.querySelector('.parallax__bg')
-			if ($($parallaxBackground).length > 0) $parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
+				const $parallaxBackground = container.querySelector('.parallax__bg')
+				if ($($parallaxBackground).length > 0) {
+					$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
+					$parallaxBackground.style.opacity = opacity
+				}
+			})
 		}
 	}
 
