@@ -31,7 +31,7 @@
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "sass-loader": "^7.1.0",
-    "scrollmagic": "^2.0.6",
+    "scrollmagic": "2.0.6",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.1.1",

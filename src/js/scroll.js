@@ -67,7 +67,6 @@ class Smooth {
 				const $parallaxBackground = container.querySelector('.parallax__bg')
 				if ($($parallaxBackground).length > 0) {
 					$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
-					//$parallaxBackground.style.transform = `scale(${scale})`
 					$parallaxBackground.style.opacity = opacity
 				}
 			})
