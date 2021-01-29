@@ -8,12 +8,28 @@ block content
     .barba-container.page-archived.e-wp(data-barba="container", data-barba-namespace="archived", data-namespace="archived" data-current!="" data-scroll-content)
         .gallery.e-wvw.e-hvh.e-fixed.e-hidden
             .gallery__travel.e-rel.e-hp
-                <?php $index = 0; if(have_rows('dribbble_shots')): while(have_rows('dribbble_shots')) : the_row(); $index++;?>
-                    .gallery__each(data-item!='<?=$index?>', data-plx!='<?=($index % 2 === 0) ? "on" : ""?>', data-zindex!='<?=$index?>', class!="gallery__img__<?=$index?>")
+                - var list = []
+                - list.push({refer: '1', plx:'', path:'1', zindex:''})
+                - list.push({refer: '2', plx:'on', path:'2', zindex:'2'})
+                - list.push({refer: '3', plx:'', path:'3', zindex:''})
+                - list.push({refer: '4', plx:'', path:'4', zindex:''})
+                - list.push({refer: '5', plx:'on', path:'5', zindex:''})
+                - list.push({refer: '6', plx:'', path:'6', zindex:'2'})
+                - list.push({refer: '7', plx:'on', path:'7', zindex:''})
+                - list.push({refer: '8', plx:'', path:'8', zindex:'2'})
+                - list.push({refer: '9', plx:'', path:'9', zindex:''})
+                - list.push({refer: '10', plx:'on', path:'10', zindex:''})
+                - list.push({refer: '11', plx:'', path:'11', zindex:''})
+                - list.push({refer: '12', plx:'', path:'12', zindex:'2'})
+                - list.push({refer: '13', plx:'', path:'13', zindex:''})
+                - list.push({refer: '14', plx:'', path:'14', zindex:'2'})
+                each item, index in list
+                    .gallery__each(data-item=''+item.refer, data-plx=''+item.plx, data-zindex=''+item.zindex, class="gallery__img__"+item.refer)
                         .gallery__img.e-hidden.e-rel.e-hp.e-wp
                             picture.e-flex
-                                img(src!="<?=the_sub_field('image')?>" alt="" data-dribbble-link!="<?=the_sub_field('url')?>" data-name!="<?=the_sub_field('name')?>" data-front!='<?=$index?>').e-hp.e-wp.e-img-fit.js-img.img-load
-                <?php endwhile; else : endif; ?>
+                                source(srcset!='<?php echo get_template_directory_uri(); ?>/images/drib/webp/drib'+item.path+'.webp 1x', type='image/webp')
+                                source(srcset!='<?php echo get_template_directory_uri(); ?>/images/drib/drib'+item.path+'.jpg 1x', type='image/jpg')
+                                img(src!='<?php echo get_template_directory_uri(); ?>/images/drib/drib'+item.path+'.jpg' alt="" data-dribbble-link="" data-front=''+item.zindex).e-hp.e-wp.e-img-fit.js-img.img-load
 
         script#shaderFrag(type='x-shader/x-vertex').
             precision mediump float;

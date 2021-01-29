@@ -21,28 +21,38 @@
         .menu-fs__secund
             .menu-fs__email.wrap
                 .wrapped.e-flex
-                    span.t-gray Say Hello:
-                    a(href!="<?php the_field('email','option');?>", alt!="<?php the_field('email','option');?>").t-black <?php the_field('email','option');?>
+                    span.t-gray Say Hello: 
+                    script.
+                        user = 'hello';
+                        site = 'hellotonton';
+                        document.write('<a class="t-black" href=\"mailto:' + user + '@' + site + '.com\">');
+                        document.write(user + '[at]' + site + '[dot]com</a>');
 
             .menu-fs__social-right
                 .menu-fs__social-right__sc.no-mobile
                     <?php if(have_rows('social_links_rpt', 'option')): while(have_rows('social_links_rpt', 'option')) : the_row(); ?>
                         .menu-fs__social-right__each-soc.wrap
-                                a(href!="<?php the_sub_field('link');?>", alt!="<?php the_sub_field('title');?>", target='_blank', rel='noreferrer').t-black.wrapped <?php the_sub_field('title');?>
+                            <?php if(get_sub_field('link') !== '#'):?>
+                                a(href!="<?php the_sub_field('link');?>", alt!="<?php the_sub_field('title');?>", target='_blank', rel='noopener noreferrer').t-black.wrapped <?php the_sub_field('title');?>
+                            <?php else:?>
+                                span.t-black.wrapped <?php the_sub_field('title');?>
+                            <?php endif?>
                     <?php endwhile; else : endif; ?>
 
                 .menu-fs__social-right__right
                     .menu-fs__social-right__each-r.wrap
-                            span.t-gray.wrapped.no-mobile ⓒ <?=date('Y')?>. All Rights Reserved
+                            span.t-gray.wrapped.no-mobile &copy; 2021<?php if(date('Y') > 2021) echo '&ndash;'.date('Y')?>. All Rights Reserved.
                     <?php if(have_rows('credits_links_rpt', 'option')): while(have_rows('credits_links_rpt', 'option')) : the_row(); ?>
                         .menu-fs__social-right__each-r.wrap
-                                a(href!="<?php the_sub_field('link');?>", alt!="<?php the_sub_field('title');?>", target='_blank', rel='noreferrer').t-gray.wrapped.no-mobile <?php the_sub_field('title');?>
+                            <?php if(get_sub_field('link') !== '#' && get_sub_field('link') !== ''):?>
+                                a(href!="<?php the_sub_field('link');?>", alt!="<?php the_sub_field('title');?>", target='_blank', rel='noopener noreferrer').t-gray.wrapped.no-mobile <?php the_sub_field('title');?>
+                            <?php else:?>
+                                span.t-gray.wrapped.no-mobile <?php the_sub_field('title');?>
+                            <?php endif?>
                     <?php endwhile; else : endif; ?>
 
-    .trg-menu__close.e-flex-col
-        .e-full-rel.e-flex
-            .line.line0.e-wp.e-abs.e-black
-            .line.line1.e-wp.e-abs.e-black
+    button.trg-menu__close.e-abs.e-curp.bd-black
+        span.t-black CLOSE
 
 .bg-menu.e-fixed
     .bg-menu__hold
@@ -51,7 +61,7 @@
 //-  ----------------- 	logo-main
 - var logoIcon = '<svg class="svg-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166.94 167.97"><defs><style></style></defs><title>switch-icon</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="fill-logo" fill="var(--e-white)" d="M83.47,0C37.37,0,0,37.6,0,84s37.37,84,83.47,84,83.47-37.6,83.47-84S129.57,0,83.47,0Zm.43,116.39a4.44,4.44,0,0,1-4.43,4.45H69.62a4.44,4.44,0,0,1-4.43-4.45v-47a1.64,1.64,0,0,0-1.64-1.64H45.61a4.44,4.44,0,0,1-4.43-4.46V53.1a4.44,4.44,0,0,1,4.43-4.45H82.27a1.63,1.63,0,0,1,1.63,1.64ZM113.4,72a12.41,12.41,0,1,1,12.36-12.48A12.16,12.16,0,0,1,113.4,72Z"/></g></g></svg>'
 
-a(href!="<?php echo get_site_url(); ?>" data-to="home").logo-main.e-fixed !{logoIcon}
+a(href!="<?php echo get_site_url(); ?>", data-to="home").logo-main.e-fixed !{logoIcon}
 
 //-  ----------------- 	cursror
 - var arrowLeft = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M207.093 30.187L176.907 0l-128 128 128 128 30.186-30.187L109.28 128z"/></svg>'

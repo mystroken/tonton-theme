@@ -4,7 +4,8 @@ const singleJs = function (ScrollMagic) {
 
 	let $webGL = $('#webgl')
 
-	TweenMax.to($webGL, .5, { delay: .5, autoAlpha: 0 })
+	//TweenMax.to($webGL, .5, { delay: .5, autoAlpha: 0 })
+	TweenMax.to($webGL, 1, { autoAlpha: 1 })
 	TweenMax.staggerFromTo('.js-text-single', 1.85, { opacity: 0, y: 80, }, { delay: .5, opacity: 1, y: 0, ease: Power3.easeOut }, 0.3)
 	TweenMax.from('.all-projects', 1.85, { opacity: 0, delay: 1.5 })
 
@@ -12,12 +13,12 @@ const singleJs = function (ScrollMagic) {
 	//? - =========================  COLORS DYNAMIC  ========================= -//
 	if ($('.colors').length > 0) {
 		let $eachColor = $('.each-color')
-		let widthEachColor = $eachColor.eq(1).width()
 		if ($(window).width() > 1024) {
 			TweenMax.set($eachColor.find('.texts'), { autoAlpha: 0 })
 			TweenMax.set($eachColor.eq(0).find('.texts'), { autoAlpha: 1 })
 			TweenMax.set($eachColor.eq(0), { minWidth: '235px' })
 		}
+		let widthEachColor = $eachColor.eq(1).width()
 		$eachColor.mouseenter(function () {
 			TweenMax.to($eachColor, .6, { ease: Power3.easeInOut, minWidth: widthEachColor, width: widthEachColor })
 			TweenMax.to($eachColor.find('.texts'), .6, { autoAlpha: 0, ease: Power3.easeInOut })

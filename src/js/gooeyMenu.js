@@ -101,7 +101,9 @@ class GooeyMenu {
 			$eSwitch = $('.e-switch'),
 			$tSwitchGray = $('.t-switch-gray'),
 			$eSwitchGray = $('.e-switch-gray'),
-			timeSwitch = .8
+			timeSwitch = .8,
+			videoSource = $('.about video').attr('src'),
+			$video = $('.about video');
 
 		TweenMax.to($tSwitch, timeSwitch, { color: swiftColor, ease: Power3.easeInOut })
 		//TweenMax.to($eSwitch, timeSwitch, { backgroundColor: swiftColor, ease: Power3.easeInOut })
@@ -111,11 +113,32 @@ class GooeyMenu {
 		TweenMax.to('footer ', timeSwitch, { backgroundColor: swiftColor, ease: Power3.easeInOut })
 		TweenMax.to('footer .footer__fader, .gap-black', timeSwitch, { backgroundColor: swiftBg, ease: Power3.easeInOut })
 
+		const videoWasPlaying = ($video.length === 1) ? !$video[0].paused : null;
+
 		if (mode == 'light') {
 			$('.barba-container').hasClass('page-home') ? webglRender.switchToWhite() : null
 		}
 		else {
 			$('.barba-container').hasClass('page-home') ? webglRender.switchToBlack() : null
+		}
+
+		const replaceVideo = () => {
+			const options = { delay: -.2, x: 0, opacity: 1, ease: Power3.easeOut };
+			if (mode == 'light') {
+				$video.attr('src', videoSource.replace('emoji-head-white', 'emoji-head'));
+				options.transform = 'scale(.9)';
+			} else {
+				$video.attr('src', videoSource.replace('emoji-head', 'emoji-head-white'));
+				options.transform = 'scale(1.3)';
+			}
+			if (videoWasPlaying) {
+				$video[0].play();
+			}
+			TweenMax.to('.about video', 2.2, options)
+		}
+
+		if ($video.length === 1) {
+			TweenMax.to('.about video', timeSwitch, { x: -350, opacity: 0, ease: Power3.easeOut, onComplete: replaceVideo })
 		}
 	}
 

@@ -3,6 +3,7 @@
     overflow: hidden
 
 .single
+    color: #5c5c5c;
     header
 
         h3
@@ -10,7 +11,7 @@
             font-size: 14.3px
             line-height: 25px
             @include desk
-                padding-top: 160px
+                padding-top: 100px
                 line-height: 47px
                 font-size: 1.55vw
 
@@ -20,12 +21,12 @@
             font-size: 126px
             letter-spacing: -8px
             @include desk
-                font-size: 22.6vw
+                font-size: 27.7vw
                 letter-spacing: -27px
                 margin-left: -2.1vw
                 padding-top: 5px
                 //padding-top: 0
-
+                color: #101010
 
         h2
             font-size: 30px
@@ -35,25 +36,73 @@
                 width: 39.9%
                 margin-left: 60.1%
                 padding-top: 66px
-                font-size: 1.9vw
+                font-size: 2.2vw
+
+    .lg-heading
+        color: #101010;
+    .callout
+        p
+            color: inherit;
+    .three-col-block
+        h3
+            color: #101010;
+        p
+            color: inherit;
+            strong
+                color: #030905
 
 
 .header-single
-	background-color: #fff
+    background-color: #fff;
+    
+    .page__close
+        font-family: 'pangramlight';
+        width: 4vw;
+        height: 4vw;
+        border: 1px solid rgba(255, 255, 255, .20);
+        border-radius: 50%;
+        font-size: 10px !important;
+        cursor: pointer;
+        transition: .5s border ease-out
+        &:hover
+            border: 1px solid rgba(255, 255, 255, 1);
+        &.bd-black
+            border-color: rgba(0, 0, 0, .20);
+            &:hover
+                border: 1px solid rgba(0, 0, 0, 1);
 
 
+//- =========================  3 STEPS  ========================= -//
+//- =========================  3 STEPS  ========================= -//
 
-
-//- =========================  ROLE  ========================= -//
-//- =========================  ROLE  ========================= -//
-
-.role
-	background-color: #fff
-
-.role
-    padding-top: 119px
+.three-col-block
+    padding-top: 200px;
+    padding-bottom: 200px;
+    h3
+        text-align: center;
+        margin-bottom: 100px;
+    p
+        font-size: 1.5vw;
+        line-height: 1.5em;
+        strong
+            @include serif;
+            letter-spacing: 2.07px;
+            font-size: 1.2em;
+            display: block;
     @include desk
-        padding-top: 193px
+        ul
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 5vw;
+
+//- =========================  ROLE  ========================= -//
+//- =========================  ROLE  ========================= -//
+
+.role
+    background-color: #fff
+    //padding-top: 119px
+    @include desk
+        //padding-top: 100px
         height: 710px
         display: -ms-grid
         display: grid
@@ -66,7 +115,7 @@
         color: #000
         background: #FFB608
         padding: 52px 6.6vw 39px
-        letter-spacing: 2px
+        letter-spacing: 1.4px;
         @include desk
             padding: 0
             grid-area: infos
@@ -83,7 +132,6 @@
             padding-bottom: 28px
             @include desk
                 margin-left: 9.6vw
-                padding-bottom: 14px
 
 
 
@@ -95,11 +143,20 @@
                 margin: 0
                 @include desk
                     font-size: 1vw !important
-                    padding-bottom: 9.5px
+                    padding-bottom: 4px
 
+            button
+                letter-spacing: inherit
+
+            h2
+                margin-top: 28px;
+                letter-spacing: 2.66px;
 
             p
                 line-height: 29px !important
+
+            p:last-child
+                padding-bottom: 0;
 
             .website button
                 text-decoration: underline
@@ -163,9 +220,7 @@
 //- =========================  descr  ========================= -//
 
 .mission
-	background-color: #fff
-
-.mission
+    background-color: #fff
     @include desk
         padding-top: 25.2vh
 
@@ -185,6 +240,37 @@
         margin-bottom: 0
 
 
+//- =========================  brief  ========================= -//
+//- =========================  brief  ========================= -//
+
+.mini-heading
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    font-weight: 400;
+    letter-spacing: 2.06px;
+    margin-bottom: 22px;
+
+.lg-heading
+    font-size: 11.1vw;
+    @include serif
+    letter-spacing: -3.8px;
+    line-height: 1.19em;
+
+.callout
+    padding-top: 200px;
+    .copy
+        width: 41.2vw;
+        margin-top: 100px;
+        margin-left: auto;
+        p
+            margin-top: 50px;
+            font-size: 2.2vw;
+
+//- =========================  website  ========================= -//
+//- =========================  website  ========================= -//
+
+.website
+    padding-bottom: 200px;
 
 
 
@@ -192,17 +278,14 @@
 
 
 
-
-//- =========================  descr  ========================= -//
-//- =========================  descr  ========================= -//
+//- =========================  colors  ========================= -//
+//- =========================  colors  ========================= -//
 
 .colors
-	background-color: #fff
-
-.colors
+    background-color: #fff
     padding-top: 91px
     @include desk
-        padding-top: 255px
+        padding-top: 200px
 
 
     p
@@ -215,15 +298,21 @@
         @include desk
             display: inline-flex
 
-
+    .color-name
+        letter-spacing: 1px;
 
     &__texts
 
         @include desk
             width: 45.5%
 
+        h4
+            text-transform: uppercase;
+            color: #101010;
         p
             @include desk
+                font-size: 2.2vw;
+                color: #5c5c5c
                 width: 70%
 
 
@@ -250,8 +339,7 @@
         padding-top: 84px
         @include desk
             padding: 0
-            @include desk
-                width: 100%
+            width: 100%
 
     &__travel
         display: inline-flex
@@ -264,6 +352,7 @@
         margin-left: 18px
     .each-color
         width: 267px
+        box-sizing: border-box;
         @include desk
             overflow: hidden
             width: 50%
@@ -276,7 +365,11 @@
             height: calc(100% - 40px)
             justify-content: space-between
             margin-top: 20px
-            font-size: 13.5px
+            font-size: 13.5px;
+            white-space: nowrap;
+
+        .bottom-color
+            line-height: 1.7em;
 
 
     .white
@@ -293,25 +386,12 @@
 //- =========================  MOCKUP  ========================= -//
 
 .mockup
-	background-color: #fff
-
-.mockup
-    padding-top: 44.2%
-    @include desk
-        padding-top: 400px
-
+    background-color: #fff
 
     img
         margin-left: -15%
         width: 130%
         object-fit: contain
-
-
-
-
-
-
-
 
 //- =========================  PARALLAX  ========================= -//
 //- =========================  PARALLAX  ========================= -//
@@ -319,7 +399,7 @@
 .parallax
     padding-top: 93px
     @include desk
-        padding-top: 220px
+        padding-top: 200px
 
 .parallax
 	position: relative
@@ -336,8 +416,9 @@
 		width: 100%
 		background-size: cover
 		background-repeat: no-repeat
-		background-position: center
+		background-position: center top;
 		z-index: -1
+        transform-origin: 50% 0;
 
 	.parallax__bg
 		@include desk
@@ -367,9 +448,7 @@
 //- =========================    ========================= -//
 
 .descr
-	background-color: #fff
-
-.descr
+    background-color: #fff
     padding: 93px 0
     @include desk
         padding: 220px 0
@@ -434,9 +513,10 @@
 //- =========================  homepage  ========================= -//
 
 .home-page
-    padding: 66px 0
+    padding-bottom: 80px;
+    //padding: 66px 0
     @include desk
-        padding: 204px 0
+        //-padding: 204px 0
 
 
     .inline
@@ -455,10 +535,14 @@
         padding-bottom: 65px
         position: relative
         @include desk
-            position: fixed
-            width: 32%
-            padding: 0
-            padding-top: 125px
+            width: 24vw;
+            position: fixed;
+            right: 11vw;
+            padding-top: 125px;
+            //-position: fixed
+            //-width: 32%
+            //-padding: 0
+            //-padding-top: 125px
 
         p
             @include desk
@@ -471,11 +555,14 @@
             width: 56.4%
             margin-right: 48%
             left: 0
+            position: relative;
+            padding-bottom: 5vh
 
             img
-                padding-bottom: 5vh
+                box-shadow: -60px 70px 84px #D29708;
 
-
+.js-release-text-home-page
+    transform: translateY(-80px);
 
 
 
@@ -484,17 +571,14 @@
 
 //- =========================  INNERPAGES  ========================= -//
 //- =========================  INNERPAGES  ========================= -//
-
-.inner-pages
-	background-color: #fff
 .inner-pages > *
     box-sizing: border-box
 .inner-pages
     padding-bottom: 162px
     @include desk
         width: 100vw
-        padding-bottom: 329px
-        padding-left: 10vw
+        padding-bottom: 220px
+        margin-top: -80px;
 
 
     &__hold
@@ -512,6 +596,8 @@
         @include desk
             height: 590px
             width: 100%
+            margin-top: 100px;
+            margin-left: 10vw;
 
         &__travel
             @include desk
@@ -531,24 +617,35 @@
                 margin: 0
                 height: 590px
                 width: 875px
-                margin-right: 145px
+                margin-right: 50px
 
     &__cntrl
         @include desk
-            width: 875px
             margin-top: 36px
             display: inline-flex
-            margin-left: 27px
+            margin-left: 10vw
             justify-content: space-between
-            width: 981px
+            width: 981px;
+
 
         .numbers
             font-size: 35px
 
+            .dyna
+                margin-right: 6px;
+                transform: translateY(-10px)
+
+            .divider
+                opacity: .20;
+                width: 2px;
+                height: 28px;
+                transform: rotate(25deg) translateY(2px) translateX(2px);
+                margin-right: 6px;
+            
             .static
                 position: relative
                 margin-top: 18px
-                opacity: .15
+                opacity: .20
 
         .indicator
             width: 845px
@@ -556,18 +653,34 @@
             margin-top: 37px
 
             .indic-static
-                opacity: 0.15
+                opacity: 0.20
 
+//- =========================  CONCLUSION  ========================= -//
+//- =========================  CONCLUSION  ========================= -//
 
-
-
-
-
-
-
-
-
-
+.conclusion
+    padding-top: 200px;
+    padding-bottom: 200px;
+    h3
+        text-align: center;
+        margin-bottom: 100px;
+    p
+        width: 67vw;
+        font-size: 2.2vw;
+        color: #5c5c5c;
+        line-height: 1.5em;
+        text-align: center
+        margin: 0 auto;
+    dl
+        margin-top: 100px;
+        text-align: center
+    dt
+        @include serif;
+        font-size: 17.3vw;
+        margin-bottom: 50px;
+        color: #101010;
+    dd
+        font-size: 2.2vw;
 
 //- =========================  VISIT THE SITE  ========================= -//
 //- =========================  VISIT THE SITE  ========================= -//
@@ -576,9 +689,11 @@
 	justify-content: center
 	align-items: center
 	background-color: #fff
-	padding-bottom: 162px
+	padding-bottom: 162px;
+	border-bottom: 1px solid #e5e5e5;
 	@include desk
-		padding-bottom: 329px
+		padding-bottom: 220px
+		//-padding-top: 220px
 
 	a,
 	span,
@@ -602,7 +717,6 @@
 
 
 
-
 //- =========================  NEXT PROJECT  ========================= -//
 //- =========================  NEXT PROJECT  ========================= -//
 .next
@@ -610,7 +724,7 @@
     z-index: 1
     background: #fff
     @include desk
-        padding-top: 180px
+        //-padding-top: 180px
         padding-bottom: 120px
 
     &__hold
@@ -623,11 +737,12 @@
 
 
     &__title
-
+        
         h1
             font-size: 89px
             @include desk
                 font-size: 17.3vw
+                color: rgba(0, 0, 0, 0)
 
 
 

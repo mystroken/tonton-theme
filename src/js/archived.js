@@ -37,7 +37,7 @@ class Archived {
 	render() {
 		this.app = new PIXI.Application({
 			width: this.dom.main.clientWidth,
-			height: this.dom.main.clientHeight,
+			height: this.dom.main.clientHeight - $('#main-archived .page-title').outerHeight(),
 			antialias: true,
 			transparent: true,
 			view: this.dom.view
@@ -58,29 +58,6 @@ class Archived {
 	}
 
 	renderWords() {
-		//- ---- TITLE
-		this.styleTitle = new PIXI.TextStyle({
-			fontFamily: 'pangramlight',
-			fontSize: window.innerWidth * 0.115,
-			fill: ['#000'],
-		});
-
-
-		let titleText = new PIXI.Text('Archives', this.styleTitle)
-		titleText.position.x = window.innerWidth / 3.2
-		titleText.position.y = window.innerHeight / 3.55
-		this.ctnText.addChild(titleText)
-
-
-		this.styleSubt = new PIXI.TextStyle({
-			fontFamily: 'pangramlight',
-			fontSize: window.innerWidth * 0.03,
-			fill: ['#000'],
-		});
-		let subtText = new PIXI.Text('Click to Zoom', this.styleSubt)
-		subtText.position.x = window.innerWidth / 2.5
-		subtText.position.y = window.innerHeight / 1.78
-		this.ctnText.addChild(subtText)
 		this.zoom()
 	}
 
@@ -96,6 +73,13 @@ class Archived {
 			bgCreate.height = (window.innerWidth * 0.49) / 2.5
 			bgCreate.position.x = item.getBoundingClientRect().left
 			bgCreate.position.y = item.getBoundingClientRect().top
+			console.log(bgCreate.position);
+			if (bgCreate.position.y < 100) {
+				bgCreate.position.y = 100;
+			}
+			if (bgCreate.position.y + bgCreate.height > that.dom.view.height - 50) {
+				bgCreate.position.y = that.dom.view.height - bgCreate.height - 50;
+			}
 			that.bgs.push(bgCreate)
 			if (item.dataset.front == 2) {
 				that.bgContainerZ.addChild(bgCreate);
@@ -154,14 +138,43 @@ class Archived {
 		TweenMax.set(this.modal.general, { autoAlpha: 0 })
 		let that = this
 		this.dom.each.click(function () {
+			console.log(that.modal.img)
 			let srcThis = $(this).find('img').attr('src')
+			let hrefThis = $(this).find('img').attr('data-dribbble-link')
+			let nameThis = $(this).find('img').attr('data-name')
 			that.modal.img.find('img').attr('src', srcThis)
+			that.modal.img.find('a').attr('href', hrefThis)
+			that.modal.img.find('span.name').text(nameThis)
 			TweenMax.set(that.modal.general, { autoAlpha: 1 })
 			TweenMax.fromTo(that.modal.fader, 1.8, { autoAlpha: 0 }, { autoAlpha: .7, ease: Expo.easeInOut })
 			TweenMax.fromTo(that.modal.bg, 1.8, { scale: 0 }, { scale: 1, transformOrigin: 'center center', ease: Expo.easeInOut })
 			TweenMax.fromTo(that.modal.img, 1.8, { autoAlpha: 0, yPercent: 10 }, { delay: 1, autoAlpha: 1, yPercent: 0, ease: Expo.easeOut })
 			TweenMax.fromTo(that.modal.close, 1.8, { autoAlpha: 0 }, { delay: 1, autoAlpha: 1, ease: Expo.easeInOut })
 		})
+
+		let $hoverLine = $('.hover-line')
+		let $lineLink = $('.line-link')
+		TweenMax.set($lineLink, { scaleX: 0 })
+		$hoverLine.hover(
+			function () {
+				TweenMax.to($(this).find('.line'), .5, { scaleX: 0, transformOrigin: 'right', ease: Power3.easeIn })
+				TweenMax.to($(this).find('.line'), .5, { delay: .5, scaleX: 1, transformOrigin: 'left', ease: Power3.easeOut })
+				TweenMax.to($(this).find('.line-link'), .6, { scaleX: 1, transformOrigin: 'left', ease: Power3.easeOut })
+			}, function () {
+				TweenMax.to($(this).find('.line-link'), .6, { scaleX: 0, transformOrigin: 'right', ease: Power3.easeOut })
+				TweenMax.to($borderCursor, .5, { scale: .5, ease: Power3.easeOut })
+			}
+		);
+
+		let $borderCursor = $('#cursor .border'),
+			$scaleCursor = $('.scale')
+
+		$scaleCursor.hover(
+			function () {
+				TweenMax.to($borderCursor, .5, { scale: 1, ease: Power3.easeOut })
+			}, function () {
+				TweenMax.to($borderCursor, .5, { scale: .5, ease: Power3.easeOut })
+			});
 
 		this.modal.close.add(this.modal.bg).click(function () {
 			TweenMax.to(that.modal.general, .5, { autoAlpha: 0 })

@@ -110,7 +110,7 @@ const webglJs = function () {
 		var filter = new PIXI.Filter(null, shaderFrag);
 		filter.uniforms.frequency = 18;
 		filter.uniforms.amplitude = 0;
-		filter.uniforms.amplitudeY = 0.05;
+		//filter.uniforms.amplitudeY = 0.05;
 		filter.uniforms.amplitudeX = 0;
 		filter.uniforms.speed = 8.0;
 		filter.uniforms.time = 20;
@@ -169,21 +169,21 @@ const webglJs = function () {
 		// ___________________________________ CURSOR MOVE
 		// ___________________________________ CURSOR MOVE
 		/*let ratio = 0.1; //delay follow 
-	     
+		 
 		//document.body.style.cursor = 'none';
 		function clamp(num, min, max) {
-		    return num <= min ? min : num >= max ? max : num;
+			return num <= min ? min : num >= max ? max : num;
 		}
-	     
+		 
 		let ease = 0.1
 		let threshold = 20
 		let maxBlur = 2
 		let lastX
 		let lastY
-	     
+		 
 		//TweenMax.ticker.fps(60);
 		function updatePosition() {
-		    if (!active) {
+			if (!active) {
 			   lastX =  pos.x
 			   lastY =  pos.y
 			   
@@ -203,7 +203,7 @@ const webglJs = function () {
 			   
 			   //TweenMax.set(filter.uniforms, { amplitudeY:  0.02 * (velocity), ease:Power2.easeIn} )
 			   //TweenMax.set(bgContainerMask,  {alpha: 1 * velocity})
-		    }
+			}
 		}*/
 
 		// ___________________________________ RESIZE

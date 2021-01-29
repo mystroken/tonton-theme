@@ -3,8 +3,10 @@ import { TweenMax } from "gsap";
 let myView = document.getElementById('webgl'),
 	w = window.innerWidth,
 	h = window.innerHeight,
-	sizeW = w / 3.2,
-	sizeH = h / 1.875,
+	//sizeW = w / 3.2,
+	//sizeH = h / 1.875,
+	sizeW = (1660 / 1180) * (h / 2),
+	sizeH = h / 2,
 	tlWebGLTransition = new TimelineLite()
 
 class webGL {
@@ -25,6 +27,19 @@ class webGL {
 				gapInit: 0
 			}
 			this.sizes.heightCanvas = this.sizes.ctnTitleHeight + (this.sizes.gapInit * 2)
+			this.titleSelector = '.title-folio'
+		}
+
+		if ($('.main-single').length > 0) {
+			this.sizes = {
+				heightCanvas: window.innerHeight,
+				ctnTitle: document.querySelector('.next__hold'),
+				ctnTitleWidth: document.querySelector('.next__hold').getBoundingClientRect().width,
+				ctnTitleHeight: document.querySelector('.next__hold').getBoundingClientRect().height,
+				gapInit: 0
+			}
+			this.sizes.heightCanvas = this.sizes.ctnTitleHeight + (this.sizes.gapInit * 2)
+			this.titleSelector = '.next__title h1'
 		}
 
 		this.config = {
@@ -32,9 +47,9 @@ class webGL {
 		}
 
 		this.dom = {
-			title: document.querySelectorAll('.title-folio'),
-			fontSize: parseInt($(".title-folio").css("fontSize")),
-			titleQuery: $(".title-folio")
+			title: document.querySelectorAll(this.titleSelector),
+			fontSize: parseInt($(this.titleSelector).css("fontSize")),
+			titleQuery: $(this.titleSelector)
 		}
 
 		this.arrays = {
@@ -74,11 +89,20 @@ class webGL {
 
 		//? - =====================  STYLES  ========================= -//
 		//? - =====================  STYLES  ========================= -//
-		this.style = new PIXI.TextStyle({
-			fontFamily: 'pangramlight',
-			fontSize: this.dom.fontSize,
-			fill: ['#eee'],
-		});
+		if ($('.header-home').length > 0) {
+			this.style = new PIXI.TextStyle({
+				fontFamily: 'pangramlight',
+				fontSize: this.dom.fontSize,
+				fill: ['#eee'],
+			});
+		}
+		if ($('.main-single').length > 0) {
+			this.style = new PIXI.TextStyle({
+				fontFamily: 'pangramlight',
+				fontSize: this.dom.fontSize,
+				fill: ['#000'],
+			});
+		}
 		this.styleMask = new PIXI.TextStyle({
 			fontFamily: 'pangramlight',
 			fontSize: this.dom.fontSize,
@@ -101,9 +125,9 @@ class webGL {
 		this.createTitles(this.style, this.styleMask, this.bgContainer, this.bgContainerImages, this.bgContainerMask, this.arrays.pixiTitles, this.arrays.pixiTitlesMask, this.bgDyna)
 
 		this.onClick()
-		this.onTicker(document.querySelectorAll('.title-folio'))
-		this.onMouseMove($('.title-folio'))
-		this.onHover($('.title-folio'))
+		this.onTicker(document.querySelectorAll(this.titleSelector))
+		this.onMouseMove($(this.titleSelector))
+		this.onHover($(this.titleSelector))
 
 		this.applyShader(this.filter)
 		this.onResize(this.dom.title, this.arrays)
@@ -121,8 +145,9 @@ class webGL {
 	}
 
 	createTitles(style, styleMask, bgContainer, bgContainerImages, bgContainerMask, pixiTitles, pixiTitlesMask, bgs) {
-		let heightEachTitle = $('.links-folio__each').height(),
-			$jsImg = document.querySelectorAll('.js-img'),
+
+		let heightEachTitle = $('.links-folio__each').height();
+		let $jsImg = document.querySelectorAll('.js-img'),
 			that = this
 
 		// ___________________________________ LOOP
@@ -130,7 +155,7 @@ class webGL {
 			let posX = item.getBoundingClientRect().left
 			let changeText = item.textContent
 			let basicText = new PIXI.Text(changeText, style)
-			basicText.position.x = posX
+			basicText.position.x = posX - 1
 			basicText.position.y = 0
 			bgContainer.addChild(basicText)
 			pixiTitles.push(basicText)
@@ -181,7 +206,7 @@ class webGL {
 	onMouseMove($dynaTitle) {
 		let pos = { x: 0, y: 0 }; //Cursor position
 		let follow = [this.mask, this.bgContainerImages]
-		let $title = $('.title-folio')
+		let $title = $(this.titleSelector)
 		let that = this
 		$dynaTitle.mousemove(function (e) {
 			parallaxCursor(e, this, 1);
@@ -201,6 +226,7 @@ class webGL {
 	//? - =====================  BIND HOVER  ========================= -//
 	//? - =====================  BIND HOVER  ========================= -//
 	onHover($title) {
+		console.log('hover', $title);
 		let that = this
 		$title.hover(function () {
 			let indexThis = $title.index(this)
@@ -219,7 +245,7 @@ class webGL {
 	//? - =====================  ON CLICK ========================= -//
 	onClick() {
 		let that = this
-		let $title = $('.title-folio')
+		let $title = $(this.titleSelector)
 		$title.click(function () {
 			let indexThis = $title.index(this)
 			//webglRender.onClick($(this), indexThis)
@@ -284,34 +310,30 @@ class webGL {
 			sizeH = h / 1.875
 			that.destroy()
 			that.init()
+			/*if ($('.page-home').length > 0) {
+				that.bgDyna.width = sizeW
+				that.bgDyna.height = sizeH
 
-			// if ($('.page-home').length > 0) {
-
-			// 	that.bgDyna.width = sizeW
-			// 	that.bgDyna.height = sizeH
-
-			// 	$titles.forEach(function (item, index) {
-			// 		let posX = item.getBoundingClientRect().left
-			// 		let posY = item.getBoundingClientRect().top
-			// 		$arrays.pixiTitles[index].position.x = posX
-			// 		$arrays.pixiTitles[index].position.y = posY
-			// 		$arrays.pixiTitlesMask[index].position.x = posX
-			// 		$arrays.pixiTitlesMask[index].position.y = posY
+				$titles.forEach(function (item, index) {
+					let posX = item.getBoundingClientRect().left
+					let posY = item.getBoundingClientRect().top
+					$arrays.pixiTitles[index].position.x = posX
+					$arrays.pixiTitles[index].position.y = posY
+					$arrays.pixiTitlesMask[index].position.x = posX
+					$arrays.pixiTitlesMask[index].position.y = posY
 
 
-			// 		// console.log(w, h)
-
-			// 		// sizeW = w / 2.25
-			// 		// sizeH = h / 2.25
-			// 		// $bgDyna[index].width = sizeW
-			// 		// $bgDyna[index].height = sizeH
-			// 		// that.bgDyna.width = sizeW
-			// 		// that.bgDyna.height = sizeH
-			// 		that.mask.width = sizeW
-			// 		that.mask.height = sizeH
-			// 	});
-			// 	that.app.renderer.resize(window.innerWidth, that.sizes.ctnTitleHeight + (h / 3));
-			// }
+					sizeW = w / 2.25
+					sizeH = h / 2.25
+					$bgDyna[index].width = sizeW
+					$bgDyna[index].height = sizeH
+					that.bgDyna.width = sizeW
+					that.bgDyna.height = sizeH
+					that.mask.width = sizeW
+					that.mask.height = sizeH
+				});
+				that.app.renderer.resize(window.innerWidth, that.sizes.ctnTitleHeight + (h / 3));
+			}*/
 		})
 	}
 
@@ -320,7 +342,7 @@ class webGL {
 	applyShader(filter) {
 		filter.uniforms.frequency = 18;
 		filter.uniforms.amplitude = 0;
-		filter.uniforms.amplitudeY = 0.035;
+		filter.uniforms.amplitudeY = 0.015;
 		filter.uniforms.amplitudeX = 0;
 		filter.uniforms.speed = 8.0;
 		filter.uniforms.time = 20;
@@ -359,7 +381,7 @@ export const webglRender = new webGL()
 //? - =====================  BIND CLICK  ========================= -//
     //? - =====================  BIND CLICK  ========================= -//
 /*onClick($title, $arrays, clicked, scrolledWebGL) {
-    tlWebGLTransition
+	tlWebGLTransition
 	   .to(this.arrays.pixiTitles, this.config.timeFade, { alpha: 0 }, 0)
 	   .to([this.arrays.bgContainerImages, this.arrays.bgContainerMask, this.arrays.mask], this.config.timeFade / 1.2, { alpha: 0 }, 0)
 	   .to(this.arrays.pixiTitles[clicked], this.config.timeFade, { alpha: 1 }, 0)
@@ -367,12 +389,12 @@ export const webglRender = new webGL()
 	   .to(this.filter.uniforms, 1, { frequency: 20, amplitudeY: 0.3, ease: Power2.easeIn }, 0)
 	   .to(this.filter.uniforms, 1, { frequency: 0, amplitudeY: 0, ease: Power2.easeOut }, 1)
 	   .to(this.arrays.pixiTitles[clicked].style, this.config.timeFade * 2, { delay: 1, fontSize: 355, ease: Power3.easeInOut }, 2)
-    this.arrays.pixiTitles[clicked].style.fill = ['#000000'];
-    this.arrays.pixiTitles[clicked].filters = [this.filter];
-    //size
-    //TweenMax.to(this.arrays.pixiTitles[clicked].style, 2, { fontSize: fontSize + 200, ease: Power3.easeInOut })
-    //goSvg()
-    //TweenMax.delayedCall(this.config.timeFade / 1.2, () => {
-    //TweenMax.to(this.arrays.pixiTitles[clicked], 2, { x: ((w / 100) * 10.2), y: (((h / 100) * 44) - this.sizes.gap), ease: Power3.easeInOut })
-    //})
+	this.arrays.pixiTitles[clicked].style.fill = ['#000000'];
+	this.arrays.pixiTitles[clicked].filters = [this.filter];
+	//size
+	//TweenMax.to(this.arrays.pixiTitles[clicked].style, 2, { fontSize: fontSize + 200, ease: Power3.easeInOut })
+	//goSvg()
+	//TweenMax.delayedCall(this.config.timeFade / 1.2, () => {
+	//TweenMax.to(this.arrays.pixiTitles[clicked], 2, { x: ((w / 100) * 10.2), y: (((h / 100) * 44) - this.sizes.gap), ease: Power3.easeInOut })
+	//})
 }*/

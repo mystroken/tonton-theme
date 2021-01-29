@@ -13,8 +13,8 @@ class Home {
 		/*let dynaTitle = this.contentPage.querySelectorAll('.title-folio')
 		let $dynaTitle = $('.title-folio')
 		$dynaTitle.click(function () {
-		    let indexThis = $('.title-folio').index(this)
-		    webglRender.onClick($(this), indexThis)
+			let indexThis = $('.title-folio').index(this)
+			webglRender.onClick($(this), indexThis)
 		});
   
 		//instance WEBGL
@@ -41,8 +41,8 @@ class Home {
 		let dynaTitle = this.contentPage.querySelectorAll('.title-folio')
 		let $dynaTitle = $('.title-folio')
 		$dynaTitle.click(function () {
-		    let indexThis = $('.title-folio').index(this)
-		    webglRender.onClick($(this), indexThis)
+			let indexThis = $('.title-folio').index(this)
+			webglRender.onClick($(this), indexThis)
 		});
   
 		//instance WEBGL
@@ -62,7 +62,7 @@ class Home {
 	//? - =========================  SWITCH COLORS  ========================= -//
 	// DEACTIVED TO GOOEYMENU SWITCH COLORS
 	/*switchColors() {
-	    let $btnSwitchDark = $('.switch-dark'),
+		let $btnSwitchDark = $('.switch-dark'),
 		   $btnSwitchLight = $('.switch-light'),
 		   $tSwitch = $('.t-switch'),
 		   $eSwitch = $('.e-switch'),
@@ -71,7 +71,7 @@ class Home {
 		   timeSwitch = .8
  
  
-	    let tlSwitchModeColor = new TimelineMax({ paused: true })
+		let tlSwitchModeColor = new TimelineMax({ paused: true })
 		   .to($tSwitch, timeSwitch, { color: '#000', ease: Power3.easeInOut }, 0)
 		   .to($eSwitch, timeSwitch, { backgroundColor: '#000', ease: Power3.easeInOut }, 0)
 		   .to($eSwitch, timeSwitch, { backgroundColor: '#000', ease: Power3.easeInOut }, 0)
@@ -81,17 +81,17 @@ class Home {
 		   .to('footer ', timeSwitch, { backgroundColor: '#000', ease: Power3.easeInOut }, 0)
 		   .to('footer .footer__fader, .gap-black', timeSwitch, { backgroundColor: '#fff', ease: Power3.easeInOut }, 0)
  
-	    $btnSwitchLight.click(function () {
+		$btnSwitchLight.click(function () {
 		   
 		   $('.shape-overlays__path').removeAttr("d");
 		   console.log($('.shape-overlays__path'));
 		   tlSwitchModeColor.play()
 		   webglRender.switchToBlack()
-	    });
-	    $btnSwitchDark.click(function () {
+		});
+		$btnSwitchDark.click(function () {
 		   tlSwitchModeColor.reverse()
 		   webglRender.switchToWhite()
-	    });
+		});
 	}*/
 
 	entering() {
@@ -107,7 +107,7 @@ class Home {
 		//? - =========================  ANIMATION ON SCROLL  ========================= -//
 
 		//-_____________________________ Options
-		let tlHomeMenu = new TimelineMax()
+		/* let tlHomeMenu = new TimelineMax()
 			.staggerFrom('.page-home .options .wrapped', 1.8, { yPercent: 100, ease: Power3.easeOut }, 0.25)
 			.from('.page-home .options .separator', 1.8, { scaleX: 0, transformOrigin: 'left', ease: Power3.easeOut }, 1)
 		let sceneHomeMenu = new ScrollMagic.Scene({
@@ -116,10 +116,10 @@ class Home {
 		})
 			.reverse(false)
 			.setTween(tlHomeMenu)
-			.addTo(controller);
+			.addTo(controller); */
 
 		//-_____________________________ About
-		let tlHomeAbout = new TimelineMax()
+		/* let tlHomeAbout = new TimelineMax()
 			.staggerFrom('.about .wrapped', 1.8, { yPercent: 100, ease: Power3.easeOut }, 0.25)
 
 		let sceneAbout = new ScrollMagic.Scene({
@@ -128,11 +128,18 @@ class Home {
 		})
 			.reverse(false)
 			.setTween(tlHomeAbout)
-			.addTo(controller);
+			.addTo(controller); */
 
 		//-_____________________________ About P
 		let tlHomeAboutP = new TimelineMax()
 			.staggerFrom('.about .hold-p p', 1.8, { yPercent: 100, lineHeight: '50px', opacity: 0, ease: Power3.easeOut }, 0.25)
+			.from('.about video', 1.8, { x: -350, opacity: 0, ease: Power3.easeOut }, 0.25)
+			.to('.about video', .9, { delay: -2.2, transform: 'scale(.9)' })
+
+		const $video = $('.about video');
+		const videoTop = $('.about video').offset().top;
+		const videoHeight = $('.about video').height();
+		const pageHeight = $(window).innerHeight();
 
 		let sceneAboutP = new ScrollMagic.Scene({
 			triggerElement: '.hold-p',
@@ -140,7 +147,19 @@ class Home {
 		})
 			.reverse(false)
 			.setTween(tlHomeAboutP)
-			.addTo(controller);
+			.addTo(controller)
+			.on('enter', () => {
+				$video[0].play();
+				console.log('entering')
+			});
+
+		$(window).on('scroll', () => {
+			if ($('html').scrollTop() > videoTop + videoHeight || $('html').scrollTop() + pageHeight < videoTop) {
+				if (!$video[0].paused) $video[0].pause();
+			} else {
+				if ($video[0].paused) $video[0].play();
+			}
+		})
 
 		//-_____________________________ Works
 		let tlHomeWorks = new TimelineMax()

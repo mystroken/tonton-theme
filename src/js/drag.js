@@ -2,12 +2,13 @@
 const dragJs = function () {
 	if ($('.box').length > 0) {
 
-		let winScreen = $(window).width();
+		let winScreen = $(window).innerWidth();
 		let $box = $('.box')
 		let $nPhotos = $box.length;
 		let $totalPhotos = $box.length;
 		let sizePhoto = $(".each-inner-page").outerWidth(true);
-		let sizeHolder = $nPhotos * sizePhoto;
+		const leftOffset = winScreen * .1; //10vw margin left
+		let sizeHolder = $nPhotos * sizePhoto + leftOffset;
 		let $holder = $(".holder")[0];
 		TweenMax.set($holder, { width: sizeHolder });
 		let $target = 0;
@@ -28,10 +29,11 @@ const dragJs = function () {
 
 		function setProgress() {
 			$target = Math.round($holder._gsTransform.x / sizePhoto);
-			changeNumb = (Math.round(($holder._gsTransform.x) / sizePhoto) * -1) + 1
+			console.log($holder._gsTransform.x, sizePhoto);
+			changeNumb = (Math.round(($holder._gsTransform.x - leftOffset) / sizePhoto) * -1) + 1
 
 			TweenLite.set(progressBars, {
-				scaleX: ($holder._gsTransform.x / (sizeHolder - (winScreen * .8)) * - 1)
+				scaleX: ($holder._gsTransform.x / (sizeHolder - winScreen) * - 1)
 			});
 			$('.actv').text(`0${changeNumb}`);
 		}
@@ -50,7 +52,7 @@ const dragJs = function () {
 			onThrowUpdate: setProgress,
 			snap: {
 				/*x: function (endValue) {
-				    return Math.round(endValue / sizePhoto) * sizePhoto;
+					return Math.round(endValue / sizePhoto) * sizePhoto;
 				}*/
 			}
 		});

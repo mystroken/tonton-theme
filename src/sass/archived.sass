@@ -3,7 +3,40 @@
     position: fixed
     width: 100vw
     height: 100vh
-    background: #eee
+    background: #000
+
+    .page-title
+        position: relative;
+        display: inline-block;
+        margin: 2vw 0 2vw 3vw;
+    
+    h1
+        color: #fff;
+        font-weight: bold;
+        font-size: 8.3vw;
+        text-transform: uppercase;
+        
+        span
+            display: block;
+            &.offset
+                margin-left: 5vw;
+    
+    .instructions
+        position: absolute;
+        color: #fff;
+        right: .6vw;
+        top: 1.2vw;
+        font-size: 2.2vw;
+        text-transform: uppercase;
+
+    .scroll-indicator
+        position: absolute;
+        bottom: 2vw;
+        left: 3vw;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 2.2vw;
+
 .page-archived
     @include desk
         height: 1200vh
@@ -173,18 +206,29 @@
 .modal-zoom
     z-index: 3
     &__img
-        height: 75vh
+        height: 60vh
 
         img
             object-fit: contain
+            margin: 0 auto;
+
+        p.name-wrapper
+            font-size: 2.2vw;
+            color: #B2B2B2
+            @include largest
+                font-size: 32px;
+            a
+                color: #fff;
+                margin-left: 15px
 
     &__close
         font-family: 'pangramlight';
-        width: 70px;
-        height: 70px;
+        width: 4vw;
+        height: 4vw;
         border: 1px solid rgba(255, 255, 255, .15);
         border-radius: 50%;
-        left: 8vw;
+        left: 3vw;
+        top: 1.5vw;
         font-size: 10px;
         cursor: pointer;
         transition: .5s border ease-out

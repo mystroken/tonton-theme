@@ -3,39 +3,38 @@ footer.footer.scroll-footer
         //- =========================  CTA                       
         .footer__cta
             .footer__cta__title
-                h1.title-home.t-switch Let's do 
-                h1.title-home.t-switch something
-                h1.title-home.t-switch.no-desk amazing
+                h1.title-home.t-switch Let&rsquo;s tell 
+                h1.title-home.t-switch your story
             
             .footer__cta__email
-                a(href="mailto:hello@hellotonton.com")
-                    button.e-curp.hover-line.scale
-                        span.e-sans.t-switch-gray.t-switch Hello@hellotonton.com
-                            .line.e-wp.e-switch-gray
+                script.
+                    user = 'hello';
+                    site = 'hellotonton';
+                    document.write('<a href=\"mailto:' + user + '@' + site + '.com\"><button class="e-curp hover-line scale"><span class="e-sans t-switch-gray t-switch">');
+                    document.write(user + '[at]' + site + '[dot]com<div class="line e-wp e-switch-gray"></div></span></button></a>');
 
         //- =========================  SOCIAIS               
         .footer__sociais.e-wp
-            a(href="#")
+            a(href="https://dribbble.com/jaslintonton")
                 button.e-curp.hover-line.scale
                     span.t-switch-gray Dribbble
                     .line-link.e-wp.e-switch-gray
 
-            a(href="#")
+            a(href="https://www.behance.net/jtonton")
                 button.e-curp.hover-line.scale
                     span.t-switch-gray Behance
                     .line-link.e-wp.e-switch-gray
 
-            a(href="#")
+            a(href="https://linkedin.com/in/jaslintonton")
                 button.e-curp.hover-line.scale
                     span.t-switch-gray LinkedIn
                     .line-link.e-wp.e-switch-gray
 
         //- =========================  SOCIAIS               
         .footer__rights.e-wp
-            span.t-switch-gray  &copy; #[span.year-js.t-switch-gray 2020]. All Rights Reserved.
+            span.t-switch-gray &copy; 2021<?php if(date('Y') > 2021) echo '&ndash;'.date('Y')?>. All Rights Reserved.
             
-            a(href="https://victor.work" target="_blank")
-                button.e-curp.hover-line.scale
+            span.scale
                     span.t-switch-gray Developed by: 
                     span.vw.t-switch-gray.e-rel Victor Work
                         .line-link.e-wp.e-switch-gray

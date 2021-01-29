@@ -9,17 +9,69 @@ block content
         header.header-about.e-rel
             .all-projects.e-abs
                 a(href!="<?php echo get_site_url(); ?>" data-to="home")
-                    button.e-curp.e-rel.e-flex.scale.hover-line
-                        .cross.e-rel
-                            .cross__line.line1.e-black.e-abs
-                            .cross__line.line2.e-black.e-abs
-                        span.t-black.e-sans.t-switch-a Home
-                            .line-link.e-wp.e-switch-gray.e-switch
-
+                    button.page__close.e-rel.e-curp.bd-black
+                        span.t-black.e-sans.t-switch BACK
+            
             .header-about__title.e-hold
-                h1.t-switch-a Hello Again, Stranger
+                h1.t-switch You&rsquo;re interested. I&rsquo;m blushing.
 
-            .header-about__content.e-hold
+        main
+            .about-me.e-hold
+                p.headshot
+                    img(src!='<?php echo get_template_directory_uri(); ?>/images/jaslin-tonton-headshot.png' alt="headshot")
+                .copy
+                    h2.t-switch.animate Jaslin Tonton Digital Designer &amp; Storyteller. 
+                    p.t-switch-gray.animate As a designer, I love simplifying complex problems and telling engaging stories. I believe the most innovative solution to a complex problem is often the simplest. I bring together my years of design and life experience to help people and brands tell their&nbsp;stories.
+            
+            section.beginning.e-hold.callout
+                p.mini-heading.t-switch.animate-single In the beginning
+                h3.lg-heading.t-switch.animate Made in Haiti. Designed in Orlando.
+                .copy
+                    p.t-switch-gray.animate Born and raised in Haiti until the age of 13. Then I moved to the states, where my design journey begins. Designed my first MySpace page and thought, &lsquo;Hey, this design thing is pretty easy.&rsquo; Ah, the blissful ignorance of&nbsp;youth.
+                    p.t-switch-gray.animate Much #[del older] #[ins wiser] and humbler now, living in the sunshine state, where I&rsquo;m crafting, directing, and perfecting my skills daily as a #[b Creative Director] at #[b Very Big&nbsp;Things].
+
+            section.process.e-hold.three-col-block
+                p.mini-heading.t-switch.animate-single My process
+                h3.lg-heading.t-switch.animate How it all comes together.
+                ul
+                    li
+                        p.t-switch
+                            strong.t-switch.animate-single Learning
+                            q.t-switch.animate Listen to understand, not just to&nbsp;answer.
+                        p.t-switch-gray.animate Understanding the user&rsquo;s needs and the product&rsquo;s objectives are my first steps to solving any&nbsp;problem.
+                    li
+                        p.t-switch
+                            strong.t-switch.animate-single Thinking
+                            q.t-switch.animate Think of many things&mdash;do&nbsp;one.
+                        p.t-switch-gray.animate I set aside all assumptions and approach each project with an open mind. Hypothesize, ideate, test, and&nbsp;reiterate.
+                    li
+                        p.t-switch
+                            strong.t-switch.animate-single Creating
+                            q.t-switch.animate Beauty is a good letter of&nbsp;introduction.
+                        p.t-switch-gray.animate You cannot have an incredible user experience without great aesthetics. It's all in the balance. I spend endless time stressing the small details because they&nbsp;matter.
+
+            section.interlude.e-white
+                .e-hold.callout
+                    p.mini-heading.t-switch-a.animate-single Interlude
+                    h3.lg-heading.t-switch-a.animate Much more than design.
+                    .copy
+                        p.t-switch-gray.animate Being a designer is important, but more than that I truly value my family&mdash;being a husband and a father is my greatest&nbsp;achievement. 
+                        
+                        p.t-switch-gray.animate When I'm not busy telling digital stories, you&rsquo;ll find me &lsquo;bending it like Beckham&rsquo; at the soccer field or watching Moana for the 88th time with my wife and&nbsp;daughters.
+
+                        p.t-switch
+                            q.animate &ldquo;Hire him&mdash;he&rsquo;s a good son. He calls, and not just on holidays.&rdquo;
+                            cite.animate-single Mom
+
+            section.wrapup.e-hold.callout
+                p.mini-heading.t-switch.animate-single I love what I do
+                h3.lg-heading.t-switch.animate Time flies when I&rsquo;m designing.
+                .copy
+                    p.t-switch-gray #[strong.years.t-switch.animate-years <?php echo date('Y') - 2011; ?> #[span.img-mask #[img(src!='<?php echo get_template_directory_uri(); ?>/images/computer-emoji-black.png' alt="headshot").emoji]]] #[span.animate years of learning, thinking, creating, and telling compelling stories for companies and individuals&nbsp;worldwide.]
+                    p.t-switch-gray.animate I&rsquo;ve succeeded and failed at times. But I have never failed to learn from my experiences. I look forward to the next 10 years with glee and gladness in my&nbsp;heart.
+
+
+            //-.header-about__content.e-hold
                 .header-about__content__img.full-rell
                     picture.tt_emoji
                         source(srcset!='<?php echo get_template_directory_uri(); ?>/images/webp/tonton_emoji.webp 1x', type='image/webp')
@@ -35,14 +87,14 @@ block content
 
                 - var svgNight = '<svg xmlns="http://www.w3.org/2000/svg" class="night" viewBox="0 0 312.812 312.812"><path d="M305.2 178.159c-3.2-.8-6.4 0-9.2 2-10.4 8.8-22.4 16-35.6 20.8-12.4 4.8-26 7.2-40.4 7.2-32.4 0-62-13.2-83.2-34.4-21.2-21.2-34.4-50.8-34.4-83.2 0-13.6 2.4-26.8 6.4-38.8 4.4-12.8 10.8-24.4 19.2-34.4 3.6-4.4 2.8-10.8-1.6-14.4-2.8-2-6-2.8-9.2-2-34 9.2-63.6 29.6-84.8 56.8-20.4 26.8-32.4 60-32.4 96 0 43.6 17.6 83.2 46.4 112s68 46.4 112 46.4c36.8 0 70.8-12.8 98-34 27.6-21.6 47.6-52.4 56-87.6 1.6-5.6-1.6-11.2-7.2-12.4z"/></svg>'
                 .header-about__content__texts.js-wrap
-                        p In case you don’t remember—the name is Tonton. Yup, it’s so nice you say it twice.
+                        p In case you don&rsquo;t remember, the name is Tonton. Yup, it&rsquo;s so nice you say it twice.
                         p I am a UI/UX Designer by !{svgSun} and a #[span.redact Redacted] by !{svgNight}
-                        p I designed my first digital piece for my Myspace page when I was in high school, and I thought, this design thing is pretty easy. Ah, the blissful ignorance of youth.  
-                        p A decade later, I'm much wiser, #[span.redact Redacted], and a much better designer than I've ever been (seriously, I'm embarrassed by those Myspace pages now. )  
-                        p I've won awards, worked for some fantastic clients, but most importantly, my final designs handoff only have 14 shades of grays. 
+                        p I designed my first digital piece for my MySpace page when I was in high school, and I thought, &lsquo;Hey, this design thing is pretty easy.&rsquo; Ah, the blissful ignorance of youth.  
+                        p A decade later, I&rsquo;m a much wiser, much #[span.redact Redacted], and much better designer than I&rsquo;ve ever been (seriously, I&rsquo;m embarrassed by those MySpace pages now.)  
+                        p I&rsquo;ve won awards and worked for some fantastic clients, but most importantly, my final design handoffs only have 14 shades of gray. (Or is it grey?)
 
-        main.main-about
-            section.code.e-white
+        //-main.main-about
+            //-section.code.e-white
                 .code__hold.e-hold
                     .code__title
                         h1.t-switch-a Codes of Honor
@@ -50,7 +102,7 @@ block content
                     .code__items
                         .code__items__line
                             span.t-switch-a Accountability
-                            span Yeah, my bad that’s on me.
+                            span Yeah, my bad that&rsquo;s on me.
                         .code__items__line
                             span.t-switch-a Credibility
                             span Word is bond!
@@ -58,14 +110,14 @@ block content
                             span.t-switch-a Consistency
                             span Wu-tang Forever
 
-            section.mom.e-white
+            //-section.mom.e-white
                 .mom__hold.e-hold
                     .js-wrap
-                        p When I'm not crafting pixels, you'll find me with my family doing something silly, or watching Bluey with my 4-and-6-year-old daughters. 
+                        p When I&rsquo;m not crafting pixels, you&rsquo;ll find me with my family doing something silly, or watching Bluey with my <?=floor(date('Y.m')-2016.09)?>- and <?=floor(date('Y.m')-2014.08)?>-year-old daughters. 
 
                     .js-wrap
-                        h6.e-serif.t-switch-a Hire him—he's a good kid. He calls, and not just on holidays. 
+                        h6.e-serif.t-switch-a Hire him&mdash;he&rsquo;s a good kid. He calls, and not just on holidays. 
                     .js-wrap
-                        h6.e-serif.this-mom.t-switch-a  — Mom
+                        h6.e-serif.this-mom.t-switch-a  &mdash;Mom
         
         <?php include 'includes/myfooter.php'; ?>

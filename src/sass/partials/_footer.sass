@@ -4,7 +4,8 @@
 	@include desk
 		position: relative
 		width: 100vw
-		padding: 0
+		padding: 0 3%
+		box-sizing: border-box;
 		height: 100vh
 		z-index: -1
 
@@ -17,6 +18,7 @@
 	.hold-home
 		@include desk
 			height: 100%
+			width: calc(100% - 14vw)
 			display: flex
 			flex-direction: column
 			justify-content: center
@@ -39,6 +41,9 @@
 
 	&__cta
 		@include desk
+
+		&__title
+			margin-left: -.8vw
 
 		&__email
 			padding-top: 87px
@@ -85,31 +90,32 @@
 		padding-top: 80px;
 		font-size: 21px;
 		display: inline-flex;
-		justify-content: space-between;
+		justify-content: center;
 		@include desk
 			//padding-top: 213px;
 			//font-size: 32px;
-			width: 81%;
-			margin-left: 10%;
+			margin: 0 auto;
 			padding: 0;
-			padding-top: 6vh;
+			padding-top: 11vh;
 			font-size: 1.5vw;
-
+		a
+			margin-right: 9vw;
+			&:last-child
+				margin-right: 0;
 
 
 
 	&__rights
 		display: inline-flex;
 		justify-content: space-between;
-		padding-top: 77px;
+		padding-top: 97px;
 		font-size: 9px;
 		padding-bottom: 60px;
 		@include desk
-			font-size: 1.2vw;
-			width: 105.6%;
-			margin-left: -7%;
+			font-size: 1vw;
+			width: 100%;
 			padding: 0;
-			padding-top: 12vh;
+			padding-top: 15vh;
 
 
 

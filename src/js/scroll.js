@@ -1,5 +1,7 @@
 import { archived } from "./archived"
 
+let homeAppeared = false;
+
 class Smooth {
 	constructor() {
 	}
@@ -7,6 +9,7 @@ class Smooth {
 	//? - =========================  FOOTER PARALLAX  ========================= -//
 	//? - =========================  FOOTER PARALLAX  ========================= -//
 	isSingle(scrolled) {
+		//console.log(scrolled)
 		let h = window.innerHeight
 		//? - =========================  SINGLE  ========================= -//
 		//? - =========================  SINGLE  ========================= -//
@@ -14,13 +17,20 @@ class Smooth {
 		$homeStick = $('.home-page__text.e-fixed')[0]
 		$triggerStickHome = $('.home-page__image')[0]
 		$realeaseHomeStick = document.querySelector('.js-release-text-home-page')
+		const homeVisible = $('.home-page__text.e-fixed .lineChild').css('opacity') === '1';
 
 		// ___________________________________ TEXT HOME PAGE STICKED
 		if ($($triggerStickHome).length > 0) {
-			let distanceSectionPin = $triggerStickHome.getBoundingClientRect().top
+			const imageTop = $triggerStickHome.getBoundingClientRect().top - 66;
+			let distanceSectionPin = $triggerStickHome.getBoundingClientRect().top - h;
 			let distanceSectionRelease = $realeaseHomeStick.getBoundingClientRect().top
+			const textBlockTop = $homeStick.getBoundingClientRect().top;
+			//console.log($triggerStickHome.getBoundingClientRect().top, $realeaseHomeStick.getBoundingClientRect().top);
 			if (distanceSectionPin < 0 && distanceSectionRelease > h) {
-				TweenMax.set($homeStick, { position: 'fixed', top: scrolled, ease: Linear.easeNone })
+				// scroll + window height - padding top - height - padding bottom
+				let scrollOffset = parseInt(scrolled) + h - 125 - $('.home-page__text.e-fixed').height() - 86;
+				TweenMax.set($homeStick, { position: 'fixed', top: scrollOffset, ease: Linear.easeNone })
+				//h - $('.home-page__image').height() - 86
 			}
 		}
 	}
@@ -33,10 +43,12 @@ class Smooth {
 
 		if ($($parallaxContainer).length > 0) {
 			$parallaxContainer.forEach(container => {
-				const paddingTop = 220;
+				const paddingTop = 325;
 				const { top, height, bottom } = container.getBoundingClientRect()
-				const bgScaleMin = 2
-				const bgScaleMaxToAdd = -1
+				/* const bgScaleMin = 2
+				const bgScaleMaxToAdd = -1 */
+				const bgScaleMin = 1.3
+				const bgScaleMaxToAdd = -.3
 
 				// When positive,
 				// The section is below the screen.
@@ -45,16 +57,17 @@ class Smooth {
 				// Until
 				// -height
 				// console.log((top + paddingTop)-h)
-				const computedTop = (top + paddingTop)-h
+				const computedTop = (top + paddingTop) - h
 				const inView = (computedTop < 0 && bottom > 0)
 				const scrollableMax = (height + h) - paddingTop
 				const currentScrolled = -1 * computedTop
-				const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled/scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin
+				const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled / scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin
 				const opacity = (inView) ? 1 : 0
 
 				const $parallaxBackground = container.querySelector('.parallax__bg')
 				if ($($parallaxBackground).length > 0) {
 					$parallaxBackground.style.transform = `translate3d(0, ${scrolled}px, 0) scale(${scale})`
+					//$parallaxBackground.style.transform = `scale(${scale})`
 					$parallaxBackground.style.opacity = opacity
 				}
 			})
@@ -90,7 +103,6 @@ class Smooth {
 			$('html').removeClass('is-top')
 		}
 	}
-
 
 	//? - =========================  SCROLL  ========================= -//
 	//? - =========================  SCROLL  ========================= -//

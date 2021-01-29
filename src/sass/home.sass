@@ -2,18 +2,22 @@
 
 .hold-home
     @include desk
-        width: 67.5vw
-        margin-left: 15.7vw;
+        // width: 67.5vw
+        margin-left: 9vw;
+        margin-right: 5vw;
 
 
 h1.title-home
     font-size: 48px
     line-height: 52px
     letter-spacing: 1px
+    text-transform: uppercase;
     @include desk
         font-size: 10.1vw;
         line-height: 11vw
-        letter-spacing: -5px
+    &.line2
+        margin-left: -.6vw;
+        text-align: left;
 
 .page-home
     //-background: #000
@@ -35,7 +39,7 @@ h1.title-home
         font-size: 26px
         @include desk
             padding-top: 0
-            margin-top: 145px
+            margin-top: 4vw
 
         .line
             width: 100%
@@ -46,20 +50,15 @@ h1.title-home
         margin-top: 25px
         opacity: 0
 
-
     &__title
         text-align: right
         margin-top: 105px
         white-space: nowrap;
-        @include desk
-            margin-top: -31px
-
+        text-transform: uppercase;
 
         .pushoff
             @include desk
                 transform: translateX(-9px);
-
-
 
     &__infos
         text-align: right
@@ -70,14 +69,17 @@ h1.title-home
         justify-content: space-between;
         line-height: 16px
         @include desk
-            width: 91.3%;
+            width: 90.3%;
+            margin-left: 9vw;
+            padding-right: 5vw;
             font-size: 1.6vw;
             padding-top: 60px;
-            line-height: 3vw;
+            line-height: 2.5vw;
+            box-sizing: border-box;
 
         &__role
             @include desk
-                margin-left: -13%
+                //-margin-left: -13%
 
         &__available
             text-align: left
@@ -150,21 +152,33 @@ h1.title-home
 .about
     padding-top: 180px
     @include desk
-        padding-top: 430px;
+        padding-top: 200px;
+
+    .scroll-about
+        display: flex;
+        align-items: flex-start;
+    
+    video
+        margin-right: 140px;
+
+    .about-header
+        font-weight: 900;
+        font-size: 3vw;
+        opacity: 1;
+        margin-bottom: 48px;
+        @include serif;
 
     .hold-p
         @include desk
-            margin-left: 424px;
-            margin-top: -112px;
-            width: 42%;
+            width: 520px;
 
 
     p
-        margin-top: 35px
+        margin-bottom: 45px;
         opacity: 0.7
         @include desk
-            font-size: 1.9vw;
-            line-height: 3vw;
+            font-size: 2.2vw;
+            line-height: 1.5em;
             margin-top: 20px;
 
 
@@ -178,7 +192,7 @@ h1.title-home
 .works
     padding-top: 180px
     @include desk
-        padding-top: 415px;
+        padding-top: 200px;
 
     .text-padding
         padding-bottom: 29px
@@ -187,12 +201,14 @@ h1.title-home
 
     .links-folio
         text-align: right;
+        //padding-bottom: 35vh;
+        padding-bottom: calc(200px - 102vw);
 
 
         button
             padding: 11px 0;
             @include desk
-                padding: 15px 0;
+                padding: 15px 0 15px auto;
 
 
         h1
@@ -271,10 +287,12 @@ h1.title-home
 
 
         .each-field
-            margin-bottom: 33px;
+            margin-bottom: 50px;
             @include desk
                 display: inline-flex;
                 width: 100%;
+            &:last-child
+                margin-bottom: 0;
 
 
             .site
@@ -291,6 +309,7 @@ h1.title-home
             .recog
                 margin-top: 4px;
                 font-size: 21px;
+                line-height: 1.5em;
 
                 .t-opac
                     @include desk

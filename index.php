@@ -6,8 +6,8 @@
        echo single_cat_title();
    else
        the_title();
-   echo ' | '.get_bloginfo('name');  
-?></title><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/fonts/fonts.css"><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/app.css"><?php wp_head(); ?></head><body><?php include 'includes/mylottie.php'; ?>
+   echo ' | '.get_bloginfo('name'); 
+?></title><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/fonts/fonts.css"><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/app.css"><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script><?php wp_head(); ?></head><body><?php include 'includes/mylottie.php'; ?>
 <?php include 'includes/mymenu.php'; ?>
 <?php include 'includes/myoverlay.php'; ?>
 <?php include 'includes/mycanvas.php'; ?>

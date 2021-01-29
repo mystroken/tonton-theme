@@ -1,207 +1,253 @@
 extends ../index
 block title
-	<?php
-	|   //Template Name: Single
-	|?>
+    <?php
+    |   //Template Name: Single
+    |?>
 
 block content
-	- var arrowLeft = '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 492 492"><path d="M464.3 207.4l0.8 0.2H135.9l103.5-103.7c5.1-5.1 7.8-11.9 7.8-19.1 0-7.2-2.8-14-7.8-19.1L223.3 49.5c-5.1-5.1-11.8-7.9-19-7.9 -7.2 0-14 2.8-19 7.8L7.8 226.9C2.8 232 0 238.8 0 246c0 7.2 2.8 14 7.8 19.1l177.4 177.4c5.1 5.1 11.8 7.8 19 7.8 7.2 0 13.9-2.8 19-7.8l16.1-16.1c5.1-5.1 7.8-11.8 7.8-19 0-7.2-2.8-13.6-7.8-18.7L134.7 284.4h330c14.8 0 27.3-12.8 27.3-27.6v-22.8C492 219.2 479.2 207.4 464.3 207.4z"/></svg>'
-	- var arrowRight = '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 492 492"><path d="M484.1 226.9L306.5 49.2c-5.1-5.1-11.8-7.9-19-7.9 -7.2 0-14 2.8-19 7.9l-16.1 16.1c-5.1 5.1-7.9 11.8-7.9 19 0 7.2 2.8 14.2 7.9 19.3L355.9 207.5H26.6C11.7 207.5 0 219.2 0 234v22.8c0 14.9 11.7 27.6 26.6 27.6h330.5L252.2 388.9c-5.1 5.1-7.9 11.7-7.9 18.9 0 7.2 2.8 13.9 7.9 18.9l16.1 16.1c5.1 5.1 11.8 7.8 19 7.8 7.2 0 14-2.8 19-7.9l177.7-177.7c5.1-5.1 7.9-11.9 7.9-19.1C492 238.8 489.2 232 484.1 226.9z"/></svg>'
-	- var svgQuote = '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 95.3 95.3"><style>.svg-quote{fill:#FFF;}</style><path d="M30.5 43.9c-2.3-0.7-4.7-1-7-1 -3.5 0-6.5 0.8-8.8 1.8 2.2-8.1 7.5-22 18-23.5 1-0.1 1.8-0.8 2-1.8l2.3-8.2c0.2-0.7 0.1-1.4-0.3-2s-1-1-1.7-1.1c-0.8-0.1-1.6-0.2-2.4-0.2 -12.6 0-25.2 13.2-30.4 32.1 -3.1 11.1-4 27.7 3.6 38.2 4.3 5.9 10.5 9 18.5 9.3 0 0 0.1 0 0.1 0 9.9 0 18.7-6.7 21.3-16.2 1.6-5.7 0.9-11.7-2-16.9C41 49.3 36.2 45.6 30.5 43.9z" data-original="#000000" class="active-path" data-old_color="#000000" class="svg-quote"/><path d="M92.5 54.4c-2.9-5.1-7.6-8.8-13.3-10.5 -2.3-0.7-4.7-1-7-1 -3.5 0-6.5 0.8-8.8 1.8 2.2-8.1 7.5-22 18-23.5 1-0.1 1.8-0.8 2-1.8l2.3-8.2c0.2-0.7 0.1-1.4-0.3-2 -0.4-0.6-1-1-1.7-1.1 -0.8-0.1-1.6-0.2-2.4-0.2 -12.6 0-25.2 13.2-30.4 32.1 -3.1 11.1-4 27.7 3.6 38.2 4.3 5.9 10.5 9 18.5 9.3 0 0 0.1 0 0.1 0 9.9 0 18.7-6.7 21.3-16.2C96.1 65.6 95.4 59.6 92.5 54.4z" data-original="#000000" class="active-path" data-old_color="#000000" class="svg-quote"/></svg>'
-	- var svgVisitLink = '<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M65.4 39C65.4 38.2268 64.7732 37.6 64 37.6H51.4C50.6268 37.6 50 38.2268 50 39C50 39.7732 50.6268 40.4 51.4 40.4H62.6V51.6C62.6 52.3732 63.2268 53 64 53C64.7732 53 65.4 52.3732 65.4 51.6V39ZM36.9899 67.9899L64.9899 39.9899L63.01 38.0101L35.0101 66.01L36.9899 67.9899Z" fill="black"/><circle cx="50" cy="50" r="49" stroke="#707070" stroke-width="2"/></svg>'
+    - var arrowLeft = '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 492 492"><path d="M464.3 207.4l0.8 0.2H135.9l103.5-103.7c5.1-5.1 7.8-11.9 7.8-19.1 0-7.2-2.8-14-7.8-19.1L223.3 49.5c-5.1-5.1-11.8-7.9-19-7.9 -7.2 0-14 2.8-19 7.8L7.8 226.9C2.8 232 0 238.8 0 246c0 7.2 2.8 14 7.8 19.1l177.4 177.4c5.1 5.1 11.8 7.8 19 7.8 7.2 0 13.9-2.8 19-7.8l16.1-16.1c5.1-5.1 7.8-11.8 7.8-19 0-7.2-2.8-13.6-7.8-18.7L134.7 284.4h330c14.8 0 27.3-12.8 27.3-27.6v-22.8C492 219.2 479.2 207.4 464.3 207.4z"/></svg>'
+    - var arrowRight = '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 492 492"><path d="M484.1 226.9L306.5 49.2c-5.1-5.1-11.8-7.9-19-7.9 -7.2 0-14 2.8-19 7.9l-16.1 16.1c-5.1 5.1-7.9 11.8-7.9 19 0 7.2 2.8 14.2 7.9 19.3L355.9 207.5H26.6C11.7 207.5 0 219.2 0 234v22.8c0 14.9 11.7 27.6 26.6 27.6h330.5L252.2 388.9c-5.1 5.1-7.9 11.7-7.9 18.9 0 7.2 2.8 13.9 7.9 18.9l16.1 16.1c5.1 5.1 11.8 7.8 19 7.8 7.2 0 14-2.8 19-7.9l177.7-177.7c5.1-5.1 7.9-11.9 7.9-19.1C492 238.8 489.2 232 484.1 226.9z"/></svg>'
+    - var svgQuote = '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 95.3 95.3"><style>.svg-quote{fill:#FFF;}</style><path d="M30.5 43.9c-2.3-0.7-4.7-1-7-1 -3.5 0-6.5 0.8-8.8 1.8 2.2-8.1 7.5-22 18-23.5 1-0.1 1.8-0.8 2-1.8l2.3-8.2c0.2-0.7 0.1-1.4-0.3-2s-1-1-1.7-1.1c-0.8-0.1-1.6-0.2-2.4-0.2 -12.6 0-25.2 13.2-30.4 32.1 -3.1 11.1-4 27.7 3.6 38.2 4.3 5.9 10.5 9 18.5 9.3 0 0 0.1 0 0.1 0 9.9 0 18.7-6.7 21.3-16.2 1.6-5.7 0.9-11.7-2-16.9C41 49.3 36.2 45.6 30.5 43.9z" data-original="#000000" class="active-path" data-old_color="#000000" class="svg-quote"/><path d="M92.5 54.4c-2.9-5.1-7.6-8.8-13.3-10.5 -2.3-0.7-4.7-1-7-1 -3.5 0-6.5 0.8-8.8 1.8 2.2-8.1 7.5-22 18-23.5 1-0.1 1.8-0.8 2-1.8l2.3-8.2c0.2-0.7 0.1-1.4-0.3-2 -0.4-0.6-1-1-1.7-1.1 -0.8-0.1-1.6-0.2-2.4-0.2 -12.6 0-25.2 13.2-30.4 32.1 -3.1 11.1-4 27.7 3.6 38.2 4.3 5.9 10.5 9 18.5 9.3 0 0 0.1 0 0.1 0 9.9 0 18.7-6.7 21.3-16.2C96.1 65.6 95.4 59.6 92.5 54.4z" data-original="#000000" class="active-path" data-old_color="#000000" class="svg-quote"/></svg>'
+    - var svgVisitLink = '<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M65.4 39C65.4 38.2268 64.7732 37.6 64 37.6H51.4C50.6268 37.6 50 38.2268 50 39C50 39.7732 50.6268 40.4 51.4 40.4H62.6V51.6C62.6 52.3732 63.2268 53 64 53C64.7732 53 65.4 52.3732 65.4 51.6V39ZM36.9899 67.9899L64.9899 39.9899L63.01 38.0101L35.0101 66.01L36.9899 67.9899Z" fill="black"/><circle cx="50" cy="50" r="49" stroke="#707070" stroke-width="2"/></svg>'
 
-	.barba-container.single.e-wp.e-white(data-barba="container", data-barba-namespace="single", data-namespace="single" data-current!="" data-scroll-content)
-		//- =========================  HEADER  ========================= -//
-		//- =========================  HEADER  ========================= -//
-		header.header-single.e-wvw.e-rel
-			.e-hold
-				h3.js-text-single <?php the_field('cat_year'); ?>
-				//-h1.h1-header.e-abs.t-white <?php the_title(); ?>
-				h1.e-light.js-text-single <?php the_field('title_project'); ?>
-				h2.js-text-single <?php the_field('excerpt_project'); ?>
+    .barba-container.single.e-wp.e-white(data-barba="container", data-barba-namespace="single", data-namespace="single" data-current!="" data-scroll-content)
+        //- =========================  HEADER  ========================= -//
+        //- =========================  HEADER  ========================= -//
+        header.header-single.e-wvw.e-rel
+            .e-hold
+                h3.js-text-single <?php the_field('cat_year'); ?>
+                //-h1.h1-header.e-abs.t-white <?php the_title(); ?>
+                h1.e-light.js-text-single <?php the_field('title_project'); ?>
+                h2.js-text-single <?php the_field('excerpt_project'); ?>
 
-			.all-projects.e-abs
-				a(href!="<?php echo get_site_url(); ?>" data-to="home" data-from="single")
-					button.e-curp.e-rel.e-flex.scale.hover-line
-						.cross.e-rel
-							.cross__line.line1.e-black.e-abs
-							.cross__line.line2.e-black.e-abs
-						span.t-black.e-sans All Projects
-							.line-link.e-wp.e-switch-gray.e-switch
+            .all-projects.e-abs
+                a(href!="<?php echo get_site_url(); ?>" data-to="home" data-from="single")
+                    button.page__close.e-rel.e-curp.bd-black
+                        span.t-black.e-sans.t-switch-a BACK
 
-		//- =========================  MAIN  ========================= -//
-		//- =========================  MAIN  ========================= -//
-		main.main-single
-			<?php if( have_rows('flex_content') ): while ( have_rows('flex_content') ) :  the_row(); ?>
+        //- =========================  MAIN  ========================= -//
+        //- =========================  MAIN  ========================= -//
+        main.main-single
+            <?php if( have_rows('flex_content') ): while ( have_rows('flex_content') ) :  the_row(); ?>
 
-				//- =========================  ROLE  ========================= -//
-				//- =========================  ROLE  ========================= -//
-				<?php if( get_row_layout() == 'project_infos' ): ?>
-					section.role.e-rel.e-wvw.anima-role
-						.role__infos(style!="background-color:<?php the_sub_field('background_color_texts'); ?>")
-							<?php if(have_rows('info_rpt')): while(have_rows('info_rpt')) : the_row(); ?>
-								.info
-									<?php if( have_rows('flex_cnt_text') ): while ( have_rows('flex_cnt_text') ) :  the_row(); ?>
-										<?php if( get_row_layout() == 'title' ): ?>
-											h2.e-bold.js-text <?php the_sub_field('title_text'); ?>
-										<?php elseif( get_row_layout() == 'link' ): ?>
-											a(href!="<?php the_sub_field('url_link'); ?>")
-												button.e-curp.t-black.js-text <?php the_sub_field('link_text'); ?>
-										<?php elseif( get_row_layout() == 'paragraph' ): ?>
-											p.js-text <?php the_sub_field('p_text'); ?>
-									<?php endif; endwhile; else : endif; ?>
-							<?php endwhile; else : endif; ?>
+                //- =========================  3 STEPS  ========================= -//
+                //- =========================  3 STEPS  ========================= -//
+                <?php if( get_row_layout() == 'how_it_started' ): ?>
+                    section.how_it_started.e-rel.e-wvw.anima-3col.three-col-block
+                        .how_it_started__hold.e-hold
+                            h3.lg-heading <?php the_sub_field('heading'); ?>
+                            ul
+                                li
+                                    p
+                                        strong 01. The Problem
+                                    p <?php the_sub_field('the_problem'); ?>
+                                li
+                                    p
+                                        strong 02. The Insight
+                                    p <?php the_sub_field('the_insight'); ?>
+                                li
+                                    p
+                                        strong 03. The Solution
+                                    p <?php the_sub_field('the_solution'); ?>
 
-						.role__brand.e-flex(style!="background-color:<?php the_sub_field('background_color_brand'); ?>")
-							//-h1.e-sans ENJINE
-							.role__brand__img
-								img(src!="<?php echo get_sub_field('brand')['url']; ?>" alt!="<?php echo get_sub_field('brand')['alt']; ?>").e-hp.e-wp.e-img-fit.img-load
+                //- =========================  ROLE  ========================= -//
+                //- =========================  ROLE  ========================= -//
+                <?php elseif( get_row_layout() == 'project_infos' ): ?>
+                    section.role.e-rel.e-wvw.anima-role
+                        .role__infos(style!="background-color:<?php the_sub_field('background_color_texts'); ?>")
+                            <?php if(have_rows('info_rpt')): while(have_rows('info_rpt')) : the_row(); ?>
+                                .info
+                                    <?php if( have_rows('flex_cnt_text') ): while ( have_rows('flex_cnt_text') ) :  the_row(); ?>
+                                        <?php if( get_row_layout() == 'title' ): ?>
+                                            h2.e-bold.js-text <?php the_sub_field('title_text'); ?>
+                                        <?php elseif( get_row_layout() == 'link' ): ?>
+                                            a(href!="<?php the_sub_field('url_link'); ?>")
+                                                button.e-curp.t-black.js-text <?php the_sub_field('link_text'); ?>
+                                        <?php elseif( get_row_layout() == 'paragraph' ): ?>
+                                            p.js-text <?php the_sub_field('p_text'); ?>
+                                    <?php endif; endwhile; else : endif; ?>
+                            <?php endwhile; else : endif; ?>
 
-						.role__motto(style!="background-color:<?php the_sub_field('background_color_motto'); ?>")
-							h2.e-bold.js-text <?php the_sub_field('motto'); ?>
-				<?php elseif( get_row_layout() == 'descr' ): ?>
-					//- =========================  descr  ========================= -//
-					//- =========================  descr  ========================= -//
-					section.mission.e-rel.e-wvw.anima-text
-						.mission__hold.e-hold
-							<?php if(have_rows('descr_rpt')): while(have_rows('descr_rpt')) : the_row(); ?>
-								p.js-text <?php the_sub_field('descr_text'); ?>
-							<?php endwhile; else : endif; ?>
+                        .role__brand.e-flex(style!="background-color:<?php the_sub_field('background_color_brand'); ?>")
+                            //-h1.e-sans ENJINE
+                            .role__brand__img
+                                img(src!="<?php echo get_sub_field('brand')['url']; ?>" alt!="<?php echo get_sub_field('brand')['alt']; ?>").e-hp.e-wp.e-img-fit.img-load
 
-				//- =========================  COLOR  ========================= -//
-				//- =========================  COLOR  ========================= -//
+                        .role__motto(style!="background-color:<?php the_sub_field('background_color_motto'); ?>")
+                            h2.e-bold.js-text <?php the_sub_field('motto'); ?>
+                
+                <?php elseif( get_row_layout() == 'brief' ): ?>
+                    //- =========================  descr  ========================= -//
+                    //- =========================  descr  ========================= -//
+                    section.brief.e-rel.e-wvw
+                        .brief__hold.e-hold.callout
+                            p.mini-heading <?php the_sub_field('pre_heading'); ?>
+                            h3.lg-heading <?php the_sub_field('brief_heading'); ?>
+                            .copy <?php the_sub_field('brief_copy'); ?>
 
-				<?php elseif( get_row_layout() == 'colors' ): ?>
-					section.colors.e-rel.e-wvw.anima-text
-						.colors__hold.e-hold.e-rel
-							.inline.e-wp
-								.colors__texts
-									h4.js-text.e-serif <?php the_sub_field('title_colors'); ?>
-									p.js-text <?php the_sub_field('text_colors'); ?>
+                //- =========================  COLOR  ========================= -//
+                //- =========================  COLOR  ========================= -//
 
-								.colors__interact
-									.colors__interact__arrows.no-desk
-										button.svg-color !{arrowLeft}
-										button.svg-color !{arrowRight}
-									.colors__ctn-colors.e-rel.e-hidden
-										.colors__travel
-											<?php if(have_rows('colors_rpt')): while(have_rows('colors_rpt')) : the_row(); ?>
+                <?php elseif( get_row_layout() == 'colors' ): ?>
+                    section.colors.e-rel.e-wvw.anima-text
+                        .colors__hold.e-hold.e-rel
+                            .inline.e-wp
+                                .colors__texts
+                                    h4.js-text.e-serif <?php the_sub_field('title_colors'); ?>
+                                    p.js-text <?php the_sub_field('text_colors'); ?>
 
-												.each-color(style!="background-color:<?php the_sub_field('color_picker'); ?>" class!="<?php if (get_sub_field('is_white')) : ?>white<?php else : ?> <?php endif;  ?>").e-hp.e-curp
-													.texts(style!="color:<?php if( get_sub_field('black_or_white') == 'White') : ?>white<?php else : ?> black <?php endif;  ?>")
-														.color-name.e-bold <?php the_sub_field('color_name'); ?>
-														.bottom-color
-															div.e-upper <?php the_sub_field('color_picker'); ?>
-															div <?php the_sub_field('color_rgb'); ?>
-											<?php endwhile; else : endif; ?>
+                                .colors__interact
+                                    .colors__interact__arrows.no-desk
+                                        button.svg-color !{arrowLeft}
+                                        button.svg-color !{arrowRight}
+                                    .colors__ctn-colors.e-rel.e-hidden
+                                        .colors__travel
+                                            <?php if(have_rows('colors_rpt')): while(have_rows('colors_rpt')) : the_row(); ?>
 
-				//- =========================  MOCKUP  ========================= -//
-				//- =========================  MOCKUP  ========================= -//
+                                                .each-color(style!="background-color:<?php the_sub_field('color_picker'); ?>" class!="<?php if (get_sub_field('is_white')) : ?>white<?php else : ?> <?php endif;  ?>").e-hp
+                                                    .texts(style!="color:<?php if( get_sub_field('black_or_white') == 'White') : ?>white<?php else : ?> black <?php endif;  ?>")
+                                                        .color-name.e-bold <?php the_sub_field('color_name'); ?>
+                                                        .bottom-color
+                                                            div.e-upper <?php the_sub_field('color_picker'); ?>
+                                                            div <?php the_sub_field('color_rgb'); ?>
+                                            <?php endwhile; else : endif; ?>
 
-				<?php elseif( get_row_layout() == 'mockup' ): ?>
-					section.mockup.e-rel.e-wvw.e-hidden
-						img(src!="<?php echo get_sub_field('mockup_img')['url']; ?>" alt!="<?php echo get_sub_field('mockup_img')['alt']; ?>").e-wp.img-load
+                //- =========================  MOCKUP  ========================= -//
+                //- =========================  MOCKUP  ========================= -//
 
-				//- =========================  DESCRIBE  ========================= -//
-				//- =========================  DESCRIBE  ========================= -//
+                <?php elseif( get_row_layout() == 'mockup' ): ?>
+                    section.mockup.e-rel.e-wvw.e-hidden
+                        img(src!="<?php echo get_sub_field('mockup_img')['url']; ?>" alt!="<?php echo get_sub_field('mockup_img')['alt']; ?>").e-wp.img-load
 
-				<?php elseif( get_row_layout() == 'pre_section' ): ?>
-					section.descr.e-rel.e-wvw.anima-text
-						.descr__hold.e-hold.e-rel
-							.descr__texts
-								h4.e-serif.js-text <?php the_sub_field('title_presection'); ?>
-								<?php if(have_rows('presec_rpt')): while(have_rows('presec_rpt')) : the_row(); ?>
-									p.js-text <?php the_sub_field('p_presection'); ?>
-								<?php endwhile; else : endif; ?>
+                //- =========================  DESCRIBE  ========================= -//
+                //- =========================  DESCRIBE  ========================= -//
 
-				//- =========================  PARALLAX  ========================= -//
-				//- =========================  PARALLAX  ========================= -//
+                //-<?php elseif( get_row_layout() == 'pre_section' ): ?>
+                    section.descr.e-rel.e-wvw.anima-text
+                        .descr__hold.e-hold.e-rel
+                            .descr__texts
+                                h4.e-serif.js-text <?php the_sub_field('title_presection'); ?>
+                                <?php if(have_rows('presec_rpt')): while(have_rows('presec_rpt')) : the_row(); ?>
+                                    p.js-text <?php the_sub_field('p_presection'); ?>
+                                <?php endwhile; else : endif; ?>
 
-				<?php elseif( get_row_layout() == 'parallax' ): ?>
-					section.parallax.e-hidden
-						div(style!="background-image: url(<?php echo get_sub_field('parallax_img')['url']; ?>)").parallax__bg
+                //- =========================  PARALLAX  ========================= -//
+                //- =========================  PARALLAX  ========================= -//
 
-				//- =========================  homepage  ========================= -//
-				//- =========================  homepage  ========================= -//
-				<?php elseif( get_row_layout() == 'presentation' ): ?>
-					//- section.home-page.e-rel.e-wvw(style="background-color:#FFB608").anima-text
-					section.home-page.e-rel.e-wvw(style!="background-color:<?php the_sub_field('color_presentation'); ?>").anima-text
-						.home-page__hold.e-hold
-							.inline.e-rel.e-wp
-								.home-page__text.e-fixed
-									h4.e-serif.js-text <?php the_sub_field('title_presentation'); ?>
-									p.js-text <?php the_sub_field('p_presentation'); ?>
+                <?php elseif( get_row_layout() == 'parallax' ): ?>
+                    section.parallax.e-hidden
+                        div(style!="background-color: #1A2938; background-image: url(<?php echo get_sub_field('parallax_img')['url']; ?>)").parallax__bg
+                    
+                    div.colored-section(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
+                        <?php elseif( get_row_layout() == 'website' ): ?>
+                            //- =========================  descr  ========================= -//
+                            //- =========================  descr  ========================= -//
+                            section.website.e-rel.e-wvw
+                                .website__hold.e-hold.callout
+                                    p.mini-heading <?php the_sub_field('pre_heading'); ?>
+                                    h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('website_heading'); ?>
+                                    .copy <?php the_sub_field('website_copy'); ?>
 
-								.home-page__image.e-rel
-									<?php if(have_rows('img_presen_rpt')): while(have_rows('img_presen_rpt')) : the_row(); ?>
-										img(src!="<?php echo get_sub_field('img_presentation')['url']; ?>" alt!="<?php echo get_sub_field('img_presentation')['alt']; ?>").e-wp.img-load
-									<?php endwhile; else : endif; ?>
+                        //- =========================  homepage  ========================= -//
+                        //- =========================  homepage  ========================= -//
+                        <?php elseif( get_row_layout() == 'presentation' ): ?>
+                            section.home-page.e-rel.e-wvw.anima-text
+                                .home-page__hold.e-hold
+                                    .inline.e-rel.e-wp
+                                        .home-page__text.e-fixed
+                                            h4.e-serif.js-text(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('title_presentation'); ?>
+                                            p.js-text <?php the_sub_field('p_presentation'); ?>
 
-					.js-release-text-home-page
+                                        .home-page__image.e-rel
+                                            <?php if(have_rows('img_presen_rpt')): while(have_rows('img_presen_rpt')) : the_row(); ?>
+                                                img(src!="<?php echo get_sub_field('img_presentation')['url']; ?>" alt!="<?php echo get_sub_field('img_presentation')['alt']; ?>").e-wp.img-load
+                                            <?php endwhile; else : endif; ?>
 
-				//- =========================  DRAGGABLE  ========================= -//
-				//- =========================  DRAGGABLE  ========================= -//
-				<?php elseif( get_row_layout() == 'draggable' ): ?>
-					section.inner-pages.e-rel.e-wvw.anima-text
-						//-.inner-pages__hold.e-hold.e-rel
-						.inner-pages__hold.e-wp.e-rel
-						.inner-pages__texts
-							h4.e-serif.js-text <?php the_sub_field('title_draggable'); ?>
+                            .js-release-text-home-page
 
-						.inner-pages__imgs.ctn
-							.inner-pages__imgs__travel.holder
-								<?php if(have_rows('img_drag_rpt')): while(have_rows('img_drag_rpt')) : the_row(); ?>
-									.each-inner-page.e-hidden.box
-										img(src!="<?php echo get_sub_field('img_drag')['url']; ?>" alt!="<?php echo get_sub_field('img_drag')['alt']; ?>").e-wp.img-load
-								<?php endwhile; else : endif; ?>
+                        //- =========================  DRAGGABLE  ========================= -//
+                        //- =========================  DRAGGABLE  ========================= -//
+                        <?php elseif( get_row_layout() == 'draggable' ): ?>
+                            section.inner-pages.e-rel.e-wvw.anima-text
+                                .inner-pages__hold.e-hold.callout
+                                    p.mini-heading <?php the_sub_field('pre_heading'); ?>
+                                    h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('drag_heading'); ?>
 
-						.inner-pages__cntrl.no-mobile
-							.numbers.e-flex
-								.dyna.e-bold.actv.js-text 01
-								.static.e-bold.js-text #[span.e-sans /]05
+                                //-.inner-pages__hold.e-hold.e-rel
+                                //-.inner-pages__hold.e-wp.e-rel
+                                //-.inner-pages__texts
+                                    h4.e-serif.js-text <?php the_sub_field('title_draggable'); ?>
 
-							.indicator.e-rel
-								.indic-static.e-wp.e-black.e-hp.e-abs
-								.indic-dyna.e-wp.e-black.e-hp.e-abs
+                                .inner-pages__imgs.ctn
+                                    .inner-pages__imgs__travel.holder
+                                        <?php if(have_rows('img_drag_rpt')): while(have_rows('img_drag_rpt')) : the_row(); ?>
+                                            .each-inner-page.e-hidden.box
+                                                img(src!="<?php echo get_sub_field('img_drag')['url']; ?>" alt!="<?php echo get_sub_field('img_drag')['alt']; ?>").e-wp.img-load
+                                        <?php endwhile; else : endif; ?>
 
-				//- =========================  VISIT THE LINK  ========================= -//
-				//- =========================  VISIT THE LINK  ========================= -//
-				<?php elseif (get_row_layout() == 'visit_the_site'): ?>
-					section.visit-the-site.e-rel.e-wvw
-						a(href!="<?php the_sub_field( 'link' ); ?>" target!="_blank" rel!="nofollow").scale.hover !{svgVisitLink}
-							span.t-black.e-sans Visit the site
-							.line-link.e-wp.e-switch-gray.e-switch
+                                .inner-pages__cntrl.no-mobile
+                                    .numbers.e-flex(style!="color:<?php the_field('presentation_heading_color'); ?>")
+                                        .dyna.e-bold.actv.js-text 01
+                                        .divider(style!="background-color:<?php the_field('presentation_heading_color'); ?>")
+                                        .static.e-bold.js-text #[span.e-sans /]05
 
-				//- =========================  QUOTE  ========================= -//
-				//- =========================  QUOTE  ========================= -//
+                                    .indicator.e-rel
+                                        .indic-static.e-wp.e-black.e-hp.e-abs
+                                        .indic-dyna.e-wp.e-black.e-hp.e-abs
+                
+                //- =========================  CONCLUSION  ========================= -//
+                //- =========================  CONCLUSION  ========================= -//
+                <?php elseif( get_row_layout() == 'conclusion' ): ?>
+                    section.conclusion.e-rel.e-wvw.anima-3col
+                        .conclusion__hold.e-hold
+                            h3.lg-heading <?php the_sub_field('heading'); ?>
+                            <?php the_sub_field('copy')?>
+                            dl
+                                dt <?php the_sub_field('big_number')?>
+                                dd <?php the_sub_field('number_description')?>
 
-				<?php elseif( get_row_layout() == 'quote' ): ?>
-					//-section.quote.e-wvw.e-rel(style="background-color:#001B2E").anima-text
-					section.quote.e-wvw.e-rel(style!="background-color:<?php the_sub_field('color_quote'); ?>").anima-text
-						.quote__hold.e-hold
-							.quote__svg  !{svgQuote}
-							.quote__text
-								<?php if(have_rows('txt_quote_rpt')): while(have_rows('txt_quote_rpt')) : the_row(); ?>
-									p.t-white.js-text <?php the_sub_field('p_quote'); ?>
-								<?php endwhile; else : endif; ?>
-			<?php endif; endwhile; else : endif; ?>
+                //- =========================  VISIT THE LINK  ========================= -//
+                //- =========================  VISIT THE LINK  ========================= -//
+                <?php elseif (get_row_layout() == 'visit_the_site'): ?>
+                    section.visit-the-site.e-rel.e-wvw
+                        a(href!="<?php the_sub_field( 'link' ); ?>" target!="_blank" rel!="nofollow").scale.hover !{svgVisitLink}
+                            span.t-black.e-sans Visit the site
+                            .line-link.e-wp.e-switch-gray.e-switch
 
-			//- =========================  NEXT PROJECT  ========================= -//
-			//- =========================  NEXT PROJECT  ========================= -//
-			section.next.e-wvw.e-hvh.e-rel.anima-text
-				.next__hold.e-hold.e-flex-col.e-hp
-					.next__subt.e-serif.js-text.scale NEXT PROJECT
+                //- =========================  QUOTE  ========================= -//
+                //- =========================  QUOTE  ========================= -//
 
-					.next__title
-						//-a(href!="<?php echo get_site_url(); ?>/single")
-						a(href!="<?php echo get_site_url(); ?>/<?php the_field('link_next_project'); ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_next'); ?>")
-							button.e-curp
-								h1.t-black.e-sans.t-center.js-text <?php the_field('title_next_proj'); ?>
+                <?php elseif( get_row_layout() == 'quote' ): ?>
+                    //-section.quote.e-wvw.e-rel(style="background-color:#001B2E").anima-text
+                    section.quote.e-wvw.e-rel(style!="background-color:<?php the_sub_field('color_quote'); ?>").anima-text
+                        .quote__hold.e-hold
+                            .quote__svg  !{svgQuote}
+                            .quote__text
+                                <?php if(have_rows('txt_quote_rpt')): while(have_rows('txt_quote_rpt')) : the_row(); ?>
+                                    p.t-white.js-text <?php the_sub_field('p_quote'); ?>
+                                <?php endwhile; else : endif; ?>
+            <?php endif; endwhile; else : endif; ?>
 
-					.next__previous.e-abs
-						a(href!="<?php echo get_site_url(); ?>/<?php the_field('link_next_project'); ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_prev'); ?>")
-							button.e-curp.e-rel.scale.hover-line
-								span.t-black.e-sans.js-text PREV PROJECT
-									.line-link.e-wp.e-switch-gray.e-switch
+            //- =========================  NEXT PROJECT  ========================= -//
+            //- =========================  NEXT PROJECT  ========================= -//
+            section.next.e-wvw.e-hvh.e-rel.anima-text
+                .next__hold.e-hold.e-flex-col.e-hp
+                    .next__subt.e-serif.js-text.scale NEXT PROJECT
+                    .imgs-hidden.e-hidden
+                        img(src!="<?php echo get_field('next_project_image')['url']; ?>" alt!="<?php echo get_field('next_project_image')['alt']; ?>").js-img.img-load
 
-		<?php include 'includes/myfooter.php'; ?>
+                    .next__title
+                        <?php $nextProject = get_field('next_project'); ?>
+                        //-a(href!="<?php echo get_site_url(); ?>/single")
+                        a(href!="<?php echo get_site_url(); ?>/<?php echo $nextProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_next'); ?>")
+                            button.e-curp
+                                h1.t-black.e-sans.t-center.js-text <?php echo $nextProject->post_title ?>
+
+                    .next__previous.e-abs
+                        <?php $prevProject = get_field('previous_project'); ?>
+                        a(href!="<?php echo get_site_url(); ?>/<?php echo $prevProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_prev'); ?>")
+                            button.e-curp.e-rel.scale.hover-line
+                                span.t-black.e-sans.js-text PREV PROJECT
+                                    .line-link.e-wp.e-switch-gray.e-switch
+
+        <?php include 'includes/myfooter.php'; ?>

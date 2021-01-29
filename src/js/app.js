@@ -29,7 +29,7 @@ import { menufs } from './js/menu';
 import { lottiejs } from './js/lottie';
 import { archived } from './js/archived';
 
-cursor.init()
+//cursor.init()
 menufs.init(Barba)
 gooeymenu.init()
 history.scrollRestoration = "manual"

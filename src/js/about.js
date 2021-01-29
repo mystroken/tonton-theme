@@ -1,6 +1,7 @@
 import { overlay } from './overlaySvg.js'
 import { TimelineMax, TweenMax } from 'gsap'
 import SplitText from 'gsap/SplitText.js'
+import ScrollMagic from 'scrollmagic'
 class About {
 	constructor() {
 		return
@@ -17,7 +18,14 @@ class About {
 			sun: this.contentPage.querySelector('.sun'),
 			t_switch: this.contentPage.querySelectorAll('.t-switch-a'),
 			icons: this.contentPage.querySelectorAll('svg'),
-			img_real: this.contentPage.querySelectorAll('.tt_real'),
+			img_emoji: this.contentPage.querySelectorAll('.tt_emoji'),
+			img_real: this.contentPage.querySelectorAll('.tt_real')
+		}
+		this.logomain = document.querySelector('.logo-main ')
+		this.menu = {
+			main: document.querySelector('.menu-fs '),
+			trg: document.querySelector('.trg-menu'),
+			bg: document.querySelector('.bg-menu'),
 		}
 
 		this.opt = {
@@ -26,6 +34,83 @@ class About {
 		this.setters()
 		this.intersect()
 		this.switchMode()
+		this.animations()
+
+		var that = this;
+		$(this.about.img_real).hover(
+			function () {
+				console.log('hovering...', that.about.img_emoji);
+				$(that.about.img_emoji).css('opacity', '1')
+				$(that.about.img_real).css('opacity', '0')
+			},
+			function () {
+				$(that.about.img_emoji).css('opacity', '0')
+				$(that.about.img_real).css('opacity', '1')
+			}
+		)
+	}
+
+	animations() {
+		let controller = new ScrollMagic.Controller();
+
+		$('.animate-single').each(function () {
+			let tlAnimaText = new TimelineMax()
+				.staggerFrom($(this), 1.85, { opacity: 0, y: 60, ease: Power3.easeOut }, 0.15);
+
+			let scene = new ScrollMagic.Scene({
+				triggerElement: this,
+				triggerHook: .7
+			})
+				.reverse(false)
+				.setTween(tlAnimaText)
+				.addTo(controller);
+		})
+
+		const tlHeadshot = new TimelineMax()
+			.from('.headshot img', 1.85, { opacity: 0, x: '120%', y: 150, ease: Power3.easeOut }, 0.15);
+		new ScrollMagic.Scene({
+			triggerElement: '.headshot img',
+			triggerHook: .7
+		})
+			.reverse(false)
+			.setTween(tlHeadshot)
+			.addTo(controller);
+
+		new SplitText('.animate-years', { type: "chars", charsClass: "charChild" });
+		const tlYears = new TimelineMax()
+			.staggerFrom('.animate-years .charChild', 1.85, { opacity: 0, y: 150, ease: Power3.easeOut }, 0.30);
+		new ScrollMagic.Scene({
+			triggerElement: '.animate-years',
+			triggerHook: .7
+		})
+			.reverse(false)
+			.setTween(tlYears)
+			.addTo(controller);
+
+		const tlEmoji = new TimelineMax()
+			.from('.animate-years img', 1.5, { y: 390, ease: Power3.easeIn });
+		new ScrollMagic.Scene({
+			triggerElement: '.animate-years',
+			triggerHook: .7
+		})
+			.reverse(false)
+			.setTween(tlEmoji)
+			.addTo(controller);
+
+		$('.animate').each(function () {
+			new SplitText($(this), { type: "lines", linesClass: "lineChild" });
+			new SplitText($(this), { type: "lines", linesClass: "lineParent" });
+			let tlAnimaText = new TimelineMax()
+				.staggerFrom($(this).find('.lineChild'), 1.85, { opacity: 0, y: 60, ease: Power3.easeOut }, 0.15);
+
+			let scene = new ScrollMagic.Scene({
+				triggerElement: this,
+				triggerHook: .7
+			})
+				.reverse(false)
+				.setTween(tlAnimaText)
+				.addTo(controller);
+		})
 	}
 
 	setters() {
@@ -36,7 +121,7 @@ class About {
 		TweenMax.staggerTo($(this.titleHeader).find('.wrapped'), 1.8, { yPercent: 0, ease: Power3.easeOut }, 0.25)
 		TweenMax.delayedCall(1.5, () => {
 			$('.shape-overlays').find('path').removeAttr("d");
-			TweenMax.to('body', .1, { delay: 1, backgroundColor: `#fff` })
+			TweenMax.to('body', .1, { delay: 1, backgroundColor: `#000` })
 		})
 
 		$(this.about.footer).addClass('dark-footer')
@@ -70,12 +155,13 @@ class About {
 			if (!that.opt.animating) {
 				$(this).css('pointer-events', 'none')
 				$(that.about.sun).css('pointer-events', 'auto')
-				$(that.about.img_real).css('opacity', '1')
 				that.opt.animating = true
 				$(that.about.footer).removeClass('dark-footer')
 				$(that.about.t_switch).addClass('t-white')
+				$('.page__close').removeClass('bd-black')
 				$(that.about.redact).addClass('redact-dark')
 				$(that.about.icons).addClass('svg-path-white')
+				$([that.menu.main, that.menu.bg, that.menu.trg, that.logomain]).removeClass(`menu-dark`)
 				$(that.about.code).add(that.about.mom).addClass('e-black')
 				TweenMax.to('body', .1, { delay: .9, backgroundColor: `#000` })
 				that.goSwitch("#000", '#fff')
@@ -86,12 +172,13 @@ class About {
 			if (!that.opt.animating) {
 				$(this).css('pointer-events', 'none')
 				$(that.about.night).css('pointer-events', 'auto')
-				$(that.about.img_real).css('opacity', '0')
 				that.opt.animating = true
 				$(that.about.footer).addClass('dark-footer')
 				$(that.about.t_switch).removeClass('t-white')
+				$('.page__close').addClass('bd-black')
 				$(that.about.redact).removeClass('redact-dark')
 				$(that.about.icons).removeClass('svg-path-white')
+				$([that.menu.main, that.menu.bg, that.menu.trg, that.logomain]).addClass(`menu-dark`)
 				$(that.about.code).add(that.about.mom).removeClass('e-black')
 				TweenMax.to('body', .1, { delay: .9, backgroundColor: `#fff` })
 				that.goSwitch("#fff")
@@ -107,7 +194,7 @@ class About {
 		}
 
 		// wrapped
-		this.getsplit = this.contentPage.querySelectorAll('.js-wrap p, .js-wrap h6 ')
+		/* this.getsplit = this.contentPage.querySelectorAll('.js-wrap p, .js-wrap h6, .js-wrap h2 ')
 		new SplitText(this.getsplit, { type: "lines", linesClass: 'wrap' })
 		new SplitText($(this.getsplit).find('.wrap'), { type: "lines", linesClass: 'wrapped' })
 		TweenMax.set($(this.getsplit).find('.wrapped'), { yPercent: 140 })
@@ -133,7 +220,7 @@ class About {
 		}, options)
 		this.contentPage.querySelectorAll('.code').forEach((el) => { observerCode.observe(el) })
 
-		window.dispatchEvent(new Event('resize'));
+		window.dispatchEvent(new Event('resize')); */
 		this.onHovers()
 	}
 

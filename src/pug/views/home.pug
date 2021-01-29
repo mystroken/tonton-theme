@@ -24,7 +24,7 @@ block content
             header.header-home.e-wp
                 button.header-home__welcome.no-mobile.e-rel.e-curp.hover-line.scale
                     .t-switch-gray.e-rel.wrap
-                        .wrapped ✋ Bienvenue
+                        .wrapped 👋 Bienvenue
                         .line.e-wp.e-switch-gray.e-switch
                 .header-home__gif.e-abs.no-mobile
                     img(src!='<?php echo get_template_directory_uri(); ?>/images/seinfield.gif').e-wp
@@ -32,11 +32,11 @@ block content
                 .header-home__title
                     .hold-home
                         h1.title-home.t-switch.pushoff.wrap
-                            .wrapped Welcome to
+                            .wrapped Digital
+                        h1.title-home.t-switch.wrap.line2
+                            .wrapped Designer &amp;
                         h1.title-home.t-switch.wrap
-                            .wrapped Tonton's
-                        h1.title-home.t-switch.wrap
-                            .wrapped Portfolio
+                            .wrapped Storyteller
 
                 .header-home__infos
                     .header-home__infos__name
@@ -44,34 +44,34 @@ block content
                             .wrapped Jaslin Tonton
                     .header-home__infos__role
                         h2.t-switch-gray.wrap
-                            .wrapped Independent Art Director
+                            .wrapped Creative Director/Digital Designer
                         h2.t-switch-gray.wrap
-                            .wrapped & UI/UX Designer
+                            .wrapped <?=date('Y') - 2012?>+ Years of Experience
                     .header-home__infos__available
                         h2.t-switch-gray.wrap
-                            .wrapped Available for Freelance Work
-                        a(href="mailto:hello#hellotonton.com")
-                            button.e-curp.hover-line.scale
-                                .t-switch-gray.wrap
-                                    .wrapped hello[at]hellotonton.com
-                                    .line.e-wp.e-switch-gray.e-switch
+                            .wrapped Available for Work
+                        script.
+                            user = 'hello';
+                            site = 'hellotonton';
+                            document.write('<div class="t-switch-gray wrap"><div class="wrapped"><a href=\"mailto:' + user + '@' + site + '.com\"><button class="t-switch-gray e-curp hover-line scale">');
+                            document.write(user + '[at]' + site + '[dot]com<div class="line e-wp e-switch-gray e-switch"></div></button></a></div></div>');
 
             main.main-home.e-wp
+
                 //- =========================  ABOUT  ========================= -//
                 //- =========================  ABOUT  ========================= -//
                 section.about
                     .hold-home.scroll-about
-                        h1.title-home.t-switch.pushoff.wrap.start-about
-                            .wrapped A Little
-                        h1.title-home.t-switch.wrap
-                            .wrapped About
-                        h1.title-home.t-switch.wrap
-                            .wrapped Me
-
+                        // img(src="https://dummyimage.com/271x294", alt="")
+                        video(width="304", height="322" muted="true", loop="true", src!="<?=get_template_directory_uri();?>/images/emoji-head.mp4")
+                        
                         .hold-p
-                            p.t-switch Tonton. Name's so nice,</br> you say it twice.
-                            p.t-switch Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            p.t-switch  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            p.t-switch.about-header Tonton. Name&rsquo;s so nice,</br> you say it twice.
+                            p.t-switch I'm Jaslin (JAYs-lin) Tonton, an Orlando based Creative Director / Digital Designer with 9+ years of experience.
+
+                            p.t-switch  For nearly a decade, I’ve helped inspire and direct creative teams toward idea-driven strategies, minimalism, and practical design.
+
+                            p.t-switch  I’m open to new and exciting opportunities and would love to work with you.
 
                 //- =========================  WORKS HOME  ========================= -//
                 //- =========================  WORKS HOME  ========================= -//
@@ -110,13 +110,13 @@ block content
                                                     .wrapped.title-folio=item.title
                                                     .line-link.e-wp.e-switch
 
-                            .view-all.hover-line
+                            //-.view-all.hover-line
                                 //-a(href!="<?php echo get_site_url(); ?>")
-                                button.e-curp
-                                    .e-sans.t-switch-gray.wrap
-                                        .wrapped VIEW WORK LIST
+                                //-button.e-curp
+                                    //-.e-sans.t-switch-gray.wrap
+                                        //-.wrapped VIEW WORK LIST
 
-                                .line.e-switch-gray.e-switch
+                                //-.line.e-switch-gray.e-switch
                     .gap-black
 
         //- =========================  AWARDS  ========================= -//
@@ -142,11 +142,19 @@ block content
                                     .t-switch-gray.wrap
                                         .wrapped Student Show
 
+                            //-.each-field
+                                //-.site
+                                    //-.e-bold.t-switch-gray.wrap
+                                        //-.wrapped Awwwards
+                                //-.recog
+                                    //-.t-switch-gray.wrap
+                                        //-.wrapped SOTD
+                            
                             .each-field
                                 .site
                                     .e-bold.t-switch-gray.wrap
-                                        .wrapped Awwwards
+                                        .wrapped Webby&rsquo;s
                                 .recog
                                     .t-switch-gray.wrap
-                                        .wrapped SOTD
+                                        .wrapped Tech Something
         <?php include 'includes/myfooter.php'; ?>

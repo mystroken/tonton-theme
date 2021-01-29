@@ -109,7 +109,7 @@ module.exports = {
 
     resolve: {
         alias: { //Seção Alias
-            'ScrollMagicGSAP': path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap')
+            "ScrollMagicGSAP": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
         }
     }
 } //close module exports

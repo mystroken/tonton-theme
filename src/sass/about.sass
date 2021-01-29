@@ -14,18 +14,36 @@
 //- =========================  HEADER  ========================= -//
 //- =========================  HEADER  ========================= -//
 .header-about
-    
+    .page__close
+        font-family: 'pangramlight';
+        width: 4vw;
+        height: 4vw;
+        border: 1px solid rgba(255, 255, 255, .20);
+        border-radius: 50%;
+        font-size: 10px !important;
+        cursor: pointer;
+        transition: .5s border ease-out
+        &:hover
+            border: 1px solid rgba(255, 255, 255, 1);
+        &.bd-black
+            border-color: rgba(0, 0, 0, .20);
+            &:hover
+                border: 1px solid rgba(0, 0, 0, 1);
+
     &__hold
     &__title
         padding-top: 117px
+        //-width: 100%;
         @include desk
+            margin: 0 7vw 0 9vw
             padding-top: 17vw
         
         h1
             font-size: 55px
             line-height: 60px
             @include desk
-                font-size: 12.1vw
+                font-size: 11.5vw
+                text-transform: uppercase;
                 line-height: 8.4vw;
 
             .wrapped
@@ -35,11 +53,10 @@
         margin-top: 58px
         @include desk
             margin-top: 0
-            display: flex
-            justify-content: space-between
-            margin-top: 9.3vw
-            width: 92.9vw
-            justify-content: flex-start
+            margin: 9.3vw 5.5vw 0 9vw
+            display: grid;
+            grid-template-columns: 35vw 1fr;
+            column-gap: 6.5vw
 
         &__img
             width: 100%
@@ -61,15 +78,12 @@
                 @include tablet
                     object-position: 0px -20vh
 
-            .tt_real
+            .tt_emoji
                 opacity: 0
-                transition: .3s opacity ease-out
 
         &__texts
             margin-top: 15px
             @include desk
-                width: 49.7vw
-                margin-left: 6.5vw
                 margin-top: -1.7vw
 
             p + p
@@ -118,6 +132,82 @@
                 &:after
                     background: #fff !important
 
+
+.about-me
+    display: flex;
+    align-items: flex-end;
+    padding-top: calc(100px - 80px);
+
+    .headshot
+        order: 1;
+        transform: translateX(60px) translateY(80px);
+    h2
+        font-size: 3.6vw;
+        @include serif;
+        width: 30vw;
+        line-height: 1.4em;
+    p
+        font-size: 2.2vw;
+        margin-right: 10px;
+
+.beginning
+    padding-top: calc(200px + 80px);
+    b
+        @include serif;
+    del
+        margin-right: 7px;
+    ins
+        text-decoration: none;
+
+.process
+    .mini-heading
+        text-align: center;
+    .lg-heading
+        margin: 0 -20px 100px
+    strong
+        margin-bottom: 20px;
+    q
+        display: block;
+        width: 250px;
+
+.interlude
+    padding-bottom: 200px;
+    q
+        @include serif;
+        color: #101010;
+    cite
+        @include serif;
+        color: #101010;
+        display: block;
+        text-align: right;
+        &::before
+            content: '—';
+
+.wrapup
+    text-align: center;
+    padding-bottom: 200px;
+    .lg-heading
+        margin: 0 -20px 100px
+    .copy
+        margin: 100px auto 0;
+        width: 53vw;
+    .years
+        display: block;
+        color: #fff;
+        font-size: 41vw;
+        @include serif;
+        line-height: 1em;
+        position: relative
+        .img-mask
+            position: absolute;
+            left: -24px;
+            bottom: calc(61px - 30px);
+            width: 397px
+            height: 427px;
+            overflow: hidden;
+            img
+                vertical-align: top;
+                width: 100%;
 
 
 //- =========================  code  ========================= -//
