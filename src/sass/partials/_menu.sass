@@ -1,71 +1,62 @@
 //?  ----------------- 	preloader
 .preloader-master
-	z-index: 9999
-	top: 0
-	left: 0
-	position: fixed
-
+    z-index: 9999
+    top: 0
+    left: 0
+    position: fixed
 
 //?  ----------------- 	logo
 .logo-main
     position: fixed
-    cursor: pointer;
-    z-index: 11;
-    right: 15px;
-    top: 15px;
-    width: 45px;
-    height: 45px;
+    cursor: pointer
+    z-index: 11
+    right: 15px
+    top: 15px
+    width: 45px
+    height: 45px
     opacity: 0
     visibility: hidden
     transition: .6s opacity ease-out, .6s visibility ease-out
     @include desk
         right: 3vw
         top: 4vw
-        width: 4vw;
-        height: 4vw;
-    
-    svg
-        width: 100%;
-        height: 100%;
+        width: 4vw
+        height: 4vw
 
-        
+    svg
+        width: 100%
+        height: 100%
+
         .fill-logo
             transition: .6s fill ease-out
 
-
 //?  ----------------- 	cursor
 #cursor
-	left: 0
-	//display: none
-	top: 0
-	z-index: 9
-	width: 120px
-	height: 120px
-	border-radius: 50%
-	pointer-events: none
+    left: 0
+    top: 0
+    z-index: 9
+    width: 120px
+    height: 120px
+    border-radius: 50%
+    pointer-events: none
 
-	.border
-		border: 1px solid #777;
-		border-radius: 50%;
-		width: 66%;
-		height: 66%;
+    .border
+        border: 1px solid #777
+        border-radius: 50%
+        width: 66%
+        height: 66%
 
-	.drag
-		font-size: 12px
-		opacity: 0
-		
+    .drag
+        font-size: 12px
+        opacity: 0
 
-	.arrows
-		justify-content: space-between
+    .arrows
+        justify-content: space-between
 
-		&__each
-			height: 100%;
-			opacity: 0
-			width: 11px
-
-
-
-
+        &__each
+            height: 100%
+            opacity: 0
+            width: 11px
 
 //? ----------------- 	TRG MENU
 .trg-menu
@@ -74,15 +65,14 @@
     right: 15px
     top: 15px
     transition: .6s opacity ease-out, .6s visibility ease-out
-    width: 45px;
-    height: 45px;
+    width: 45px
+    height: 45px
     @include desk
         right: 3vw
         top: 4vw
         width: 4vw
         height: 4vw
 
-    
     &__hold
         width: 100%
         height: 100%
@@ -94,7 +84,6 @@
         height: 100%
         left: 0
         top: 0
-		
 
         .lines
             .line
@@ -104,17 +93,16 @@
                 margin-top: 3px
 
     /*&__close
-        position: absolute
-        width: 100%
-        height: 100%
-        left: 0
-        top: 0    
-        cursor: pointer
-        width: 60px
-        height: 60px
-        left: 3vw
-        top: 3vw
-
+     position: absolute
+     width: 100%
+     height: 100%
+     left: 0
+     top: 0    
+     cursor: pointer
+     width: 60px
+     height: 60px
+     left: 3vw
+     top: 3vw
 
         .line
             width: 24px
@@ -126,20 +114,18 @@
             transform: rotate(-45deg)*/
 
     &__close
-        font-family: 'pangramlight';
-        width: 4vw;
-        height: 4vw;
-        border: 1px solid rgba(0, 0, 0, .15);
-        border-radius: 50%;
-        left: 3vw;
-        top: 4vw;
-        font-size: 10px;
-        cursor: pointer;
+        font-family: 'pangramlight'
+        width: 4vw
+        height: 4vw
+        border: 1px solid rgba(0, 0, 0, .15)
+        border-radius: 50%
+        left: 3vw
+        top: 4vw
+        font-size: 10px
+        cursor: pointer
         transition: .5s border ease-out
         &:hover
-            border: 1px solid rgba(0, 0, 0, 1);
-
-
+            border: 1px solid rgba(0, 0, 0, 1)
 
 //? ----------------- 	TRG MENU
 .bg-menu
@@ -155,7 +141,6 @@
         top: 4vw
         width: 4vw
         height: 4vw
-
 
     &__hold
         position: relative
@@ -180,9 +165,7 @@
         height: 100%
         left: 0
         top: 0
-            
-		
-		
+
 //? ----------------- 	MENU FS
 .menu-fs
     z-index: 10
@@ -214,18 +197,16 @@
             width: 72vw
             justify-content: space-between
             flex-direction: row
-        
 
         & > *
             @include desk
-
 
     &__main
         text-transform: capitalize
         transition: .3s opacity ease-out
         &:hover
             .link-menu
-                opacity: .2;
+                opacity: .2
 
         .link-menu
             padding: 1.3vw 0
@@ -236,23 +217,20 @@
                 transition: .3s opacity ease-out
 
                 /* &:before
-                    content: ''
-                    position: absolute
-                    left: 0
-                    border-radius: 50%
-                    background: var(--e-black)
-                    width: 7px
-                    height: 7px
-                    top: 50%
-                    opacity: 0
-                    transform: translateY(30px)
-                    transition: .3s transform ease-out,  .3s opacity ease-out */
+                 content: ''
+                 position: absolute
+                 left: 0
+                 border-radius: 50%
+                 background: var(--e-black)
+                 width: 7px
+                 height: 7px
+                 top: 50%
+                 opacity: 0
+                 transform: translateY(30px)
+                 transition: .3s transform ease-out,  .3s opacity ease-out */
 
                 &:hover
-                    opacity: 1;
-                
-            
-        
+                    opacity: 1
 
     &__secund
         display: flex
@@ -265,17 +243,16 @@
             margin-top: 2vw
 
     &__email
-        a, span 
+        a, span
             font-size: 19px
             padding-bottom: 0.7vw
             @include desk
                 font-size: 1.3vw
 
-
         a
             position: relative
-            height: 0.8vw;
-            display: inline-block;
+            height: 0.8vw
+            display: inline-block
             &:after
                 @include desk
                     position: absolute
@@ -293,8 +270,7 @@
                 &:after
                     transform: scaleX(0)
                     transform-origin: right
-        
-            
+
     &__social-right
         margin-top: 16vh
         @include desk
@@ -308,7 +284,7 @@
             @include desk
                 display: block
 
-            & > * 
+            & > *
                 padding: 0.6vw 0 0.2vw
 
             &:last-child
@@ -328,17 +304,15 @@
                     transition: .3s transform ease-out
                     transform-origin: right
 
-                
                 &:hover
                     &:after
                         transform: scaleX(1)
                         transform-origin: left
-                
-                
+
         &__right
             margin-bottom: 0.6vw
 
-        &__each-soc 
+        &__each-soc
             a, span
                 font-size: 2.1vw
                 padding: 0.7vw 0px
@@ -358,8 +332,7 @@
                         transform: scaleY(1)
                         transform-origin: left
 
-
-.menu-dark 
+.menu-dark
     --e-black: #fff
     .e-black
         background: #fff
@@ -370,15 +343,12 @@
     .t-black
         color: #fff
     .bd-black
-        border-color: rgba(255, 255, 255, .15);
+        border-color: rgba(255, 255, 255, .15)
         &:hover
-            border: 1px solid rgba(255, 255, 255, 1);
+            border: 1px solid rgba(255, 255, 255, 1)
 
-        
     .fill-logo
         fill: #fff !important
-
-
 
 .is-top
     .trg-menu, .bg-menu
@@ -389,10 +359,6 @@
         opacity: 1
         visibility: visible
 
-
-
-
-
 .is-menuOpen
     .logo-main
         opacity: 1
@@ -401,7 +367,6 @@
     .fill-logo
         fill: #000
 
-
-.is-top .menu-dark 
+.is-top .menu-dark
     .fill-logo
         fill: #000 !important
