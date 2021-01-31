@@ -14,3 +14,10 @@
 body
     overflow: hidden
     background: #000
+
+$min_width: 320px
+$max_width: 1920px
+$min_font: 16px
+$max_font: 21px
+html
+    @include fluid-type($min_width, $max_width, $min_font, $max_font)
