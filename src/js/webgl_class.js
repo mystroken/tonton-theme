@@ -1,13 +1,13 @@
 import { TweenMax } from "gsap";
 
-let myView = document.getElementById('webgl'),
+let myView = document.getElementById("webgl"),
 	w = window.innerWidth,
 	h = window.innerHeight,
 	//sizeW = w / 3.2,
 	//sizeH = h / 1.875,
 	sizeW = (1660 / 1180) * (h / 2),
 	sizeH = h / 2,
-	tlWebGLTransition = new TimelineLite()
+	tlWebGLTransition = new TimelineLite();
 
 class webGL {
 	constructor() {
@@ -16,58 +16,65 @@ class webGL {
 
 	init() {
 		this.sizes = {
-			heightCanvas: window.innerHeight
-		}
-		if ($('.header-home').length > 0) {
+			heightCanvas: window.innerHeight,
+		};
+		if ($(".header-home").length > 0) {
 			this.sizes = {
 				heightCanvas: window.innerHeight,
-				ctnTitle: document.querySelector('.links-folio'),
-				ctnTitleWidth: document.querySelector('.links-folio').getBoundingClientRect().width,
-				ctnTitleHeight: document.querySelector('.links-folio').getBoundingClientRect().height,
-				gapInit: 0
-			}
-			this.sizes.heightCanvas = this.sizes.ctnTitleHeight + (this.sizes.gapInit * 2)
-			this.titleSelector = '.title-folio'
+				ctnTitle: document.querySelector(".links-folio"),
+				ctnTitleWidth: document
+					.querySelector(".links-folio")
+					.getBoundingClientRect().width,
+				ctnTitleHeight: document
+					.querySelector(".links-folio")
+					.getBoundingClientRect().height,
+				gapInit: 0,
+			};
+			this.sizes.heightCanvas =
+				this.sizes.ctnTitleHeight + this.sizes.gapInit * 2;
+			this.titleSelector = ".title-folio";
 		}
 
-		if ($('.main-single').length > 0) {
+		if ($(".main-single").length > 0) {
+			const nextHold = document.querySelector(".next__hold");
 			this.sizes = {
 				heightCanvas: window.innerHeight,
-				ctnTitle: document.querySelector('.next__hold'),
-				ctnTitleWidth: document.querySelector('.next__hold').getBoundingClientRect().width,
-				ctnTitleHeight: document.querySelector('.next__hold').getBoundingClientRect().height,
-				gapInit: 0
-			}
-			this.sizes.heightCanvas = this.sizes.ctnTitleHeight + (this.sizes.gapInit * 2)
-			this.titleSelector = '.next__title h1'
+				ctnTitle: nextHold,
+				ctnTitleWidth: nextHold.getBoundingClientRect().width,
+				ctnTitleHeight: nextHold.getBoundingClientRect().height,
+				gapInit: 0,
+			};
+			this.sizes.heightCanvas =
+				this.sizes.ctnTitleHeight + this.sizes.gapInit * 2;
+			this.titleSelector = ".next__title h1";
 		}
 
 		this.config = {
-			timeFade: .6
-		}
+			timeFade: 0.6,
+		};
 
 		this.dom = {
 			title: document.querySelectorAll(this.titleSelector),
 			fontSize: parseInt($(this.titleSelector).css("fontSize")),
-			titleQuery: $(this.titleSelector)
-		}
+			titleQuery: $(this.titleSelector),
+		};
 
 		this.arrays = {
 			pixiTitles: [],
 			pixiTitlesMask: [],
 			bgs: [],
-			textures: []
-		}
+			textures: [],
+		};
 
 		//? - =====================  PIXIJS  ========================= -//
 		//? - =====================  PIXIJS  ========================= -//
-		this.myView = document.getElementById('webgl'),
-			this.app = new PIXI.Application({
+		(this.myView = document.getElementById("webgl")),
+			(this.app = new PIXI.Application({
 				width: w,
 				height: h,
 				antialias: true,
-				transparent: true
-			});
+				transparent: true,
+			}));
 		this.myView.appendChild(this.app.view);
 
 		//? - =====================  BGS  ========================= -//
@@ -76,128 +83,150 @@ class webGL {
 		this.bgContainer = new PIXI.Container();
 		this.bgContainerImages = new PIXI.Container();
 		this.bgContainerMask = new PIXI.Container();
-		this.bgContainerImages.width = w
-		this.bgContainerImages.height = this.sizes.ctnTitleHeight + (this.sizes.gapInit * 4),
-			this.bgContainerSingle = new PIXI.Container();
-		this.bgContainerImages.width = w
-		this.bgContainerImages.height = h
+		this.bgContainerImages.width = w;
+		(this.bgContainerImages.height =
+			this.sizes.ctnTitleHeight + this.sizes.gapInit * 4),
+			(this.bgContainerSingle = new PIXI.Container());
+		this.bgContainerImages.width = w;
+		this.bgContainerImages.height = h;
 
 		this.fx = {
-			shader: document.querySelector("#shaderFrag").textContent
-		}
-		this.filter = new PIXI.Filter(null, this.fx.shader)
+			shader: document.querySelector("#shaderFrag").textContent,
+		};
+		this.filter = new PIXI.Filter(null, this.fx.shader);
 
 		//? - =====================  STYLES  ========================= -//
 		//? - =====================  STYLES  ========================= -//
-		if ($('.header-home').length > 0) {
+		if ($(".header-home").length > 0) {
 			this.style = new PIXI.TextStyle({
-				fontFamily: 'pangramlight',
+				fontFamily: "pangramlight",
 				fontSize: this.dom.fontSize,
-				fill: ['#eee'],
+				fill: ["#eee"],
 			});
 		}
-		if ($('.main-single').length > 0) {
+		if ($(".main-single").length > 0) {
 			this.style = new PIXI.TextStyle({
-				fontFamily: 'pangramlight',
+				fontFamily: "pangramlight",
 				fontSize: this.dom.fontSize,
-				fill: ['#000'],
+				fill: ["#000"],
 			});
 		}
 		this.styleMask = new PIXI.TextStyle({
-			fontFamily: 'pangramlight',
+			fontFamily: "pangramlight",
 			fontSize: this.dom.fontSize,
-			fill: ['#000'],
+			fill: ["#000"],
 		});
 		this.styleSingle = new PIXI.TextStyle({
-			fontFamily: 'pangramlight',
+			fontFamily: "pangramlight",
 			fontSize: this.dom.fontSize,
-			fill: ['#000'],
+			fill: ["#000"],
 		});
 
 		//? - =====================  MASKING ========================= -//
 		//? - =====================  MASKING ========================= -//
 		this.mask = new PIXI.Graphics()
 			.beginFill(0x0fffff, 1)
-			.drawRect(0, this.sizes.gapInit, sizeW, sizeH)
-		this.app.stage.addChild(this.bgContainer, this.bgContainerImages, this.bgContainerMask, this.mask, this.bgContainerSingle)
+			.drawRect(0, this.sizes.gapInit, sizeW, sizeH);
+		this.app.stage.addChild(
+			this.bgContainer,
+			this.bgContainerImages,
+			this.bgContainerMask,
+			this.mask,
+			this.bgContainerSingle
+		);
 		this.bgContainerMask.mask = this.mask;
-		this.thisTicker = null
-		this.createTitles(this.style, this.styleMask, this.bgContainer, this.bgContainerImages, this.bgContainerMask, this.arrays.pixiTitles, this.arrays.pixiTitlesMask, this.bgDyna)
+		this.thisTicker = null;
+		this.createTitles(
+			this.style,
+			this.styleMask,
+			this.bgContainer,
+			this.bgContainerImages,
+			this.bgContainerMask,
+			this.arrays.pixiTitles,
+			this.arrays.pixiTitlesMask,
+			this.bgDyna
+		);
 
-		this.onClick()
-		this.onTicker(document.querySelectorAll(this.titleSelector))
-		this.onMouseMove($(this.titleSelector))
-		this.onHover($(this.titleSelector))
+		this.onClick();
+		this.onTicker(document.querySelectorAll(this.titleSelector));
+		this.onMouseMove($(this.titleSelector));
+		this.onHover($(this.titleSelector));
 
-		this.applyShader(this.filter)
-		this.onResize(this.dom.title, this.arrays)
-		this.singleApp()
+		this.applyShader(this.filter);
+		this.onResize(this.dom.title, this.arrays);
+		this.singleApp();
 	}
 
 	//? - =========================  CREATE EL  ========================= -//
 	//? - =========================  CREATE EL  ========================= -//
 	singleApp() {
-
-		let basicText = new PIXI.Text('Enjine', this.styleSingle)
-		basicText.position.x = 110
-		basicText.position.y = 245
+		let basicText = new PIXI.Text("Enjine", this.styleSingle);
+		basicText.position.x = 110;
+		basicText.position.y = 245;
 		//this.bgContainerSingle.addChild(basicText)
 	}
 
-	createTitles(style, styleMask, bgContainer, bgContainerImages, bgContainerMask, pixiTitles, pixiTitlesMask, bgs) {
-
-		let heightEachTitle = $('.links-folio__each').height();
-		let $jsImg = document.querySelectorAll('.js-img'),
-			that = this
+	createTitles(
+		style,
+		styleMask,
+		bgContainer,
+		bgContainerImages,
+		bgContainerMask,
+		pixiTitles,
+		pixiTitlesMask,
+		bgs
+	) {
+		let heightEachTitle = $(".links-folio__each").height();
+		let $jsImg = document.querySelectorAll(".js-img"),
+			that = this;
 
 		// ___________________________________ LOOP
 		this.dom.title.forEach(function (item, index) {
-			let posX = item.getBoundingClientRect().left
-			let changeText = item.textContent
-			let basicText = new PIXI.Text(changeText, style)
-			basicText.position.x = posX - 1
-			basicText.position.y = 0
-			bgContainer.addChild(basicText)
-			pixiTitles.push(basicText)
+			let posX = item.getBoundingClientRect().left;
+			let changeText = item.textContent;
+			let basicText = new PIXI.Text(changeText, style);
+			basicText.position.x = posX - 1;
+			basicText.position.y = 0;
+			bgContainer.addChild(basicText);
+			pixiTitles.push(basicText);
 
 			// MASKED
 			let basicTextMask = new PIXI.Text(changeText, styleMask);
-			basicTextMask.position.x = posX
-			basicTextMask.position.y = 0
+			basicTextMask.position.x = posX;
+			basicTextMask.position.y = 0;
 			bgContainerMask.addChild(basicTextMask);
-			pixiTitlesMask.push(basicTextMask)
-			basicTextMask.alpha = 0
-
+			pixiTitlesMask.push(basicTextMask);
+			basicTextMask.alpha = 0;
 
 			// BGS
-			let srcImg = $jsImg[index].src
-			let thisTexture = PIXI.Texture.fromImage(srcImg)
-			that.arrays.textures.push(thisTexture)
+			let srcImg = $jsImg[index].src;
+			let thisTexture = PIXI.Texture.fromImage(srcImg);
+			that.arrays.textures.push(thisTexture);
 		});
 
 		this.bgDyna = PIXI.Sprite.from(that.arrays.textures[0]);
-		this.bgDyna.width = sizeW
-		this.bgDyna.height = sizeH
-		this.bgDyna.position.x = 0
-		this.bgDyna.position.y = 0
+		this.bgDyna.width = sizeW;
+		this.bgDyna.height = sizeH;
+		this.bgDyna.position.x = 0;
+		this.bgDyna.position.y = 0;
 
 		this.bgContainerImages.addChild(this.bgDyna);
-		this.bgDyna.alpha = 0
-		return
+		this.bgDyna.alpha = 0;
+		return;
 	}
 
 	//? - =====================  SWITCH COLORS  ========================= -//
 	//? - =====================  SWITCH COLORS  ========================= -//
 	switchToBlack() {
 		for (var i = 0; i < this.arrays.pixiTitles.length; i++) {
-			this.arrays.pixiTitles[i].style.fill = ['#000000']
-			this.arrays.pixiTitlesMask[i].style.fill = ['#ffffff']
+			this.arrays.pixiTitles[i].style.fill = ["#000000"];
+			this.arrays.pixiTitlesMask[i].style.fill = ["#ffffff"];
 		}
 	}
 	switchToWhite() {
 		for (var i = 0; i < this.arrays.pixiTitles.length; i++) {
-			this.arrays.pixiTitles[i].style.fill = ['#ffffff']
-			this.arrays.pixiTitlesMask[i].style.fill = ['#000000']
+			this.arrays.pixiTitles[i].style.fill = ["#ffffff"];
+			this.arrays.pixiTitlesMask[i].style.fill = ["#000000"];
 		}
 	}
 
@@ -205,9 +234,9 @@ class webGL {
 	//? - =====================  MOUSEMOVE  ========================= -//
 	onMouseMove($dynaTitle) {
 		let pos = { x: 0, y: 0 }; //Cursor position
-		let follow = [this.mask, this.bgContainerImages]
-		let $title = $(this.titleSelector)
-		let that = this
+		let follow = [this.mask, this.bgContainerImages];
+		let $title = $(this.titleSelector);
+		let that = this;
 		$dynaTitle.mousemove(function (e) {
 			parallaxCursor(e, this, 1);
 		});
@@ -215,72 +244,103 @@ class webGL {
 			let rect = parent.getBoundingClientRect();
 			let relX = e.clientX - rect.left;
 			let relY = e.clientY - rect.top;
-			let gap = that.sizes.ctnTitle.getBoundingClientRect().top
-			let MasterPosY = pos.y - gap
+			let gap = that.sizes.ctnTitle.getBoundingClientRect().top;
+			let MasterPosY = pos.y - gap;
 			pos.x = rect.left + rect.width / 2 + (relX - rect.width / 2) / movement;
 			pos.y = rect.top + rect.height / 2 + (relY - rect.height / 2) / movement;
-			TweenMax.to(follow, 0.3, { x: pos.x - (sizeW / 2), y: pos.y - (sizeH / 2) });
+			TweenMax.to(follow, 0.3, { x: pos.x - sizeW / 2, y: pos.y - sizeH / 2 });
 		}
 	}
 
 	//? - =====================  BIND HOVER  ========================= -//
 	//? - =====================  BIND HOVER  ========================= -//
 	onHover($title) {
-		console.log('hover', $title);
-		let that = this
-		$title.hover(function () {
-			let indexThis = $title.index(this)
+		console.log("hover", $title);
+		let that = this;
+		$title.hover(
+			function () {
+				let indexThis = $title.index(this);
 
-			TweenMax.to([that.bgContainerMask, that.bgDyna], .6, { alpha: 1 })
-			TweenMax.set(that.arrays.pixiTitlesMask[indexThis], { alpha: 1 })
-			that.bgDyna.texture = that.arrays.textures[indexThis]
-		}, function () {
-			let indexThis = $title.index(this)
-			TweenMax.to([that.bgContainerMask, that.bgDyna], .6, { alpha: 0 })
-			TweenMax.set(that.arrays.pixiTitlesMask[indexThis], { alpha: 0 })
-		})
+				TweenMax.to([that.bgContainerMask, that.bgDyna], 0.6, { alpha: 1 });
+				TweenMax.set(that.arrays.pixiTitlesMask[indexThis], { alpha: 1 });
+				that.bgDyna.texture = that.arrays.textures[indexThis];
+			},
+			function () {
+				let indexThis = $title.index(this);
+				TweenMax.to([that.bgContainerMask, that.bgDyna], 0.6, { alpha: 0 });
+				TweenMax.set(that.arrays.pixiTitlesMask[indexThis], { alpha: 0 });
+			}
+		);
 	}
 
 	//? - =====================  ON CLICK ========================= -//
 	//? - =====================  ON CLICK ========================= -//
 	onClick() {
-		let that = this
-		let $title = $(this.titleSelector)
+		let that = this;
+		let $title = $(this.titleSelector);
 		$title.click(function () {
-			let indexThis = $title.index(this)
+			let indexThis = $title.index(this);
 			//webglRender.onClick($(this), indexThis)
-			let target = that.arrays.pixiTitles[indexThis]
-			console.log(target)
+			let target = that.arrays.pixiTitles[indexThis];
+			console.log(target);
 			let thatParams = {
-				x: target.x
-			}
-			that.offTicker()
-			TweenMax.set($title, { pointerEvents: 'none' })
-			TweenMax.fromTo(that.arrays.pixiTitles, that.config.timeFade, { alpha: 1 }, { alpha: 0 })
-			TweenMax.fromTo([that.arrays.bgContainerImages, that.arrays.bgContainerMask, that.arrays.mask], that.config.timeFade / 1.2, { alpha: 1 }, { alpha: 0 })
-			TweenMax.fromTo(target, that.config.timeFade, { alpha: 0 }, { alpha: 1 })
-			TweenMax.to(that.filter.uniforms, 1, { frequency: 20, amplitudeY: 0.3, ease: Power2.easeIn })
-			TweenMax.to(that.filter.uniforms, 1, { delay: 1, frequency: 0, amplitudeY: 0, ease: Power2.easeOut })
-			TweenMax.fromTo(target, 2, { x: thatParams.x }, { x: 110, y: window.innerHeight * .3, ease: Power3.easeInOut })
-			that.arrays.pixiTitles[0].style.fill = ['#000000'];
+				x: target.x,
+			};
+			that.offTicker();
+			TweenMax.set($title, { pointerEvents: "none" });
+			TweenMax.fromTo(
+				that.arrays.pixiTitles,
+				that.config.timeFade,
+				{ alpha: 1 },
+				{ alpha: 0 }
+			);
+			TweenMax.fromTo(
+				[
+					that.arrays.bgContainerImages,
+					that.arrays.bgContainerMask,
+					that.arrays.mask,
+				],
+				that.config.timeFade / 1.2,
+				{ alpha: 1 },
+				{ alpha: 0 }
+			);
+			TweenMax.fromTo(target, that.config.timeFade, { alpha: 0 }, { alpha: 1 });
+			TweenMax.to(that.filter.uniforms, 1, {
+				frequency: 20,
+				amplitudeY: 0.3,
+				ease: Power2.easeIn,
+			});
+			TweenMax.to(that.filter.uniforms, 1, {
+				delay: 1,
+				frequency: 0,
+				amplitudeY: 0,
+				ease: Power2.easeOut,
+			});
+			TweenMax.fromTo(
+				target,
+				2,
+				{ x: thatParams.x },
+				{ x: 110, y: window.innerHeight * 0.3, ease: Power3.easeInOut }
+			);
+			that.arrays.pixiTitles[0].style.fill = ["#000000"];
 			target.filters = [that.filter];
 			TweenMax.delayedCall(3, () => {
-				that.killAnimations(indexThis, thatParams)
-				that.switchToWhite()
-			})
+				that.killAnimations(indexThis, thatParams);
+				that.switchToWhite();
+			});
 		});
 	}
 
 	//? - =====================  BIND KILL / RESET   ========================= -//
 	//? - =====================  BIND KILL / RESET   ========================= -//
 	killAnimations(clicked, thisParams) {
-		this.arrays.pixiTitles[clicked].filters = null
+		this.arrays.pixiTitles[clicked].filters = null;
 		this.bgContainerImages.filters = [this.filter];
-		TweenMax.set(this.filter.uniforms, { frequency: 18, amplitudeY: 0.03 })
-		TweenMax.set(this.arrays.pixiTitles[clicked], { x: thisParams.x })
-		TweenMax.set(this.dom.title, { pointerEvents: 'auto' })
-		TweenMax.set(this.arrays.pixiTitles, { alpha: 1 })
-		this.arrays.pixiTitles[clicked].style.fill = ['#fff'];
+		TweenMax.set(this.filter.uniforms, { frequency: 18, amplitudeY: 0.03 });
+		TweenMax.set(this.arrays.pixiTitles[clicked], { x: thisParams.x });
+		TweenMax.set(this.dom.title, { pointerEvents: "auto" });
+		TweenMax.set(this.arrays.pixiTitles, { alpha: 1 });
+		this.arrays.pixiTitles[clicked].style.fill = ["#fff"];
 	}
 
 	offTicker() {
@@ -292,24 +352,24 @@ class webGL {
 	}
 
 	onReverse() {
-		tlWebGLTransition.pause(0)
-		this.arrays.pixiTitles[0].style.fill = ['#fff'];
+		tlWebGLTransition.pause(0);
+		this.arrays.pixiTitles[0].style.fill = ["#fff"];
 		this.bgContainerImages.filters = [this.filter];
-		TweenMax.set('#webgl', { zIndex: 0 })
+		TweenMax.set("#webgl", { zIndex: 0 });
 	}
 
 	//? - =====================  BIND RESIZE ========================= -//
 	//? - =====================  BIND RESIZE ========================= -//
 	onResize($titles, $arrays) {
-		let that = this
+		let that = this;
 
 		$(window).resize(function () {
-			w = window.innerWidth
-			h = window.innerHeight
-			sizeW = w / 3.2
-			sizeH = h / 1.875
-			that.destroy()
-			that.init()
+			w = window.innerWidth;
+			h = window.innerHeight;
+			sizeW = w / 3.2;
+			sizeH = h / 1.875;
+			that.destroy();
+			that.init();
 			/*if ($('.page-home').length > 0) {
 				that.bgDyna.width = sizeW
 				that.bgDyna.height = sizeH
@@ -334,7 +394,7 @@ class webGL {
 				});
 				that.app.renderer.resize(window.innerWidth, that.sizes.ctnTitleHeight + (h / 3));
 			}*/
-		})
+		});
 	}
 
 	//? - =========================  APPLY FILTER  ========================= -//
@@ -351,35 +411,35 @@ class webGL {
 		this.app.stage.filterArea = this.app.screen;
 		this.bgContainerImages.filters = [filter];
 
-		return filter
+		return filter;
 	}
 
 	onTicker(dynaTitle) {
-		let that = this
+		let that = this;
 		this.thisTicker = function myTicker(event) {
 			dynaTitle.forEach(function (item, index) {
-				let posY = item.getBoundingClientRect().top
-				that.arrays.pixiTitles[index].position.y = posY
-				that.arrays.pixiTitlesMask[index].position.y = posY
+				let posY = item.getBoundingClientRect().top;
+				that.arrays.pixiTitles[index].position.y = posY;
+				that.arrays.pixiTitlesMask[index].position.y = posY;
 			});
-		}
+		};
 
-		this.addTicker()
-		return this.thisTicker
+		this.addTicker();
+		return this.thisTicker;
 	}
 
 	destroy() {
 		// console.log(this.app)
-		this.offTicker()
+		this.offTicker();
 		this.app.renderer.destroy(true);
 		this.app.renderer = null;
 	}
 }
 
-export const webglRender = new webGL()
+export const webglRender = new webGL();
 
 //? - =====================  BIND CLICK  ========================= -//
-    //? - =====================  BIND CLICK  ========================= -//
+//? - =====================  BIND CLICK  ========================= -//
 /*onClick($title, $arrays, clicked, scrolledWebGL) {
 	tlWebGLTransition
 	   .to(this.arrays.pixiTitles, this.config.timeFade, { alpha: 0 }, 0)

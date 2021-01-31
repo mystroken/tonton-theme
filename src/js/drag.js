@@ -1,21 +1,19 @@
-
 const dragJs = function () {
-	if ($('.box').length > 0) {
-
+	if ($(".box").length > 0) {
 		let winScreen = $(window).innerWidth();
-		let $box = $('.box')
+		let $box = $(".box");
 		let $nPhotos = $box.length;
 		let $totalPhotos = $box.length;
 		let sizePhoto = $(".each-inner-page").outerWidth(true);
-		const leftOffset = winScreen * .1; //10vw margin left
+		const leftOffset = winScreen * 0.1; //10vw margin left
 		let sizeHolder = $nPhotos * sizePhoto + leftOffset;
 		let $holder = $(".holder")[0];
 		TweenMax.set($holder, { width: sizeHolder });
 		let $target = 0;
 		let changeNumb = 1;
-		$('.static').text(`0${$totalPhotos}`);
+		$(".static").text(`0${$totalPhotos}`);
 
-		console.log(sizePhoto)
+		// console.log(sizePhoto)
 
 		//
 		// RESIZE
@@ -24,18 +22,19 @@ const dragJs = function () {
 			let $nPhotos = $box.length;
 			let sizePhoto = $(".each-inner-page").outerWidth(true);
 			let sizeHolder = $nPhotos * sizePhoto;
-			TweenMax.set($holder, { width: sizeHolder + (window.innerWidth * 0.15) });
+			TweenMax.set($holder, { width: sizeHolder + window.innerWidth * 0.15 });
 		});
 
 		function setProgress() {
 			$target = Math.round($holder._gsTransform.x / sizePhoto);
 			console.log($holder._gsTransform.x, sizePhoto);
-			changeNumb = (Math.round(($holder._gsTransform.x - leftOffset) / sizePhoto) * -1) + 1
+			changeNumb =
+				Math.round(($holder._gsTransform.x - leftOffset) / sizePhoto) * -1 + 1;
 
 			TweenLite.set(progressBars, {
-				scaleX: ($holder._gsTransform.x / (sizeHolder - winScreen) * - 1)
+				scaleX: ($holder._gsTransform.x / (sizeHolder - winScreen)) * -1,
 			});
-			$('.actv').text(`0${changeNumb}`);
+			$(".actv").text(`0${changeNumb}`);
 		}
 
 		//
@@ -54,7 +53,7 @@ const dragJs = function () {
 				/*x: function (endValue) {
 					return Math.round(endValue / sizePhoto) * sizePhoto;
 				}*/
-			}
+			},
 		});
 
 		//
@@ -63,8 +62,8 @@ const dragJs = function () {
 		let progressBars = $(".indic-dyna");
 		TweenMax.set(".indic-dyna", { scaleX: 0, transformOrigin: "left" });
 	} //close conditional has draggable
-} //close drag
+}; //close drag
 
 module.exports = {
-	dragJs
-}
+	dragJs,
+};

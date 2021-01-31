@@ -148,53 +148,53 @@ block content
                                     h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('website_heading'); ?>
                                     .copy <?php the_sub_field('website_copy'); ?>
 
-                        //- =========================  homepage  ========================= -//
-                        //- =========================  homepage  ========================= -//
-                        <?php elseif( get_row_layout() == 'presentation' ): ?>
-                            section.home-page.e-rel.e-wvw.anima-text
-                                .home-page__hold.e-hold
-                                    .inline.e-rel.e-wp
-                                        .home-page__text.e-fixed
-                                            h4.e-serif.js-text(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('title_presentation'); ?>
-                                            p.js-text <?php the_sub_field('p_presentation'); ?>
+                //- =========================  homepage  ========================= -//
+                //- =========================  homepage  ========================= -//
+                <?php elseif( get_row_layout() == 'presentation' ): ?>
+                    section.home-page.e-rel.e-wvw.anima-text
+                        .home-page__hold.e-hold
+                            .inline.e-rel.e-wp
+                                .home-page__text.e-fixed
+                                    h4.e-serif.js-text(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('title_presentation'); ?>
+                                    p.js-text <?php the_sub_field('p_presentation'); ?>
 
-                                        .home-page__image.e-rel
-                                            <?php if(have_rows('img_presen_rpt')): while(have_rows('img_presen_rpt')) : the_row(); ?>
-                                                img(src!="<?php echo get_sub_field('img_presentation')['url']; ?>" alt!="<?php echo get_sub_field('img_presentation')['alt']; ?>").e-wp.img-load
-                                            <?php endwhile; else : endif; ?>
+                                .home-page__image.e-rel
+                                    <?php if(have_rows('img_presen_rpt')): while(have_rows('img_presen_rpt')) : the_row(); ?>
+                                        img(src!="<?php echo get_sub_field('img_presentation')['url']; ?>" alt!="<?php echo get_sub_field('img_presentation')['alt']; ?>").e-wp.img-load
+                                    <?php endwhile; else : endif; ?>
 
-                            .js-release-text-home-page
+                    .js-release-text-home-page
 
-                        //- =========================  DRAGGABLE  ========================= -//
-                        //- =========================  DRAGGABLE  ========================= -//
-                        <?php elseif( get_row_layout() == 'draggable' ): ?>
-                            section.inner-pages.e-rel.e-wvw.anima-text
-                                .inner-pages__hold.e-hold.callout
-                                    p.mini-heading <?php the_sub_field('pre_heading'); ?>
-                                    h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('drag_heading'); ?>
+                //- =========================  DRAGGABLE  ========================= -//
+                //- =========================  DRAGGABLE  ========================= -//
+                <?php elseif( get_row_layout() == 'draggable' ): ?>
+                    section.inner-pages.e-rel.e-wvw.anima-text
+                        .inner-pages__hold.e-hold.callout
+                            p.mini-heading <?php the_sub_field('pre_heading'); ?>
+                            h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('drag_heading'); ?>
 
-                                //-.inner-pages__hold.e-hold.e-rel
-                                //-.inner-pages__hold.e-wp.e-rel
-                                //-.inner-pages__texts
-                                    h4.e-serif.js-text <?php the_sub_field('title_draggable'); ?>
+                        //-.inner-pages__hold.e-hold.e-rel
+                        //-.inner-pages__hold.e-wp.e-rel
+                        //-.inner-pages__texts
+                            h4.e-serif.js-text <?php the_sub_field('title_draggable'); ?>
 
-                                .inner-pages__imgs.ctn
-                                    .inner-pages__imgs__travel.holder
-                                        <?php if(have_rows('img_drag_rpt')): while(have_rows('img_drag_rpt')) : the_row(); ?>
-                                            .each-inner-page.e-hidden.box
-                                                img(src!="<?php echo get_sub_field('img_drag')['url']; ?>" alt!="<?php echo get_sub_field('img_drag')['alt']; ?>").e-wp.img-load
-                                        <?php endwhile; else : endif; ?>
+                        .inner-pages__imgs.ctn
+                            .inner-pages__imgs__travel.holder
+                                <?php if(have_rows('img_drag_rpt')): while(have_rows('img_drag_rpt')) : the_row(); ?>
+                                    .each-inner-page.e-hidden.box
+                                        img(src!="<?php echo get_sub_field('img_drag')['url']; ?>" alt!="<?php echo get_sub_field('img_drag')['alt']; ?>").e-wp.img-load
+                                <?php endwhile; else : endif; ?>
 
-                                .inner-pages__cntrl.no-mobile
-                                    .numbers.e-flex(style!="color:<?php the_field('presentation_heading_color'); ?>")
-                                        .dyna.e-bold.actv.js-text 01
-                                        .divider(style!="background-color:<?php the_field('presentation_heading_color'); ?>")
-                                        .static.e-bold.js-text #[span.e-sans /]05
+                        .inner-pages__cntrl.no-mobile
+                            .numbers.e-flex(style!="color:<?php the_field('presentation_heading_color'); ?>")
+                                .dyna.e-bold.actv.js-text 01
+                                .divider(style!="background-color:<?php the_field('presentation_heading_color'); ?>")
+                                .static.e-bold.js-text #[span.e-sans /]05
 
-                                    .indicator.e-rel
-                                        .indic-static.e-wp.e-black.e-hp.e-abs
-                                        .indic-dyna.e-wp.e-black.e-hp.e-abs
-                
+                            .indicator.e-rel
+                                .indic-static.e-wp.e-black.e-hp.e-abs
+                                .indic-dyna.e-wp.e-black.e-hp.e-abs
+        
                 //- =========================  CONCLUSION  ========================= -//
                 //- =========================  CONCLUSION  ========================= -//
                 <?php elseif( get_row_layout() == 'conclusion' ): ?>
@@ -226,28 +226,28 @@ block content
                                 <?php if(have_rows('txt_quote_rpt')): while(have_rows('txt_quote_rpt')) : the_row(); ?>
                                     p.t-white.js-text <?php the_sub_field('p_quote'); ?>
                                 <?php endwhile; else : endif; ?>
-            <?php endif; endwhile; else : endif; ?>
+                    <?php endif; endwhile; else : endif; ?>
 
-            //- =========================  NEXT PROJECT  ========================= -//
-            //- =========================  NEXT PROJECT  ========================= -//
-            section.next.e-wvw.e-hvh.e-rel.anima-text
-                .next__hold.e-hold.e-flex-col.e-hp
-                    .next__subt.e-serif.js-text.scale NEXT PROJECT
-                    .imgs-hidden.e-hidden
-                        img(src!="<?php echo get_field('next_project_image')['url']; ?>" alt!="<?php echo get_field('next_project_image')['alt']; ?>").js-img.img-load
+                
+                    
+                    section.next.e-wvw.e-hvh.e-rel.anima-text.test
+                        .next__hold.e-hold.e-flex-col.e-hp
+                            .next__subt.e-serif.js-text.scale NEXT PROJECT
+                            .imgs-hidden.e-hidden
+                                img(src!="<?php echo get_field('next_project_image')['url']; ?>" alt!="<?php echo get_field('next_project_image')['alt']; ?>").js-img.img-load
 
-                    .next__title
-                        <?php $nextProject = get_field('next_project'); ?>
-                        //-a(href!="<?php echo get_site_url(); ?>/single")
-                        a(href!="<?php echo get_site_url(); ?>/<?php echo $nextProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_next'); ?>")
-                            button.e-curp
-                                h1.t-black.e-sans.t-center.js-text <?php echo $nextProject->post_title ?>
+                            .next__title
+                                <?php $nextProject = get_field('next_project'); ?>
+                                //-a(href!="<?php echo get_site_url(); ?>/single")
+                                a(href!="<?php echo get_site_url(); ?>/<?php echo $nextProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_next'); ?>")
+                                    button.e-curp
+                                        h1.t-black.e-sans.t-center.js-text <?php echo $nextProject->post_title ?>
 
-                    .next__previous.e-abs
-                        <?php $prevProject = get_field('previous_project'); ?>
-                        a(href!="<?php echo get_site_url(); ?>/<?php echo $prevProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_prev'); ?>")
-                            button.e-curp.e-rel.scale.hover-line
-                                span.t-black.e-sans.js-text PREV PROJECT
-                                    .line-link.e-wp.e-switch-gray.e-switch
+                            .next__previous.e-abs
+                                <?php $prevProject = get_field('previous_project'); ?>
+                                a(href!="<?php echo get_site_url(); ?>/<?php echo $prevProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_prev'); ?>")
+                                    button.e-curp.e-rel.scale.hover-line
+                                        span.t-black.e-sans.js-text PREV PROJECT
+                                            .line-link.e-wp.e-switch-gray.e-switch
 
         <?php include 'includes/myfooter.php'; ?>
