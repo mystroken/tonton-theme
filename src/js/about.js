@@ -1,187 +1,223 @@
-import { overlay } from './overlaySvg.js'
-import { TimelineMax, TweenMax } from 'gsap'
-import SplitText from 'gsap/SplitText.js'
-import ScrollMagic from 'scrollmagic'
+import { overlay } from "./overlaySvg.js";
+import { TimelineMax, TweenMax } from "gsap";
+import SplitText from "gsap/SplitText.js";
+import ScrollMagic from "scrollmagic";
 class About {
 	constructor() {
-		return
+		return;
 	}
 
 	init(contentPage) {
-		this.contentPage = contentPage
+		this.contentPage = contentPage;
 		this.about = {
-			footer: this.contentPage.querySelector('footer'),
-			code: this.contentPage.querySelector('.code'),
-			mom: this.contentPage.querySelector('.mom'),
-			redact: this.contentPage.querySelectorAll('.redact'),
-			night: this.contentPage.querySelector('.night'),
-			sun: this.contentPage.querySelector('.sun'),
-			t_switch: this.contentPage.querySelectorAll('.t-switch-a'),
-			icons: this.contentPage.querySelectorAll('svg'),
-			img_emoji: this.contentPage.querySelectorAll('.tt_emoji'),
-			img_real: this.contentPage.querySelectorAll('.tt_real')
-		}
-		this.logomain = document.querySelector('.logo-main ')
+			footer: this.contentPage.querySelector("footer"),
+			code: this.contentPage.querySelector(".code"),
+			mom: this.contentPage.querySelector(".mom"),
+			redact: this.contentPage.querySelectorAll(".redact"),
+			night: this.contentPage.querySelector(".night"),
+			sun: this.contentPage.querySelector(".sun"),
+			t_switch: this.contentPage.querySelectorAll(".t-switch-a"),
+			icons: this.contentPage.querySelectorAll("svg"),
+			img_emoji: this.contentPage.querySelectorAll(".tt_emoji"),
+			img_real: this.contentPage.querySelectorAll(".tt_real"),
+		};
+		this.logomain = document.querySelector(".logo-main ");
 		this.menu = {
-			main: document.querySelector('.menu-fs '),
-			trg: document.querySelector('.trg-menu'),
-			bg: document.querySelector('.bg-menu'),
-		}
+			main: document.querySelector(".menu-fs "),
+			trg: document.querySelector(".trg-menu"),
+			bg: document.querySelector(".bg-menu"),
+		};
 
 		this.opt = {
-			animating: false
-		}
-		this.setters()
-		this.intersect()
-		this.switchMode()
-		this.animations()
+			animating: false,
+		};
+		this.setters();
+		this.intersect();
+		this.switchMode();
+		this.animations();
 
 		var that = this;
 		$(this.about.img_real).hover(
 			function () {
-				console.log('hovering...', that.about.img_emoji);
-				$(that.about.img_emoji).css('opacity', '1')
-				$(that.about.img_real).css('opacity', '0')
+				console.log("hovering...", that.about.img_emoji);
+				$(that.about.img_emoji).css("opacity", "1");
+				$(that.about.img_real).css("opacity", "0");
 			},
 			function () {
-				$(that.about.img_emoji).css('opacity', '0')
-				$(that.about.img_real).css('opacity', '1')
+				$(that.about.img_emoji).css("opacity", "0");
+				$(that.about.img_real).css("opacity", "1");
 			}
-		)
+		);
 	}
 
 	animations() {
 		let controller = new ScrollMagic.Controller();
 
-		$('.animate-single').each(function () {
-			let tlAnimaText = new TimelineMax()
-				.staggerFrom($(this), 1.85, { opacity: 0, y: 60, ease: Power3.easeOut }, 0.15);
+		$(".animate-single").each(function () {
+			let tlAnimaText = new TimelineMax().staggerFrom(
+				$(this),
+				1.85,
+				{ opacity: 0, y: 60, ease: Power3.easeOut },
+				0.15
+			);
 
 			let scene = new ScrollMagic.Scene({
 				triggerElement: this,
-				triggerHook: .7
+				triggerHook: 0.7,
 			})
 				.reverse(false)
 				.setTween(tlAnimaText)
 				.addTo(controller);
-		})
+		});
 
-		const tlHeadshot = new TimelineMax()
-			.from('.headshot img', 1.85, { opacity: 0, x: '120%', y: 150, ease: Power3.easeOut }, 0.15);
+		const tlHeadshot = new TimelineMax().from(
+			".headshot img",
+			1.85,
+			{ opacity: 0, x: "120%", y: 150, ease: Power3.easeOut },
+			0.15
+		);
 		new ScrollMagic.Scene({
-			triggerElement: '.headshot img',
-			triggerHook: .7
+			triggerElement: ".headshot img",
+			triggerHook: 0.7,
 		})
 			.reverse(false)
 			.setTween(tlHeadshot)
 			.addTo(controller);
 
-		new SplitText('.animate-years', { type: "chars", charsClass: "charChild" });
-		const tlYears = new TimelineMax()
-			.staggerFrom('.animate-years .charChild', 1.85, { opacity: 0, y: 150, ease: Power3.easeOut }, 0.30);
+		new SplitText(".animate-years", { type: "chars", charsClass: "charChild" });
+		const tlYears = new TimelineMax().staggerFrom(
+			".animate-years .charChild",
+			1.85,
+			{ opacity: 0, y: 150, ease: Power3.easeOut },
+			0.3
+		);
 		new ScrollMagic.Scene({
-			triggerElement: '.animate-years',
-			triggerHook: .7
+			triggerElement: ".animate-years",
+			triggerHook: 0.7,
 		})
 			.reverse(false)
 			.setTween(tlYears)
 			.addTo(controller);
 
-		const tlEmoji = new TimelineMax()
-			.from('.animate-years img', 1.5, { y: 390, ease: Power3.easeIn });
+		const tlEmoji = new TimelineMax().from(".animate-years img", 1.5, {
+			y: 390,
+			ease: Power3.easeIn,
+		});
 		new ScrollMagic.Scene({
-			triggerElement: '.animate-years',
-			triggerHook: .7
+			triggerElement: ".animate-years",
+			triggerHook: 0.7,
 		})
 			.reverse(false)
 			.setTween(tlEmoji)
 			.addTo(controller);
 
-		$('.animate').each(function () {
+		$(".animate").each(function () {
 			new SplitText($(this), { type: "lines", linesClass: "lineChild" });
 			new SplitText($(this), { type: "lines", linesClass: "lineParent" });
-			let tlAnimaText = new TimelineMax()
-				.staggerFrom($(this).find('.lineChild'), 1.85, { opacity: 0, y: 60, ease: Power3.easeOut }, 0.15);
+			let tlAnimaText = new TimelineMax().staggerFrom(
+				$(this).find(".lineChild"),
+				1.85,
+				{ opacity: 0, y: 60, ease: Power3.easeOut },
+				0.15
+			);
 
 			let scene = new ScrollMagic.Scene({
 				triggerElement: this,
-				triggerHook: .7
+				triggerHook: 0.7,
 			})
 				.reverse(false)
 				.setTween(tlAnimaText)
 				.addTo(controller);
-		})
+		});
 	}
 
 	setters() {
-		this.titleHeader = this.contentPage.querySelectorAll('.header-about__title h1 ')
-		new SplitText(this.titleHeader, { type: "lines", linesClass: 'wrap' })
-		new SplitText($(this.titleHeader).find('.wrap'), { type: "lines", linesClass: 'wrapped' })
-		TweenMax.set($(this.titleHeader).find('.wrapped'), { yPercent: 140 })
-		TweenMax.staggerTo($(this.titleHeader).find('.wrapped'), 1.8, { yPercent: 0, ease: Power3.easeOut }, 0.25)
+		this.titleHeader = this.contentPage.querySelectorAll(
+			".header-about__title h1 "
+		);
+		new SplitText(this.titleHeader, { type: "lines", linesClass: "wrap" });
+		new SplitText($(this.titleHeader).find(".wrap"), {
+			type: "lines",
+			linesClass: "wrapped",
+		});
+		TweenMax.set($(this.titleHeader).find(".wrapped"), { yPercent: 140 });
+		TweenMax.staggerTo(
+			$(this.titleHeader).find(".wrapped"),
+			1.8,
+			{ yPercent: 0, ease: Power3.easeOut },
+			0.25
+		);
 		TweenMax.delayedCall(1.5, () => {
-			$('.shape-overlays').find('path').removeAttr("d");
-			TweenMax.to('body', .1, { delay: 1, backgroundColor: `#000` })
-		})
+			$(".shape-overlays").find("path").removeAttr("d");
+			TweenMax.to("body", 0.1, { delay: 1, backgroundColor: `#000` });
+		});
 
-		$(this.about.footer).addClass('dark-footer')
+		// $(this.about.footer).addClass('dark-footer')
 	}
 
 	goSwitch(switchColor) {
-		let that = this
-		$('.shape-overlays').find('path').removeAttr("d")
-		let $pathOverlay0 = $('.shape-overlays path').eq(0),
-			$pathOverlay1 = $('.shape-overlays path').eq(1)
-		let swiftColor
+		let that = this;
+		$(".shape-overlays").find("path").removeAttr("d");
+		let $pathOverlay0 = $(".shape-overlays path").eq(0),
+			$pathOverlay1 = $(".shape-overlays path").eq(1);
+		let swiftColor;
 
-		swiftColor = switchColor
+		swiftColor = switchColor;
 
-		TweenMax.set([$pathOverlay0, $pathOverlay1], { fill: swiftColor })
-		overlay.toggle()
-
+		TweenMax.set([$pathOverlay0, $pathOverlay1], { fill: swiftColor });
+		overlay.toggle();
 
 		TweenMax.delayedCall(1, () => {
-			$('.shape-overlays').find('path').removeAttr("d");
-			that.opt.animating = false
-		})
-
+			$(".shape-overlays").find("path").removeAttr("d");
+			that.opt.animating = false;
+		});
 	}
 
 	//? - =========================  SWITCH MODE  ========================= -//
 	//? - =========================  SWITCH MODE  ========================= -//
 	switchMode() {
-		let that = this
+		let that = this;
 		$(this.about.night).click(function () {
 			if (!that.opt.animating) {
-				$(this).css('pointer-events', 'none')
-				$(that.about.sun).css('pointer-events', 'auto')
-				that.opt.animating = true
-				$(that.about.footer).removeClass('dark-footer')
-				$(that.about.t_switch).addClass('t-white')
-				$('.page__close').removeClass('bd-black')
-				$(that.about.redact).addClass('redact-dark')
-				$(that.about.icons).addClass('svg-path-white')
-				$([that.menu.main, that.menu.bg, that.menu.trg, that.logomain]).removeClass(`menu-dark`)
-				$(that.about.code).add(that.about.mom).addClass('e-black')
-				TweenMax.to('body', .1, { delay: .9, backgroundColor: `#000` })
-				that.goSwitch("#000", '#fff')
+				$(this).css("pointer-events", "none");
+				$(that.about.sun).css("pointer-events", "auto");
+				that.opt.animating = true;
+				$(that.about.footer).removeClass("dark-footer");
+				$(that.about.t_switch).addClass("t-white");
+				$(".page__close").removeClass("bd-black");
+				$(that.about.redact).addClass("redact-dark");
+				$(that.about.icons).addClass("svg-path-white");
+				$([
+					that.menu.main,
+					that.menu.bg,
+					that.menu.trg,
+					that.logomain,
+				]).removeClass(`menu-dark`);
+				$(that.about.code).add(that.about.mom).addClass("e-black");
+				TweenMax.to("body", 0.1, { delay: 0.9, backgroundColor: `#000` });
+				that.goSwitch("#000", "#fff");
 			}
 		});
 
 		$(this.about.sun).click(function () {
 			if (!that.opt.animating) {
-				$(this).css('pointer-events', 'none')
-				$(that.about.night).css('pointer-events', 'auto')
-				that.opt.animating = true
-				$(that.about.footer).addClass('dark-footer')
-				$(that.about.t_switch).removeClass('t-white')
-				$('.page__close').addClass('bd-black')
-				$(that.about.redact).removeClass('redact-dark')
-				$(that.about.icons).removeClass('svg-path-white')
-				$([that.menu.main, that.menu.bg, that.menu.trg, that.logomain]).addClass(`menu-dark`)
-				$(that.about.code).add(that.about.mom).removeClass('e-black')
-				TweenMax.to('body', .1, { delay: .9, backgroundColor: `#fff` })
-				that.goSwitch("#fff")
+				$(this).css("pointer-events", "none");
+				$(that.about.night).css("pointer-events", "auto");
+				that.opt.animating = true;
+				$(that.about.footer).addClass("dark-footer");
+				$(that.about.t_switch).removeClass("t-white");
+				$(".page__close").addClass("bd-black");
+				$(that.about.redact).removeClass("redact-dark");
+				$(that.about.icons).removeClass("svg-path-white");
+				$([
+					that.menu.main,
+					that.menu.bg,
+					that.menu.trg,
+					that.logomain,
+				]).addClass(`menu-dark`);
+				$(that.about.code).add(that.about.mom).removeClass("e-black");
+				TweenMax.to("body", 0.1, { delay: 0.9, backgroundColor: `#fff` });
+				that.goSwitch("#fff");
 			}
 		});
 	}
@@ -190,8 +226,8 @@ class About {
 	//? - =========================  THIS INTERSECT  ========================= -//
 	intersect() {
 		const options = {
-			rootMargin: '-30%'
-		}
+			rootMargin: "-30%",
+		};
 
 		// wrapped
 		/* this.getsplit = this.contentPage.querySelectorAll('.js-wrap p, .js-wrap h6, .js-wrap h2 ')
@@ -221,26 +257,44 @@ class About {
 		this.contentPage.querySelectorAll('.code').forEach((el) => { observerCode.observe(el) })
 
 		window.dispatchEvent(new Event('resize')); */
-		this.onHovers()
+		this.onHovers();
 	}
 
 	onHovers() {
 		//? - =========================  HOVERS  ========================= -//
 		//? - =========================  HOVERS  ========================= -//
-		let $hoverLine = $('.hover-line')
-		let $lineLink = $('.line-link')
-		TweenMax.set($lineLink, { scaleX: 0 })
+		let $hoverLine = $(".hover-line");
+		let $lineLink = $(".line-link");
+		TweenMax.set($lineLink, { scaleX: 0 });
 		$hoverLine.hover(
 			function () {
-				TweenMax.to($(this).find('.line'), .5, { scaleX: 0, transformOrigin: 'right', ease: Power3.easeIn })
-				TweenMax.to($(this).find('.line'), .5, { delay: .5, scaleX: 1, transformOrigin: 'left', ease: Power3.easeOut })
-				TweenMax.to($(this).find('.line-link'), .6, { scaleX: 1, transformOrigin: 'left', ease: Power3.easeOut })
-			}, function () {
-				TweenMax.to($(this).find('.line-link'), .6, { scaleX: 0, transformOrigin: 'right', ease: Power3.easeOut })
+				TweenMax.to($(this).find(".line"), 0.5, {
+					scaleX: 0,
+					transformOrigin: "right",
+					ease: Power3.easeIn,
+				});
+				TweenMax.to($(this).find(".line"), 0.5, {
+					delay: 0.5,
+					scaleX: 1,
+					transformOrigin: "left",
+					ease: Power3.easeOut,
+				});
+				TweenMax.to($(this).find(".line-link"), 0.6, {
+					scaleX: 1,
+					transformOrigin: "left",
+					ease: Power3.easeOut,
+				});
+			},
+			function () {
+				TweenMax.to($(this).find(".line-link"), 0.6, {
+					scaleX: 0,
+					transformOrigin: "right",
+					ease: Power3.easeOut,
+				});
 				//TweenMax.to($borderCursor, .5, { scale: .5, ease: Power3.easeOut })
-			});
+			}
+		);
 	}
-
 }
 
-export const about = new About()
+export const about = new About();

@@ -12,4 +12,4 @@
 <?php include 'includes/myoverlay.php'; ?>
 <?php include 'includes/mycanvas.php'; ?>
 <?php include 'includes/myarchived.php'; ?>
-<?php include 'includes/mygooey.php'; ?><div class="e-rel" id="barba-wrapper" data-barba="wrapper" data-scroll><!-- init foooter--></div></body></html>
+<?php include 'includes/mygooey.php'; ?><div class="e-rel" id="barba-wrapper" data-barba="wrapper" data-scroll></div></body></html>

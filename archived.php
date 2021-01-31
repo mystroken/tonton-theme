@@ -40,4 +40,4 @@ vec2 position = vTextureCoord;
 float distortion = sin(position.y * frequency + time * speed) * amplitude;
 float distortion2 = sin(position.x * frequency + time * speed) * amplitudeY;
 gl_FragColor = texture2D(uSampler, vec2(position.x + distortion, position.y + distortion2));
-}</script><?php wp_footer(); ?></div><!-- init foooter--></div></body></html>
+}</script><?php wp_footer(); ?></div></div></body></html>
