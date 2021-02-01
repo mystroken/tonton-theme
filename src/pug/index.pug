@@ -6,7 +6,7 @@ html
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         meta(name="theme-color", content="#000000")
         title
-            <?php 
+            <?php
             |    if(is_front_page())
             |        echo "Home";
             |    else if(is_404())
@@ -15,7 +15,7 @@ html
             |        echo single_cat_title();
             |    else
             |        the_title();
-            |    echo ' | '.get_bloginfo('name'); 
+            |    echo ' | '.get_bloginfo('name');
             |?>
         block title
         link(rel="stylesheet", href!="<?php echo get_stylesheet_directory_uri(); ?>/css/fonts/fonts.css")

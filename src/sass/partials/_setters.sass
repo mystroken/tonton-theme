@@ -1,34 +1,35 @@
 @import 'alias-mixins'
 body
 	scroll-behavior: none
-	overscroll-behavior: none;
+	overscroll-behavior: none
+	line-height: 1.4
 
 
-.e-white 
+.e-white
 	background-color: #fff
 
-.t-white 
+.t-white
 	color: #fff
 
-.e-black 
+.e-black
 	background-color: #000
 
-.t-black 
+.t-black
 	color: #000
 
-.e-color 
+.e-color
 	background-color: var(--color)
 
 .e-dark
 	background-color: var(--dark)
 
-.t-color 
+.t-color
 	color: var(--color)
 
-.e-gray 
+.e-gray
 	background-color: #aaa
 
-.t-gray 
+.t-gray
 	color: #aaa
 
 .t-100
@@ -49,57 +50,57 @@ body
 .t-900
 	font-weight: 900
 
-.e-flex 
+.e-flex
     @include flex-center
 
-.e-flex-col 
+.e-flex-col
     @include flex-center-col
 
-.e-flex-wrap 
+.e-flex-wrap
     display: flex
     flex-wrap: wrap
     justify-content: center
 
-.e-rel 
+.e-rel
     position: relative
 
-.e-abs 
+.e-abs
     position: absolute
 
-.e-fixed 
+.e-fixed
 	position: fixed
 
-.e-wp 
+.e-wp
     width: 100%
 
-.e-hp 
+.e-hp
     height: 100%
 
-.e-85 
+.e-85
     width: 85%
 
 .e-85w
     width: 85vw
 
-.e-wvw 
+.e-wvw
     width: 100vw
 
 
-.e-hvh 
+.e-hvh
     height: 100vh
 
-.e-dn 
+.e-dn
     display: none
 
 
-.e-img-fit 
+.e-img-fit
     object-fit: cover
 
 
-.e-serif 
+.e-serif
     @include serif
 
-.e-sans 
+.e-sans
     @include sans
 
 .e-bold
@@ -111,36 +112,36 @@ body
 .t-center
 	text-align: center
 
-	
-.e-hidden 
+
+.e-hidden
 	overflow: hidden
 
 
-.e-curp 
+.e-curp
 	cursor: pointer
 
 
-h1 
+h1
 	@include serif
 	font-size: 24px
-	@include desk 
+	@include desk
 		font-size: 36px
-	
 
 
-p 
+
+p
 	color: #000
 	@include sans
-	margin-top: 25px
-	font-size: 30px
-	line-height: 40px;
-	@include desk 
-		font-size: 49.1px;
-		line-height: 1.4em;
-	
+	margin-top: 1rem
+	// font-size: 30px
+	// line-height: 40px
+	@include desk
+		// font-size: 49.1px
+		// line-height: 1.4em
 
 
-h2 
+
+h2
 	@include sans
 
 
@@ -149,13 +150,13 @@ h4
 	@include desk
 		font-size: 24.4px;
 
-.e-upper 
+.e-upper
 	text-transform: uppercase
 
 
-button 
+button
 	@include clear
-	@include resetbtn 
+	@include resetbtn
 	margin: 0
 	padding: 0
 	@include sans
@@ -168,7 +169,7 @@ button
 		width: 80.2%
 
 ::-webkit-scrollbar
-	width: 0px;
+	width: 0px
 	background: transparent
 
 .no-mobile
@@ -193,12 +194,12 @@ body
 
 .t-opac
     opacity: .25
-    
+
 
 .line
     margin-top: 2px
     height: 1px
-    
+
 .line-link
     height: 1px
 
@@ -217,7 +218,7 @@ button .t-opac
 .t-switch
     color: #fff
 
-    
+
 .e-switch
     background-color: #fff
 
@@ -267,11 +268,11 @@ h4.js-text
 
 
 
-		svg#gooey-svg 
+		svg#gooey-svg
 			width: 47px
 
 
-		g#sun > path 
+		g#sun > path
 			fill: #fff
 
 
@@ -295,7 +296,7 @@ h4.js-text
 		@include desk
 			margin-right: 26px
 			height: 20px
-			
+
 
 		&__line
 			width: 1px
@@ -310,7 +311,7 @@ h4.js-text
 		.line2
 			transform: rotate(45deg)
 
-	span 
+	span
 		font-weight: 900
 		font-size: 12px
 
