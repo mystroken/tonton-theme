@@ -62,8 +62,7 @@ block content
                 //- =========================  ABOUT  ========================= -//
                 section.about
                     .hold-home.scroll-about
-                        // img(src="https://dummyimage.com/271x294", alt="")
-                        video(width="304", height="322" muted="true", loop="true", src!="<?=get_template_directory_uri();?>/images/emoji-head.mp4")
+                        video(width="304", height="322" muted="true", loop="true", playsinline="true", type="video/mp4", src!="<?=get_template_directory_uri();?>/images/emoji-head.mp4")
 
                         .hold-p
                             p.t-switch.about-header Tonton. Name&rsquo;s so nice,</br> you say it twice.
@@ -79,7 +78,7 @@ block content
                     .hold-home.scroll-works
                         h1.title-home.t-switch.wrap.start-works
                             .wrapped Featured
-                        h1.title-home.t-switch.text-padding
+                        h1.title-home.t-switch.wrap.text-padding
                             .wrapped Work
 
                         .links-folio#folio-ctn
@@ -119,42 +118,42 @@ block content
                                 //-.line.e-switch-gray.e-switch
                     .gap-black
 
-        //- =========================  AWARDS  ========================= -//
-        //- =========================  AWARDS  ========================= -//
-        section.awards.e-wp
-            .award__hold.e-hold
-                .hold-home
-                    .inline
-                        .awards__title.start-awards
-                            h1.e-bold.t-switch.wrap
-                                .wrapped Awards
-                            h1.e-bold.t-switch.wrap
-                                .wrapped & Recognition
+                //- =========================  AWARDS  ========================= -//
+                //- =========================  AWARDS  ========================= -//
+                section.awards.e-wp
+                    .award__hold.e-hold
+                        .hold-home
+                            .inline
+                                .awards__title.start-awards
+                                    h1.e-bold.t-switch.wrap
+                                        .wrapped Awards
+                                    h1.e-bold.t-switch.wrap
+                                        .wrapped & Recognition
 
-                        .awards__fields
-                            .each-field
-                                .site
-                                    .e-bold.t-switch-gray.wrap
-                                        .wrapped Behance
-                                .recog
-                                    .t-switch-gray.wrap
-                                        .wrapped Pantone
-                                    .t-switch-gray.wrap
-                                        .wrapped Student Show
+                                .awards__fields
+                                    .each-field
+                                        .site
+                                            .e-bold.t-switch-gray.wrap
+                                                .wrapped Behance
+                                        .recog
+                                            .t-switch-gray.wrap
+                                                .wrapped Pantone
+                                            .t-switch-gray.wrap
+                                                .wrapped Student Show
 
-                            //-.each-field
-                                //-.site
-                                    //-.e-bold.t-switch-gray.wrap
-                                        //-.wrapped Awwwards
-                                //-.recog
-                                    //-.t-switch-gray.wrap
-                                        //-.wrapped SOTD
+                                    //-.each-field
+                                        //-.site
+                                            //-.e-bold.t-switch-gray.wrap
+                                                //-.wrapped Awwwards
+                                        //-.recog
+                                            //-.t-switch-gray.wrap
+                                                //-.wrapped SOTD
 
-                            .each-field
-                                .site
-                                    .e-bold.t-switch-gray.wrap
-                                        .wrapped Webby&rsquo;s
-                                .recog
-                                    .t-switch-gray.wrap
-                                        .wrapped Tech Something
+                                    .each-field
+                                        .site
+                                            .e-bold.t-switch-gray.wrap
+                                                .wrapped Webby&rsquo;s
+                                        .recog
+                                            .t-switch-gray.wrap
+                                                .wrapped Tech Something
         <?php include 'includes/myfooter.php'; ?>
