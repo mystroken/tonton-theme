@@ -51,13 +51,9 @@ h1.title-home
     &__title
         text-align: right
         margin-top: 105px
+        margin-left: auto
         white-space: nowrap
         text-transform: uppercase
-        @include tablet
-            margin-left: auto
-            width: 60%
-        @include desk
-            width: 100%
 
         .pushoff
             @include desk
@@ -145,7 +141,7 @@ h1.title-home
         	align-items: flex-start
 
     video
-        z-index: 0
+        z-index: -1
         @include desk
         	margin-right: 140px
 

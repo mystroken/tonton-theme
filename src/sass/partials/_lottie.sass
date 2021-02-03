@@ -1,29 +1,29 @@
 @import 'alias-mixins'
 .e-lottie
-    position: fixed;
-    //z-index: 20;
+    position: fixed
+    z-index: 20
     left: 0
     top: 0
 
     &__fader
         left: 0
         top: 0
-        
+
     &__circ-expand
         //will-change: transform
         z-index: 2
         background: red
-        border-radius: 50%;
-        background: #000;
-        opacity: 0;
-        width: 20vw;
-        height: 20vw;
+        border-radius: 50%
+        background: #000
+        opacity: 0
+        width: 20vw
+        height: 20vw
         @include desk
-            width: 7vw;
-            height: 7vw;
+            width: 7vw
+            height: 7vw
 
 
-    .lottie-ctn 
+    .lottie-ctn
         z-index: 1
         opacity: 0
         svg
