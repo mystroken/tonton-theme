@@ -13,6 +13,8 @@ h1.title-home
     text-transform: uppercase
     @include desk
         font-size: 10.1vw
+    @media (orientation: landscape)
+        font-size: 15vh
     &.line2
         margin-left: -.6vw
         text-align: left
@@ -50,7 +52,8 @@ h1.title-home
 
     &__title
         text-align: right
-        margin-top: 105px
+        // margin-top: 105px
+        margin-top: 4.1rem
         margin-left: auto
         white-space: nowrap
         text-transform: uppercase
@@ -61,37 +64,37 @@ h1.title-home
 
     &__infos
         text-align: right
-        width: 100%
-        padding-top: 26px
-        display: flex
-        flex-direction: column
         line-height: 1.6
+        padding-top: 1.3rem
+        width: 100%
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        font-size: .55rem
+        padding-top: 2.31rem
+        line-height: 2.5vw
+        box-sizing: border-box
         @include desk
-            flex-direction: row
-            justify-content: space-between
+            font-size: 1.6vw
             width: 90.3%
             margin-left: 9vw
             padding-right: 5vw
-            font-size: 1.6vw
-            padding-top: 60px
-            line-height: 2.5vw
-            box-sizing: border-box
 
         &__role
-            margin-top: 1rem
+            // margin-top: 1rem
             @include desk
                 margin-top: 0
                 //-margin-left: -13%
 
         &__available
-            margin-top: 1rem
+            // margin-top: 1rem
             @include desk
                 margin-top: 0
                 text-align: left
 
             span
                 @include desk
-                    font-size: 19px
+                    font-size: .6551724138rem
 
 //- =========================  OPTIONS  ========================= -//
 //- =========================  OPTIONS  ========================= -//
@@ -155,7 +158,7 @@ h1.title-home
 
     .hold-p
         @include desk
-            width: 520px
+            // width: 520px
 
     p
         margin-bottom: 1.33rem
@@ -163,8 +166,8 @@ h1.title-home
         opacity: 0.7
         @include desk
             font-size: 2.2vw
-            line-height: 1.5em
-            margin-top: 20px
+            line-height: 1.4
+            margin-top: .76923rem
 
 //- =========================  WORKS HOME  ========================= -//
 //- =========================  WORKS HOME  ========================= -//
@@ -190,11 +193,10 @@ h1.title-home
                 padding: 15px 0 15px auto
 
         h1
-            font-size: 3rem
+            font-size: 12vw
             @include desk
                 opacity: 0
-                font-size: 5rem
-                // font-size: 12vw
+                font-size: 10vw
 
             .wrapped
                 @include desk
