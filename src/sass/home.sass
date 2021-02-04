@@ -13,8 +13,6 @@ h1.title-home
     text-transform: uppercase
     @include desk
         font-size: 10.1vw
-    @media (orientation: landscape)
-        font-size: 15vh
     &.line2
         margin-left: -.6vw
         text-align: left
@@ -64,30 +62,31 @@ h1.title-home
 
     &__infos
         text-align: right
+        font-size: 1rem
         line-height: 1.6
         padding-top: 1.3rem
         width: 100%
         display: flex
-        flex-direction: row
-        justify-content: space-between
-        font-size: .55rem
+        flex-direction: column
         padding-top: 2.31rem
         line-height: 2.5vw
         box-sizing: border-box
         @include desk
+            flex-direction: row
+            justify-content: space-between
             font-size: 1.6vw
             width: 90.3%
             margin-left: 9vw
             padding-right: 5vw
 
         &__role
-            // margin-top: 1rem
+            margin-top: 1rem
             @include desk
                 margin-top: 0
                 //-margin-left: -13%
 
         &__available
-            // margin-top: 1rem
+            margin-top: 1rem
             @include desk
                 margin-top: 0
                 text-align: left
@@ -150,22 +149,24 @@ h1.title-home
 
     .about-header
         font-weight: 900
-        font-size: 1.692rem
-        line-height: 1.2
+        // font-size: 1.692rem
+        // line-height: 1.2
+        font-size: 2.4rem
+        line-height: 1.4
         opacity: 1
         margin-bottom: 1.846rem
         @include serif
 
     .hold-p
         @include desk
-            // width: 520px
+            width: 720px
 
     p
         margin-bottom: 1.33rem
         font-size: 1.2rem
         opacity: 0.7
         @include desk
-            font-size: 2.2vw
+            font-size: 1.6vw
             line-height: 1.4
             margin-top: .76923rem
 
