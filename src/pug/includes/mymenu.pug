@@ -15,13 +15,14 @@
         .menu-fs__main
             <?php if(have_rows('main_links_rpt', 'option')): while(have_rows('main_links_rpt', 'option')) : the_row(); ?>
                 .menu-fs__main__each.wrap
-                        a(href!="<?php echo get_site_url(); ?>/<?php the_sub_field('link');?>", alt!="<?php the_sub_field('title');?>" data-to!="<?php the_sub_field('link');?>").link-menu.t-black.wrapped <?php the_sub_field('link');?>
+                        <?php $dataTo = (get_sub_field('link') == 'playground') ? 'archived' : get_sub_field('link'); ?>
+                        a(href!="<?php echo get_site_url(); ?>/<?php the_sub_field('link');?>", alt!="<?php the_sub_field('title');?>" data-to!="<?php echo $dataTo;?>").link-menu.t-black.wrapped <?php the_sub_field('link');?>
             <?php endwhile; else : endif; ?>
 
         .menu-fs__secund
             .menu-fs__email.wrap
                 .wrapped.e-flex
-                    span.t-gray Say Hello: 
+                    span.t-gray Say Hello:
                     script.
                         user = 'hello';
                         site = 'hellotonton';

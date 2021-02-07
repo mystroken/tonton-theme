@@ -6,7 +6,7 @@ block title
 
 block content
     .barba-container.page-archived.e-wp(data-barba="container", data-barba-namespace="archived", data-namespace="archived" data-current!="" data-scroll-content)
-        .gallery.e-wvw.e-hvh.e-fixed.e-hidden
+        .gallery
             .gallery__travel.e-rel.e-hp
                 <?php $index = 0; if(have_rows('dribbble_shots')): while(have_rows('dribbble_shots')) : the_row(); $index++;?>
                     .gallery__each(data-item!='<?=$index?>', data-plx!='<?=($index % 2 === 0) ? "on" : ""?>', data-zindex!='<?=$index?>', class!="gallery__img__<?=$index?>")
@@ -25,12 +25,12 @@ block content
             uniform float amplitudeY;
             uniform float speed;
             void main() {
-            vec2 position = vTextureCoord;
-            float distortion = sin(position.y * frequency + time * speed) * amplitude;
-            float distortion2 = sin(position.x * frequency + time * speed) * amplitudeY;
-            gl_FragColor = texture2D(uSampler, vec2(position.x + distortion, position.y + distortion2));
+              vec2 position = vTextureCoord;
+              float distortion = sin(position.y * frequency + time * speed) * amplitude;
+              float distortion2 = sin(position.x * frequency + time * speed) * amplitudeY;
+              gl_FragColor = texture2D(uSampler, vec2(position.x + distortion, position.y + distortion2));
             }
-        
+
         //- =========================  FOOTER  ========================= -//
         //- =========================  FOOTER  ========================= -//
         script#shaderFragArchive(type='x-shader/x-vertex').
@@ -43,9 +43,9 @@ block content
             uniform float amplitudeY;
             uniform float speed;
             void main() {
-            vec2 position = vTextureCoord;
-            float distortion = sin(position.y * frequency + time * speed) * amplitude;
-            float distortion2 = sin(position.x * frequency + time * speed) * amplitudeY;
-            gl_FragColor = texture2D(uSampler, vec2(position.x + distortion, position.y + distortion2));
+              vec2 position = vTextureCoord;
+              float distortion = sin(position.y * frequency + time * speed) * amplitude;
+              float distortion2 = sin(position.x * frequency + time * speed) * amplitudeY;
+              gl_FragColor = texture2D(uSampler, vec2(position.x + distortion, position.y + distortion2));
             }
         <?php wp_footer(); ?>

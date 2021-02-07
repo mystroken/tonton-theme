@@ -76,30 +76,32 @@ class Smooth {
 	//? - =========================  FOOTER PARALLAX  ========================= -//
 	//? - =========================  FOOTER PARALLAX  ========================= -//
 	footerParallax(scrolled) {
-		let h = window.innerHeight
-		let hPercent = (h / 100)
-		let margTop = hPercent * 20
-		let $faderFooter = document.querySelector('.footer__fader')
-		let $footer = document.querySelector('.footer')
-		let distanceFooter = $footer.getBoundingClientRect().top
-		let heightFooter = distanceFooter + h
-		let totalFaderFooter = heightFooter - distanceFooter
+		if ($('.footer').length > 0) {
+			let h = window.innerHeight
+			let hPercent = (h / 100)
+			let margTop = hPercent * 20
+			let $faderFooter = document.querySelector('.footer__fader')
+			let $footer = document.querySelector('.footer')
+			let distanceFooter = $footer.getBoundingClientRect().top
+			let heightFooter = distanceFooter + h
+			let totalFaderFooter = heightFooter - distanceFooter
 
-		let sizeDocument = $('[data-scroll-content]').height()
-		if ($(window).width() > 1024) {
-			if (scrolled - 100 > sizeDocument - (h * 2)) {
-				let percentageFromTop = ((sizeDocument - h) - scrolled) / h
-				// console.log(percentageFromTop)
-				TweenMax.set($footer, { y: - (h * percentageFromTop) })
-				TweenMax.set($footer, { yPercent: (30 * percentageFromTop) })
+			let sizeDocument = $('[data-scroll-content]').height()
+			if ($(window).width() > 1024) {
+				if (scrolled - 100 > sizeDocument - (h * 2)) {
+					let percentageFromTop = ((sizeDocument - h) - scrolled) / h
+					// console.log(percentageFromTop)
+					TweenMax.set($footer, { y: - (h * percentageFromTop) })
+					TweenMax.set($footer, { yPercent: (30 * percentageFromTop) })
+				}
 			}
-		}
 
-		window.innerWidth < 1024 ? scrolled = window.scrollY : null
-		if (scrolled < 10) {
-			$('html').addClass('is-top')
-		} else {
-			$('html').removeClass('is-top')
+			window.innerWidth < 1024 ? scrolled = window.scrollY : null
+			if (scrolled < 10) {
+				$('html').addClass('is-top')
+			} else {
+				$('html').removeClass('is-top')
+			}
 		}
 	}
 

@@ -27,7 +27,7 @@ import { cursor } from "./js/cursor";
 import { gooeymenu } from "./js/gooeyMenu";
 import { menufs } from "./js/menu";
 import { lottiejs } from "./js/lottie";
-import { archived } from "./js/archived";
+// import { archived } from "./js/archived";
 
 //cursor.init()
 menufs.init(Barba);
@@ -240,7 +240,7 @@ let archivedBase = Barba.BaseView.extend({
 	},
 	onLeave: function () {
 		TweenMax.to(".modal-zoom, #main-archived", 0.5, { autoAlpha: 0 });
-		archived.destroy();
+		// archived.destroy();
 	},
 });
 archivedBase.init();
