@@ -101,10 +101,10 @@ var ExpandTransition = Barba.BaseTransition.extend({
 		// ARCHIVE ROUTE
 		// ===========================================================================
 		else if (nameTo === "archived") {
-			TweenMax.set($pathOverlay0, { fill: "#000" });
-			TweenMax.set($pathOverlay1, { fill: "#eee" });
+			TweenMax.set($pathOverlay0, { fill: "#eee" });
+			TweenMax.set($pathOverlay1, { fill: "#000" });
 			TweenMax.delayedCall(1.5, () => {
-				TweenMax.set("body", { backgroundColor: "#eee" });
+				TweenMax.set("body", { backgroundColor: "#000" });
 			});
 		}
 
