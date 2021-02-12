@@ -75,7 +75,7 @@ block content
 
                         .role__motto(style!="background-color:<?php the_sub_field('background_color_motto'); ?>")
                             h2.e-bold.js-text <?php the_sub_field('motto'); ?>
-                
+
                 <?php elseif( get_row_layout() == 'brief' ): ?>
                     //- =========================  descr  ========================= -//
                     //- =========================  descr  ========================= -//
@@ -137,7 +137,7 @@ block content
                 <?php elseif( get_row_layout() == 'parallax' ): ?>
                     section.parallax.e-hidden
                         div(style!="background-color: #1A2938; background-image: url(<?php echo get_sub_field('parallax_img')['url']; ?>)").parallax__bg
-                    
+
                     div.colored-section(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
                         <?php elseif( get_row_layout() == 'website' ): ?>
                             //- =========================  descr  ========================= -//
@@ -151,7 +151,7 @@ block content
                 //- =========================  homepage  ========================= -//
                 //- =========================  homepage  ========================= -//
                 <?php elseif( get_row_layout() == 'presentation' ): ?>
-                    section.home-page.e-rel.e-wvw.anima-text
+                    section.home-page.e-rel.e-wvw.anima-text(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
                         .home-page__hold.e-hold
                             .inline.e-rel.e-wp
                                 .home-page__text.e-fixed
@@ -168,7 +168,7 @@ block content
                 //- =========================  DRAGGABLE  ========================= -//
                 //- =========================  DRAGGABLE  ========================= -//
                 <?php elseif( get_row_layout() == 'draggable' ): ?>
-                    section.inner-pages.e-rel.e-wvw.anima-text
+                    section.inner-pages.e-rel.e-wvw.anima-text(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
                         .inner-pages__hold.e-hold.callout
                             p.mini-heading <?php the_sub_field('pre_heading'); ?>
                             h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('drag_heading'); ?>
@@ -194,7 +194,7 @@ block content
                             .indicator.e-rel
                                 .indic-static.e-wp.e-black.e-hp.e-abs
                                 .indic-dyna.e-wp.e-black.e-hp.e-abs
-        
+
                 //- =========================  CONCLUSION  ========================= -//
                 //- =========================  CONCLUSION  ========================= -//
                 <?php elseif( get_row_layout() == 'conclusion' ): ?>
@@ -228,8 +228,8 @@ block content
                                 <?php endwhile; else : endif; ?>
                     <?php endif; endwhile; else : endif; ?>
 
-                
-                    
+
+
                     section.next.e-wvw.e-hvh.e-rel.anima-text.test
                         .next__hold.e-hold.e-flex-col.e-hp
                             .next__subt.e-serif.js-text.scale NEXT PROJECT
