@@ -7,7 +7,7 @@
     header
 
         h3
-            padding-top: 3.8462rem
+            padding-top: calc(2rem + 45px)
             font-size: .96153846rem
             line-height: 1.62
             @include desk
@@ -37,59 +37,68 @@
                 font-size: 2.2vw
 
     .lg-heading
-        color: #101010;
+        color: #101010
     .callout
         p
-            color: inherit;
+            color: inherit
     .three-col-block
         h3
-            color: #101010;
+            color: #101010
         p
-            color: inherit;
+            color: inherit
             strong
                 color: #030905
 
 
 .header-single
-    background-color: #fff;
+    background-color: #fff
 
     .page__close
-        font-family: 'pangramlight';
-        width: 4vw;
-        height: 4vw;
+        font-family: 'pangramlight'
+        width: 45px
+        height: 45px
         border: 1px solid rgba(255, 255, 255, .20);
-        border-radius: 50%;
-        font-size: 10px !important;
-        cursor: pointer;
+        border-radius: 50%
+        font-size: 10px !important
+        cursor: pointer
         transition: .5s border ease-out
         &:hover
-            border: 1px solid rgba(255, 255, 255, 1);
+            border: 1px solid rgba(255, 255, 255, 1)
         &.bd-black
-            border-color: rgba(0, 0, 0, .20);
+            border-color: rgba(0, 0, 0, .20)
             &:hover
-                border: 1px solid rgba(0, 0, 0, 1);
+                border: 1px solid rgba(0, 0, 0, 1)
+        @include desk
+            width: 4vw
+            height: 4vw
 
 
 //- =========================  3 STEPS  ========================= -//
 //- =========================  3 STEPS  ========================= -//
 
 .three-col-block
-    padding-top: 200px
-    padding-bottom: 200px
+    padding-top: 4rem
+    padding-bottom: 4rem
+
     h3
-        text-align: center
-        margin-bottom: 100px
+        @include breakpoint-medium
+            text-align: center
+
     p
-        font-size: .9rem
+        font-size: 1rem
+        @include breakpoint-medium
+            font-size: .9rem
         strong
             @include serif
-            letter-spacing: 1.97px
-            font-size: 1.2rem
+            letter-spacing: .094em
+            font-size: 1rem
             display: block
+            @include breakpoint-medium
+                font-size: .9rem
     ul
         display: grid
-        row-gap: 2rem
-        @include desk
+        row-gap: 1.5rem
+        @include breakpoint-medium
             row-gap: 0
             grid-template-columns: repeat(3, 1fr)
             column-gap: 5vw
@@ -114,7 +123,7 @@
         color: #000
         background: #FFB608
         padding: 52px 6.6vw 39px
-        letter-spacing: 1.4px;
+        letter-spacing: 1.4px
         @include desk
             padding: 0
             grid-area: infos
@@ -251,26 +260,31 @@ section.brief
     margin-bottom: .5rem
 
 .lg-heading
-    max-width: 35rem
+    max-width: 380px
     font-size: 2.29rem
     line-height: 1.1683
     @include serif
-    @media (min-width: 600px)
-        font-size: 6rem
+    margin-bottom: 1.75rem
+    @include breakpoint-medium
+        margin-bottom: 2.7rem
+        max-width: 100%
+        font-size: 10vw
         line-height: 1.0625
+    @include breakpoint-large
+        margin-bottom: 3.85rem
 
 .callout
     padding-top: 9.5rem
     .copy
-        margin-top: 1.5rem
-        @include desk
-            margin-top: 4.76rem
-            width: 41.2vw
-            margin-left: auto
+        max-width: 620px
+        @include breakpoint-medium
+            margin-left: 40%
+        @include breakpoint-large
+            margin-left: 50%
         p
             margin-top: 1.5rem
             font-size: 1rem
-            @include desk
+            @include breakpoint-medium
                 margin-top: 1.923rem
 
 //- =========================  website  ========================= -//
@@ -656,9 +670,10 @@ section.brief
 .conclusion
     padding-top: 7rem
     padding-bottom: 7rem
+
     h3
         text-align: center
-        margin-bottom: 3.5rem
+
     p
         max-width: 920px
         color: #5c5c5c
@@ -669,10 +684,13 @@ section.brief
         text-align: center
     dt
         @include serif
-        font-size: 17.3vw
         line-height: 1
         margin-bottom: 1rem
         color: #101010
+        font-size: 31.4vw
+        @include breakpoint-medium
+            font-size: 17.3vw
+
     dd
         font-size: 1rem
 
@@ -723,17 +741,17 @@ section.brief
 
 
     &__subt
-        letter-spacing: 4.43px
-        font-size: .54rem
+        letter-spacing: .316em
+        font-size: .66rem
         margin-bottom: 1.34rem
 
 
     &__title
 
         h1
-            font-size: 12rem
-            @include desk
-                // font-size: 17.3vw
+            font-size: 4.762rem
+            @include breakpoint-medium
+                font-size: 18vw
                 color: rgba(0, 0, 0, 0)
 
 

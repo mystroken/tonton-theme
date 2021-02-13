@@ -85,7 +85,7 @@
  background-color: transparent
  -webkit-box-shadow: none
  -moz-box-shadow: none
- box-shadow: none	
+ box-shadow: none
  outline: 0 */
 
 @mixin resetbtn
@@ -112,3 +112,21 @@
 
 			@media screen and (min-width: $max-vw)
 				font-size: $max-font-size
+
+
+$screen-small: 576px
+$screen-medium: 768px
+$screen-large: 992px
+$screen-xlarge: 1200px
+
+@mixin breakpoint-medium
+	@media (min-width: $screen-medium)
+		@content
+
+@mixin breakpoint-large
+	@media (min-width: $screen-large)
+		@content
+
+@mixin breakpoint-xlarge
+	@media (min-width: $screen-xlarge)
+		@content
