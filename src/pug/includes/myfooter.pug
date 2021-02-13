@@ -1,11 +1,11 @@
-footer.footer.scroll-footer
+footer.footer.scroll-footer.e-hidden
     .hold-home
-        //- =========================  CTA                       
+        //- =========================  CTA
         .footer__cta
             .footer__cta__title
-                h1.title-home.t-switch Let&rsquo;s tell 
+                h1.title-home.t-switch Let&rsquo;s tell
                 h1.title-home.t-switch your story
-            
+
             .footer__cta__email
                 script.
                     user = 'hello';
@@ -13,7 +13,7 @@ footer.footer.scroll-footer
                     document.write('<a href=\"mailto:' + user + '@' + site + '.com\"><button class="e-curp hover-line scale"><span class="e-sans t-switch-gray t-switch">');
                     document.write(user + '[at]' + site + '[dot]com<div class="line e-wp e-switch-gray"></div></span></button></a>');
 
-        //- =========================  SOCIAIS               
+        //- =========================  SOCIAIS
         .footer__sociais.e-wp
             a(href="https://dribbble.com/jaslintonton")
                 button.e-curp.hover-line.scale
@@ -30,15 +30,15 @@ footer.footer.scroll-footer
                     span.t-switch-gray LinkedIn
                     .line-link.e-wp.e-switch-gray
 
-        //- =========================  SOCIAIS               
+        //- =========================  SOCIAIS
         .footer__rights.e-wp
             span.t-switch-gray &copy; 2021<?php if(date('Y') > 2021) echo '&ndash;'.date('Y')?>. All Rights Reserved.
-            
+
             span.scale
                     span.t-switch-gray Developed by: 
                     span.vw.t-switch-gray.e-rel Victor Work
                         .line-link.e-wp.e-switch-gray
-                        
+
             span.t-switch-gray CMD + S by Grace
 
     <?php wp_footer(); ?>

@@ -175,9 +175,7 @@
         width: 250px
 
 .interlude
-    padding-bottom: 4rem
-    @include breakpoint-medium
-        padding-bottom: 6rem
+    @include section-space-bottom
 
     q
         @include serif
@@ -192,10 +190,8 @@
             content: '—'
 
 .wrapup
+    @include section-space-bottom
     text-align: center
-    padding-bottom: 4rem
-    @include breakpoint-medium
-        padding-bottom: 6rem
 
     .copy
         @include breakpoint-large

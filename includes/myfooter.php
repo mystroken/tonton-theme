@@ -1,4 +1,4 @@
-<footer class="footer scroll-footer"><div class="hold-home"><div class="footer__cta"><div class="footer__cta__title"><h1 class="title-home t-switch">Let&rsquo;s tell </h1><h1 class="title-home t-switch">your story</h1></div><div class="footer__cta__email"><script>user = 'hello';
+<footer class="footer scroll-footer e-hidden"><div class="hold-home"><div class="footer__cta"><div class="footer__cta__title"><h1 class="title-home t-switch">Let&rsquo;s tell</h1><h1 class="title-home t-switch">your story</h1></div><div class="footer__cta__email"><script>user = 'hello';
 site = 'hellotonton';
 document.write('<a href=\"mailto:' + user + '@' + site + '.com\"><button class="e-curp hover-line scale"><span class="e-sans t-switch-gray t-switch">');
 document.write(user + '[at]' + site + '[dot]com<div class="line e-wp e-switch-gray"></div></span></button></a>');
