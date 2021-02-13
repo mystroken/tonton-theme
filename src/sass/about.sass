@@ -18,7 +18,7 @@
         font-family: 'pangramlight'
         width: 45px
         height: 45px
-        border: 1px solid rgba(255, 255, 255, .20)
+        border: 1px solid #A1A1A6
         border-radius: 50%
         font-size: 10px !important
         cursor: pointer
@@ -35,11 +35,10 @@
 
     &__hold
     &__title
-        padding-top: 117px
-        //-width: 100%;
+        padding-top: 6rem
         @include desk
             margin: 0 7vw 0 9vw
-            padding-top: 17vw
+            padding-top: 12vw
 
         h1
             font-size: 2.4rem
@@ -133,8 +132,10 @@
                     background: #fff !important
 
 .about-me
-    padding-top: calc(100px - 80px)
+    // @include section-space-top
+    overflow: hidden
     @include breakpoint-large
+        overflow: visible
         display: flex
         align-items: flex-end
 
@@ -145,14 +146,19 @@
         img
             max-width: 100%
             height: auto
+
+    .copy
+        max-width: 720px
+
     h2
-        font-size: 2rem
         @include serif
+        font-size: 1.625rem
         line-height: 1.1923
         @include breakpoint-large
-            width: 30vw
+            // width: 30vw
+            max-width: 400px
     p
-        font-size: 1.23rem
+        font-size: 1rem
         @include breakpoint-large
             margin-right: 10px
 
@@ -173,6 +179,8 @@
     q
         display: block
         width: 250px
+        @include breakpoint-medium
+            width: 100%
 
 .interlude
     @include section-space-bottom
@@ -194,16 +202,19 @@
     text-align: center
 
     .copy
-        @include breakpoint-large
-            margin: 100px auto 0
-            width: 53vw
+        margin: 0 auto
+        max-width: 732px
+
     .years
-        display: block
-        color: #fff
-        font-size: 41vw
-        @include serif
-        line-height: 1em
         position: relative
+        display: block
+        @include serif
+        color: #fff
+        line-height: 1
+        font-size: 15rem
+        @include breakpoint-large
+            font-size: 17.75rem
+
         .img-mask
             display: none
             position: absolute

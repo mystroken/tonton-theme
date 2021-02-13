@@ -8,15 +8,15 @@ block content
     .barba-container.page-about.e-wp(data-barba="container", data-barba-namespace="about", data-namespace="about" data-current!="" data-scroll-content)
         header.header-about.e-rel
             .all-projects.e-abs
-                a(href!="<?php echo get_site_url(); ?>" data-to="home")
-                    button.page__close.e-rel.e-curp.bd-black
+                a(href!="<?php echo get_site_url(); ?>" data-to="home").t-switch
+                    button.page__close.e-rel.e-curp
                         span.t-black.e-sans.t-switch BACK
 
             .header-about__title.e-hold
                 h1.t-switch You&rsquo;re interested.<br>I&rsquo;m blushing.
 
         main
-            .about-me.e-hold.e-hidden
+            .about-me.e-hold
                 p.headshot
                     img(src!='<?php echo get_template_directory_uri(); ?>/images/jaslin-tonton-headshot.png' alt="headshot")
                 .copy
