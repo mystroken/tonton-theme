@@ -86,15 +86,11 @@
 
     p
         font-size: 1rem
-        @include breakpoint-medium
-            font-size: .9rem
         strong
             @include serif
             letter-spacing: .094em
             font-size: 1rem
             display: block
-            @include breakpoint-medium
-                font-size: .9rem
     ul
         display: grid
         row-gap: 1.5rem
@@ -276,11 +272,12 @@ section.brief
 .callout
     padding-top: 9.5rem
     .copy
-        max-width: 620px
+        max-width: 768px
         @include breakpoint-medium
             margin-left: 40%
         @include breakpoint-large
             margin-left: 50%
+
         p
             margin-top: 1.5rem
             font-size: 1rem

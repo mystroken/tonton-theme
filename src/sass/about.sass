@@ -1,13 +1,13 @@
 @import './partials/alias-mixins'
 .page-about
     p
-        color: var(--gray)
+        // color: var(--gray)
 
     .svg-path-white
 
-        & > * 
+        & > *
             fill: #fff
-    
+
     .t-white
         color: #fff !important
 
@@ -15,20 +15,23 @@
 //- =========================  HEADER  ========================= -//
 .header-about
     .page__close
-        font-family: 'pangramlight';
-        width: 4vw;
-        height: 4vw;
-        border: 1px solid rgba(255, 255, 255, .20);
-        border-radius: 50%;
-        font-size: 10px !important;
-        cursor: pointer;
+        font-family: 'pangramlight'
+        width: 45px
+        height: 45px
+        border: 1px solid rgba(255, 255, 255, .20)
+        border-radius: 50%
+        font-size: 10px !important
+        cursor: pointer
         transition: .5s border ease-out
         &:hover
-            border: 1px solid rgba(255, 255, 255, 1);
+            border: 1px solid rgba(255, 255, 255, 1)
         &.bd-black
-            border-color: rgba(0, 0, 0, .20);
+            border-color: rgba(0, 0, 0, .20)
             &:hover
-                border: 1px solid rgba(0, 0, 0, 1);
+                border: 1px solid rgba(0, 0, 0, 1)
+        @include desk
+            width: 4vw
+            height: 4vw
 
     &__hold
     &__title
@@ -37,25 +40,25 @@
         @include desk
             margin: 0 7vw 0 9vw
             padding-top: 17vw
-        
+
         h1
             font-size: 55px
             line-height: 60px
             @include desk
                 font-size: 11.5vw
-                text-transform: uppercase;
-                line-height: 8.4vw;
+                text-transform: uppercase
+                line-height: 8.4vw
 
             .wrapped
-                padding: 1vw 0 3vw;
+                padding: 1vw 0 3vw
 
     &__content
         margin-top: 58px
         @include desk
             margin-top: 0
             margin: 9.3vw 5.5vw 0 9vw
-            display: grid;
-            grid-template-columns: 35vw 1fr;
+            display: grid
+            grid-template-columns: 35vw 1fr
             column-gap: 6.5vw
 
         &__img
@@ -65,7 +68,6 @@
             @include desk
                 width: 35vw
                 height: 52.5vw
-
 
             picture
                 display: block
@@ -93,12 +95,12 @@
                     letter-spacing: -.08vw
 
             svg
-                margin: 0 0.2vw;
-                cursor: pointer;
+                margin: 0 0.2vw
+                cursor: pointer
                 width: 20px
                 transition: .15s fill ease-out
                 @include desk
-                    width: 2vw;
+                    width: 2vw
 
             .sun
                 pointer-events: none
@@ -112,7 +114,7 @@
                 &:hover
                     &:after
                         transform: scaleY(0)
-                        transform-origin: top right;
+                        transform-origin: top right
 
                 &:after
                     content: ''
@@ -126,89 +128,96 @@
                     transform-origin: bottom left
                     transition: .3s transform ease-out, .15s background ease-out
 
-
             .redact-dark
                 color: #fff !important
                 &:after
                     background: #fff !important
 
-
 .about-me
-    display: flex;
-    align-items: flex-end;
-    padding-top: calc(100px - 80px);
+    padding-top: calc(100px - 80px)
+    @include breakpoint-large
+        display: flex
+        align-items: flex-end
 
     .headshot
-        order: 1;
-        transform: translateX(60px) translateY(80px);
+        @include breakpoint-large
+            order: 1
+            transform: translateX(60px) translateY(80px)
+        img
+            max-width: 100%
+            height: auto
     h2
-        font-size: 3.6vw;
-        @include serif;
-        width: 30vw;
-        line-height: 1.4em;
+        font-size: 2rem
+        @include serif
+        line-height: 1.1923
+        @include breakpoint-large
+            width: 30vw
     p
-        font-size: 2.2vw;
-        margin-right: 10px;
+        font-size: 1.23rem
+        @include breakpoint-large
+            margin-right: 10px
 
 .beginning
-    padding-top: calc(200px + 80px);
+    padding-top: calc(200px + 80px)
     b
-        @include serif;
+        @include serif
     del
-        margin-right: 7px;
+        margin-right: 7px
     ins
-        text-decoration: none;
+        text-decoration: none
 
 .process
     .mini-heading
-        text-align: center;
-    .lg-heading
-        margin: 0 -20px 100px
+        @include breakpoint-medium
+            text-align: center
     strong
-        margin-bottom: 20px;
+        margin-bottom: .64rem
     q
-        display: block;
-        width: 250px;
+        display: block
+        width: 250px
 
 .interlude
-    padding-bottom: 200px;
+    padding-bottom: 200px
     q
-        @include serif;
-        color: #101010;
+        @include serif
+        color: #101010
     cite
-        @include serif;
-        color: #101010;
-        display: block;
-        text-align: right;
+
+     &
+        color: #101010
+        display: block
+        text-align: right
         &::before
-            content: '—';
+            content: '—'
 
 .wrapup
-    text-align: center;
-    padding-bottom: 200px;
-    .lg-heading
-        margin: 0 -20px 100px
+    text-align: center
+    padding-bottom: 200px
+
     .copy
-        margin: 100px auto 0;
-        width: 53vw;
+        @include breakpoint-large
+            margin: 100px auto 0
+            width: 53vw
     .years
-        display: block;
-        color: #fff;
-        font-size: 41vw;
-        @include serif;
-        line-height: 1em;
+        display: block
+        color: #fff
+        font-size: 41vw
+        @include serif
+        line-height: 1em
         position: relative
         .img-mask
-            position: absolute;
-            left: -24px;
-            bottom: calc(61px - 30px);
+            display: none
+            position: absolute
+            left: -24px
+            bottom: calc(61px - 30px)
             width: 397px
-            height: 427px;
-            overflow: hidden;
+            height: 427px
+            overflow: hidden
+            @include breakpoint-large
+                display: block
             img
-                vertical-align: top;
-                width: 100%;
-
+                vertical-align: top
+                width: 100%
 
 //- =========================  code  ========================= -//
 //- =========================  code  ========================= -//
@@ -224,7 +233,7 @@
 
     &__title
 
-        h1 
+        h1
             font-size: 44px
             line-height: 58px
             @include desk
@@ -247,7 +256,7 @@
                 justify-content: flex-start
                 margin-bottom: 5.3vw
 
-        span 
+        span
             display: block
             font-size: 30px
 
@@ -262,15 +271,11 @@
                     font-size: 1.8vw
                     margin-top: 0.6vw
 
-
-
-
-
 //- =========================  mon  ========================= -//
 //- =========================  mon  ========================= -//
 .mom
     padding-top: 54px
-    padding-bottom: 15vw;
+    padding-bottom: 15vw
     @include desk
         padding-top: 2.7vw
         padding-left: 35.4vw
@@ -292,7 +297,6 @@
             @include desk
                 font-size: 3.3vw
                 line-height: 4.8vw
-                
 
         .this-mom
             text-align: right
