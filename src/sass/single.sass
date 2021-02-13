@@ -77,8 +77,8 @@
 //- =========================  3 STEPS  ========================= -//
 
 .three-col-block
-    padding-top: 4rem
-    padding-bottom: 4rem
+    @include section-space-top
+    @include section-space-bottom
 
     h3
         @include breakpoint-medium
@@ -270,7 +270,7 @@ section.brief
         margin-bottom: 3.85rem
 
 .callout
-    padding-top: 9.5rem
+    @include section-space-top
     .copy
         max-width: 768px
         @include breakpoint-medium
@@ -301,9 +301,7 @@ section.brief
 
 .colors
     background-color: #fff
-    padding-top: 91px
-    @include desk
-        padding-top: 200px
+    @include section-space-top
 
 
     p
@@ -314,7 +312,7 @@ section.brief
             display: inline-flex
 
     .color-name
-        letter-spacing: 1px;
+        letter-spacing: 1px
 
     &__texts
 
@@ -322,8 +320,8 @@ section.brief
             width: 45.5%
 
         h4
-            text-transform: uppercase;
-            color: #101010;
+            text-transform: uppercase
+            color: #101010
         p
             @include desk
                 color: #5c5c5c
@@ -411,50 +409,38 @@ section.brief
 //- =========================  PARALLAX  ========================= -//
 
 .parallax
-    padding-top: 93px
-    @include desk
-        padding-top: 200px
+    @include section-space-top
+    position: relative
+    width: 100%
+    height: 1560px
+    overflow: hidden
 
-.parallax
-	position: relative
-	width: 100%
-	height: 1560px
-	// max-height: 80vh
-	overflow: hidden
+    &::after
+        content: ''
+        position: absolute
+        background-color: #fff
+        top: 0
+        left: 0
+        width: 100%
+        height: 4rem
+        @include breakpoint-medium
+            height: 6rem
 
-	.parallax__bg
-		position: absolute
-		top: 0
-		left: 0
-		height: 100%
-		width: 100%
-		background-size: cover
-		background-repeat: no-repeat
-		background-position: center top;
-		z-index: -1
-        transform-origin: 50% 0;
-
-	.parallax__bg
-		@include desk
-			position: fixed
-			height: 100vh
-			width: 100vw
-
-
-.parallax
-	&::after
-		content: ''
-		position: absolute
-		background-color: #fff
-		top: 0
-		left: 0
-		width: 100%
-		height: 93px
-
-.parallax
-	&::after
-    	@include desk
-        	height: 220px
+    .parallax__bg
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center top
+        z-index: -1
+        transform-origin: 50% 0
+        @include desk
+            position: fixed
+            height: 100vh
+            width: 100vw
 
 
 
@@ -527,7 +513,7 @@ section.brief
 //- =========================  homepage  ========================= -//
 
 .home-page
-    padding-bottom: 3.81rem
+    // padding-bottom: 3.81rem
 
 
     .inline
@@ -665,8 +651,8 @@ section.brief
 //- =========================  CONCLUSION  ========================= -//
 
 .conclusion
-    padding-top: 7rem
-    padding-bottom: 7rem
+    @include section-space-top
+    @include section-space-bottom
 
     h3
         text-align: center
@@ -694,26 +680,23 @@ section.brief
 //- =========================  VISIT THE SITE  ========================= -//
 //- =========================  VISIT THE SITE  ========================= -//
 .visit-the-site
-	display: flex
-	justify-content: center
-	align-items: center
-	background-color: #fff
-	padding-bottom: 162px;
-	border-bottom: 1px solid #e5e5e5;
-	@include desk
-		padding-bottom: 220px
-		//-padding-top: 220px
+    @include section-space-bottom
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #fff
+    border-bottom: 1px solid #e5e5e5
 
-	a,
-	span,
-	div
-		text-align: center
-		font-weight: 900 !important
-		color: black
+    a,
+    span,
+    div
+        text-align: center
+        font-weight: 900 !important
+        color: black
 
-	span
-		display: block
-		margin-top: 1.5rem
+    span
+        display: block
+        margin-top: 1.5rem
 
 
 

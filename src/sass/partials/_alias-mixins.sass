@@ -130,3 +130,13 @@ $screen-xlarge: 1200px
 @mixin breakpoint-xlarge
 	@media (min-width: $screen-xlarge)
 		@content
+
+@mixin section-space-top
+    padding-top: 4rem
+    @include breakpoint-medium
+        padding-top: 6rem
+
+@mixin section-space-bottom
+    padding-bottom: 4rem
+    @include breakpoint-medium
+        padding-bottom: 6rem

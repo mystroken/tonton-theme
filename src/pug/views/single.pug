@@ -138,7 +138,7 @@ block content
                     section.parallax.e-hidden
                         div(style!="background-color: #1A2938; background-image: url(<?php echo get_sub_field('parallax_img')['url']; ?>)").parallax__bg
 
-                    div.colored-section(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
+                    div.colored-section(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color'); ?>;")
                         <?php elseif( get_row_layout() == 'website' ): ?>
                             //- =========================  descr  ========================= -//
                             //- =========================  descr  ========================= -//
@@ -151,7 +151,7 @@ block content
                 //- =========================  homepage  ========================= -//
                 //- =========================  homepage  ========================= -//
                 <?php elseif( get_row_layout() == 'presentation' ): ?>
-                    section.home-page.e-rel.e-wvw.anima-text(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
+                    section.home-page.e-rel.e-wvw.anima-text(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color'); ?>;")
                         .home-page__hold.e-hold
                             .inline.e-rel.e-wp
                                 .home-page__text.e-fixed
@@ -168,7 +168,7 @@ block content
                 //- =========================  DRAGGABLE  ========================= -//
                 //- =========================  DRAGGABLE  ========================= -//
                 <?php elseif( get_row_layout() == 'draggable' ): ?>
-                    section.inner-pages.e-rel.e-wvw.anima-text(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color')?>; ?>")
+                    section.inner-pages.e-rel.e-wvw.anima-text(style!="background-color:<?php the_field('presentation_bg_color'); ?>; color:<?php the_field('presentation_text_color'); ?>;")
                         .inner-pages__hold.e-hold.callout
                             p.mini-heading <?php the_sub_field('pre_heading'); ?>
                             h3.lg-heading(style!="color:<?php the_field('presentation_heading_color'); ?>") <?php the_sub_field('drag_heading'); ?>

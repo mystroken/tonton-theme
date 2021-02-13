@@ -42,11 +42,11 @@
             padding-top: 17vw
 
         h1
-            font-size: 3rem
+            font-size: 2.4rem
             line-height: .75
             text-transform: uppercase
-            @include desk
-                font-size: 11.5vw
+            @include breakpoint-medium
+                font-size: 11.2vw
 
             .wrapped
                 padding: 1vw 0 3vw
@@ -157,7 +157,6 @@
             margin-right: 10px
 
 .beginning
-    padding-top: calc(200px + 80px)
     b
         @include serif
     del
@@ -176,7 +175,10 @@
         width: 250px
 
 .interlude
-    padding-bottom: 200px
+    padding-bottom: 4rem
+    @include breakpoint-medium
+        padding-bottom: 6rem
+
     q
         @include serif
         color: #101010
@@ -191,7 +193,9 @@
 
 .wrapup
     text-align: center
-    padding-bottom: 200px
+    padding-bottom: 4rem
+    @include breakpoint-medium
+        padding-bottom: 6rem
 
     .copy
         @include breakpoint-large
