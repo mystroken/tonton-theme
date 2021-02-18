@@ -22,9 +22,10 @@ class Smooth {
 		// ___________________________________ TEXT HOME PAGE STICKED
 		if ($($triggerStickHome).length > 0) {
 			const imageTop = $triggerStickHome.getBoundingClientRect().top - 66;
-			let distanceSectionPin = $triggerStickHome.getBoundingClientRect().top - h;
+			// let distanceSectionPin = $triggerStickHome.getBoundingClientRect().top - h;
 			let distanceSectionRelease = $realeaseHomeStick.getBoundingClientRect().top
 			const textBlockTop = $homeStick.getBoundingClientRect().top;
+			let distanceSectionPin = textBlockTop;
 			//console.log($triggerStickHome.getBoundingClientRect().top, $realeaseHomeStick.getBoundingClientRect().top);
 			if (distanceSectionPin < 0 && distanceSectionRelease > h) {
 				// scroll + window height - padding top - height - padding bottom
