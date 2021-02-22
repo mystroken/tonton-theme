@@ -6,32 +6,32 @@ class Smooth {
 	constructor() {
 	}
 
-	//? - =========================  FOOTER PARALLAX  ========================= -//
-	//? - =========================  FOOTER PARALLAX  ========================= -//
+	//? - =========================  SINGLE  ========================= -//
+	//? - =========================  SINGLE  ========================= -//
 	isSingle(scrolled) {
-		//console.log(scrolled)
-		let h = window.innerHeight
-		//? - =========================  SINGLE  ========================= -//
-		//? - =========================  SINGLE  ========================= -//
-		let $homeStick, $realeaseHomeStick, $triggerStickHome
-		$homeStick = $('.home-page__text.e-fixed')[0]
-		$triggerStickHome = $('.home-page__image')[0]
-		$realeaseHomeStick = document.querySelector('.js-release-text-home-page')
-		const homeVisible = $('.home-page__text.e-fixed .lineChild').css('opacity') === '1';
+		const h = window.innerHeight
+		const homeStick = document.querySelector('.home-page__text')
 
 		// ___________________________________ TEXT HOME PAGE STICKED
-		if ($($triggerStickHome).length > 0) {
-			const imageTop = $triggerStickHome.getBoundingClientRect().top - 66;
-			// let distanceSectionPin = $triggerStickHome.getBoundingClientRect().top - h;
-			let distanceSectionRelease = $realeaseHomeStick.getBoundingClientRect().top
-			const textBlockTop = $homeStick.getBoundingClientRect().top;
-			let distanceSectionPin = textBlockTop;
-			//console.log($triggerStickHome.getBoundingClientRect().top, $realeaseHomeStick.getBoundingClientRect().top);
-			if (distanceSectionPin < 0 && distanceSectionRelease > h) {
-				// scroll + window height - padding top - height - padding bottom
-				let scrollOffset = parseInt(scrolled) + h - 125 - $('.home-page__text.e-fixed').height() - 86;
-				TweenMax.set($homeStick, { position: 'fixed', top: scrollOffset, ease: Linear.easeNone })
-				//h - $('.home-page__image').height() - 86
+		if ($(homeStick).length > 0) {
+			// Here we want to fix the texbox
+			// all the time the image is visible.
+			// The technique is :
+			// As soon as the image enters in view, we
+			// fix the position of the textbox.
+			const triggerStickHome = document.querySelector('.home-page__image')
+			const realeaseHomeStick = document.querySelector('.js-release-text-home-page')
+			const imageBoundingRect = triggerStickHome.getBoundingClientRect()
+			const textBlockBoundingRect = homeStick.getBoundingClientRect()
+			const realeaseHomeStickTop = realeaseHomeStick.getBoundingClientRect().top
+			const imageTop = imageBoundingRect.top
+
+			let top = imageTop - h
+			let bottom = realeaseHomeStickTop - h
+			// top<0 && bottom>0
+			if (top < 0 && bottom > 0) {
+				const scroll = Math.abs(top).toFixed(3) - textBlockBoundingRect.height
+				homeStick.style.transform = `translate3d(0, ${scroll}px, 0)`
 			}
 		}
 	}
@@ -114,7 +114,7 @@ class Smooth {
 	}
 
 	setStyles() {
-		this.dom.el.style.position = 'fixed';
+		this.dom.el.style.position = 'fixed'
 		this.dom.el.style.top = 0;
 		this.dom.el.style.left = 0;
 		this.dom.el.style.height = '100%'
