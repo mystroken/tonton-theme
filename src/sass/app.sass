@@ -19,5 +19,12 @@ $min_width: 100px
 $max_width: 1440px
 $min_font: 18px
 $max_font: 32px
+// html
+//     @include fluid-type($min_width, $max_width, $min_font, $max_font)
+
 html
-    @include fluid-type($min_width, $max_width, $min_font, $max_font)
+    font-size: 4.38vw
+    @include breakpoint-medium
+        font-size: 1.95vw
+    @include breakpoint-xlarge
+        font-size: 1.67vw

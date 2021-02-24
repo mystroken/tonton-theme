@@ -27,7 +27,7 @@ class Smooth {
 			const imageTop = imageBoundingRect.top
 
 			let top = imageTop - h
-			let bottom = realeaseHomeStickTop - h
+			let bottom = realeaseHomeStickTop
 			// top<0 && bottom>0
 			if (top < 0 && bottom > 0) {
 				const scroll = Math.abs(top).toFixed(3) - textBlockBoundingRect.height
