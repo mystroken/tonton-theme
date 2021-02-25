@@ -142,16 +142,18 @@
     .headshot
         @include breakpoint-large
             order: 1
-            // transform: translateX(60px) translateY(80px)
+            // transform: translate3d(0,50px,0)
             flex: 1
             display: flex
-            justify-content: flex-end
+            // justify-content: flex-end
         img
             max-width: 100%
             height: auto
 
     .copy
-        width: 35%
+        @include breakpoint-large
+            width: 45%
+            margin-right: 4vw
 
     h2
         @include serif
@@ -159,8 +161,6 @@
         line-height: 1.19231
     p
         font-size: 1rem
-        @include breakpoint-large
-            margin-right: 10px
 
 .beginning
     b
@@ -203,7 +203,11 @@
 
     .copy
         margin: 0 auto
-        max-width: 732px
+        width: 90vw
+        @media (min-width: 414px)
+            width: 60vw
+        @include breakpoint-xlarge
+            width: 40vw
 
     .years
         position: relative
@@ -211,14 +215,14 @@
         @include serif
         color: #fff
         line-height: 1
-        font-size: 15rem
+        font-size: 10rem
         @include breakpoint-large
             font-size: 17.75rem
 
         .img-mask
             display: none
             position: absolute
-            left: -.6rem
+            left: -.05rem
             bottom: .6rem
             width: 11.7rem
             height: 13rem
