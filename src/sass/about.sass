@@ -132,23 +132,37 @@
                     background: #fff !important
 
 .about-me
-    // @include section-space-top
-    overflow: hidden
+    padding-top: 50vh
+    @include breakpoint-medium
+        padding-top: 50vh
     @include breakpoint-large
-        overflow: visible
+        padding-top: 0
         display: flex
         align-items: flex-end
 
     .headshot
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
         @include breakpoint-large
+            position: static
+            top: auto
+            left: auto
+            right: auto
+            bottom: auto
             order: 1
-            // transform: translate3d(0,50px,0)
             flex: 1
             display: flex
-            // justify-content: flex-end
         img
-            max-width: 100%
-            height: auto
+            height: 100%
+            width: auto
+            @include breakpoint-large
+                width: auto
+                height: 67.41vh
+                max-width: 100%
+                min-height: 700px
 
     .copy
         @include breakpoint-large
