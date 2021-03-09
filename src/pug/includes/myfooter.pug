@@ -7,11 +7,10 @@ footer.footer.scroll-footer.e-hidden
                 h1.title-home.t-switch your story
 
             .footer__cta__email
-                script.
-                    user = 'hello';
-                    site = 'hellotonton';
-                    document.write('<a href=\"mailto:' + user + '@' + site + '.com\"><button class="e-curp hover-line scale"><span class="e-sans t-switch-gray t-switch">');
-                    document.write(user + '[at]' + site + '[dot]com<div class="line e-wp e-switch-gray"></div></span></button></a>');
+                a(href!="maito:hello@hellotonton.com")
+                    button.e-curp.hover-line.scale
+                        span.e-sans.t-switch-gray.t-switch hello[at]hellotonton[dot]com
+                            div.line.e-wp.e-switch-gray
 
         //- =========================  SOCIAIS
         .footer__sociais.e-wp
