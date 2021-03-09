@@ -202,7 +202,11 @@ button .t-opac
     background-color: #fff
 
 .t-switch-gray
-    color: #666
+    color: #A1A1A6
+    @include breakpoint-large
+        color: #666
+    .e-white &
+        color: #666
 
 .e-switch-gray
     background-color: #666
