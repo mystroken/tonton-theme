@@ -207,8 +207,8 @@ let aboutBase = Barba.BaseView.extend({
 	namespace: "about",
 
 	onEnter: function () {
-		//gooeymenu.disactiveGooey()
-		//menufs.activeDarkMenu()
+		gooeymenu.disactiveGooey()
+		// menufs.activeDarkMenu()
 		menufs.disactiveDarkMenu();
 		TweenMax.set($webGL, { autoAlpha: 0 });
 	},
