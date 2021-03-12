@@ -16,7 +16,7 @@ class Home {
 			let indexThis = $('.title-folio').index(this)
 			webglRender.onClick($(this), indexThis)
 		});
-  
+
 		//instance WEBGL
 		webglRender.onTicker(dynaTitle)
 		webglRender.onMouseMove($dynaTitle)
@@ -44,7 +44,7 @@ class Home {
 			let indexThis = $('.title-folio').index(this)
 			webglRender.onClick($(this), indexThis)
 		});
-  
+
 		//instance WEBGL
 		webglRender.onTicker(dynaTitle)
 		webglRender.onMouseMove($dynaTitle)
@@ -69,8 +69,8 @@ class Home {
 		   $tSwitchGray = $('.t-switch-gray'),
 		   $eSwitchGray = $('.e-switch-gray'),
 		   timeSwitch = .8
- 
- 
+
+
 		let tlSwitchModeColor = new TimelineMax({ paused: true })
 		   .to($tSwitch, timeSwitch, { color: '#000', ease: Power3.easeInOut }, 0)
 		   .to($eSwitch, timeSwitch, { backgroundColor: '#000', ease: Power3.easeInOut }, 0)
@@ -80,9 +80,9 @@ class Home {
 		   .to('footer .t-switch', timeSwitch, { color: '#fff', ease: Power3.easeInOut }, 0)
 		   .to('footer ', timeSwitch, { backgroundColor: '#000', ease: Power3.easeInOut }, 0)
 		   .to('footer .footer__fader, .gap-black', timeSwitch, { backgroundColor: '#fff', ease: Power3.easeInOut }, 0)
- 
+
 		$btnSwitchLight.click(function () {
-		   
+
 		   $('.shape-overlays__path').removeAttr("d");
 		   console.log($('.shape-overlays__path'));
 		   tlSwitchModeColor.play()
@@ -150,7 +150,6 @@ class Home {
 			.addTo(controller)
 			.on('enter', () => {
 				$video[0].play();
-				console.log('entering')
 			});
 
 		$(window).on('scroll', () => {

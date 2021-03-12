@@ -9,7 +9,7 @@ let myView = document.getElementById("webgl"),
 	sizeH = h / 2,
 	tlWebGLTransition = new TimelineLite();
 
-class webGL {
+export default class WebglRender {
 	constructor() {
 		return;
 	}
@@ -68,13 +68,13 @@ class webGL {
 
 		//? - =====================  PIXIJS  ========================= -//
 		//? - =====================  PIXIJS  ========================= -//
-		(this.myView = document.getElementById("webgl")),
-			(this.app = new PIXI.Application({
-				width: w,
-				height: h,
-				antialias: true,
-				transparent: true,
-			}));
+		this.myView = document.getElementById("webgl")
+		this.app = new PIXI.Application({
+			width: w,
+			height: h,
+			antialias: true,
+			transparent: true,
+		});
 		this.myView.appendChild(this.app.view);
 
 		//? - =====================  BGS  ========================= -//
@@ -84,9 +84,8 @@ class webGL {
 		this.bgContainerImages = new PIXI.Container();
 		this.bgContainerMask = new PIXI.Container();
 		this.bgContainerImages.width = w;
-		(this.bgContainerImages.height =
-			this.sizes.ctnTitleHeight + this.sizes.gapInit * 4),
-			(this.bgContainerSingle = new PIXI.Container());
+		this.bgContainerImages.height = this.sizes.ctnTitleHeight + this.sizes.gapInit * 4;
+		this.bgContainerSingle = new PIXI.Container();
 		this.bgContainerImages.width = w;
 		this.bgContainerImages.height = h;
 
@@ -255,7 +254,6 @@ class webGL {
 	//? - =====================  BIND HOVER  ========================= -//
 	//? - =====================  BIND HOVER  ========================= -//
 	onHover($title) {
-		console.log("hover", $title);
 		let that = this;
 		$title.hover(
 			function () {
@@ -282,7 +280,6 @@ class webGL {
 			let indexThis = $title.index(this);
 			//webglRender.onClick($(this), indexThis)
 			let target = that.arrays.pixiTitles[indexThis];
-			console.log(target);
 			let thatParams = {
 				x: target.x,
 			};
@@ -429,14 +426,10 @@ class webGL {
 	}
 
 	destroy() {
-		// console.log(this.app)
-		this.offTicker();
-		this.app.renderer.destroy(true);
-		this.app.renderer = null;
+		this.offTicker()
+		this.app.renderer.destroy(true)
 	}
 }
-
-export const webglRender = new webGL();
 
 //? - =====================  BIND CLICK  ========================= -//
 //? - =====================  BIND CLICK  ========================= -//

@@ -1,6 +1,5 @@
 
 import { overlay } from './overlaySvg.js'
-import { webglRender } from './webgl_class'
 import { Power3 } from 'gsap'
 import { menufs } from './menu.js'
 class GooeyMenu {
@@ -28,6 +27,7 @@ class GooeyMenu {
 			dark: '#ffffff'
 		}
 
+		this.webglRender = null
 		this.onHover()
 		this.onClick()
 	}
@@ -115,11 +115,13 @@ class GooeyMenu {
 
 		const videoWasPlaying = ($video.length === 1) ? !$video[0].paused : null;
 
-		if (mode == 'light') {
-			$('.barba-container').hasClass('page-home') ? webglRender.switchToWhite() : null
-		}
-		else {
-			$('.barba-container').hasClass('page-home') ? webglRender.switchToBlack() : null
+		if (this.webglRender) {
+			if (mode == 'light') {
+				$('.barba-container').hasClass('page-home') ? this.webglRender.switchToWhite() : null
+			}
+			else {
+				$('.barba-container').hasClass('page-home') ? this.webglRender.switchToBlack() : null
+			}
 		}
 
 		const replaceVideo = () => {
@@ -142,7 +144,8 @@ class GooeyMenu {
 		}
 	}
 
-	activeGooey() {
+	activeGooey(webglRender) {
+		this.webglRender = webglRender
 		TweenMax.to(this.gooey.main, .6, { autoAlpha: 1 })
 	}
 

@@ -241,7 +241,7 @@ block content
                                 //-a(href!="<?php echo get_site_url(); ?>/single")
                                 a(href!="<?php echo get_site_url(); ?>/<?php echo $nextProject->post_name ?>" data-to="single" data-from="single" data-color!="<?php the_field('color_project_next'); ?>")
                                     button.e-curp
-                                        h1.t-black.e-sans.t-center.js-text <?php echo $nextProject->post_title ?>
+                                        h1.t-black.e-sans.js-text.t-center <?php echo $nextProject->post_title ?>
 
                             .next__previous.e-abs
                                 <?php $prevProject = get_field('previous_project'); ?>

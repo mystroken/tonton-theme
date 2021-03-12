@@ -19,7 +19,7 @@ const { singleJs } = require("./js/single.js");
 const { dragJs } = require("./js/drag.js");
 
 //* --------------- JS
-import { webglRender } from "./js/webgl_class";
+import WebglRender from "./js/webgl_class";
 import { scroll } from "./js/scroll";
 import { home } from "./js/home";
 import { about } from "./js/about";
@@ -29,6 +29,7 @@ import { menufs } from "./js/menu";
 import { lottiejs } from "./js/lottie";
 import { archived } from "./js/archived";
 
+let webglRender;
 cursor.init();
 menufs.init(Barba);
 gooeymenu.init();
@@ -151,13 +152,14 @@ let homeBase = Barba.BaseView.extend({
 				//urls: ['/css/app.css']
 			},
 			active: (e) => {
-				webglRender.init();
+				webglRender = new WebglRender()
+				webglRender.init()
+				gooeymenu.activeGooey(webglRender);
 			},
 		});
 		let contentPage = document.querySelector(".page-home");
 		//TweenMax.set('body', { overflowY: 'auto' })
 		window.scrollTo(0, 0);
-		gooeymenu.activeGooey();
 		if (firstEntry) {
 			lottiejs.init(scroll.init());
 		} else {
@@ -185,7 +187,15 @@ let singleBase = Barba.BaseView.extend({
 		menufs.activeDarkMenu();
 	},
 	onEnterCompleted: function () {
-		webglRender.init();
+		WebFont.load({
+			custom: {
+				families: ["pangramlight"],
+			},
+			active: (e) => {
+				webglRender = new WebglRender()
+				webglRender.init()
+			},
+		});
 		window.scrollTo(0, 0);
 		cursor.single($(".inner-pages__imgs__travel"));
 		dragJs(Draggable, ThrowPropsPlugin);

@@ -29,8 +29,10 @@ class Smooth {
 			let top = imageTop - h
 			let bottom = realeaseHomeStickTop
 			// top<0 && bottom>0
-			if (top < 0 && bottom > 0) {
-				const scroll = Math.abs(top).toFixed(3) - textBlockBoundingRect.height
+			// console.log(imageTop, h)
+			// if (top < 0 && bottom > 0)
+			if (imageTop < 0 && bottom > 0) {
+				const scroll = Math.abs(top).toFixed(3) - (textBlockBoundingRect.height * 2)
 				homeStick.style.transform = `translate3d(0, ${scroll}px, 0)`
 			}
 		}
