@@ -1,3 +1,4 @@
+import clamp from '@mystroken/g/clamp'
 import { archived } from "./archived"
 
 let homeAppeared = false;
@@ -26,13 +27,14 @@ class Smooth {
 			const realeaseHomeStickTop = realeaseHomeStick.getBoundingClientRect().top
 			const imageTop = imageBoundingRect.top
 
-			let top = imageTop - h
-			let bottom = realeaseHomeStickTop
-			// top<0 && bottom>0
-			// console.log(imageTop, h)
-			// if (top < 0 && bottom > 0)
-			if (imageTop < 0 && bottom > 0) {
-				const scroll = Math.abs(top).toFixed(3) - (textBlockBoundingRect.height * 2)
+			let top = imageTop - h + textBlockBoundingRect.height
+			let bottom = imageBoundingRect.bottom - textBlockBoundingRect.bottom
+
+			// We inspect the image positio
+			// Start when the image top lower or equal to viewport height (vh) — Entering on the screen and scrolled the height of  home stick
+			// Stop when the image bottom lower or equal home stick bottom
+			if (top <= 0 && bottom >= 0) {
+				const scroll = clamp(Math.abs(top).toFixed(3), 0, Math.abs(imageBoundingRect.height - (textBlockBoundingRect.height + 150))) // - textBlockBoundingRect.height * 2
 				homeStick.style.transform = `translate3d(0, ${scroll}px, 0)`
 			}
 		}
@@ -61,7 +63,7 @@ class Smooth {
 				// -height
 				// console.log((top + paddingTop)-h)
 				const computedTop = (top + paddingTop) - h
-				const inView = (computedTop < 0 && bottom > 0)
+				const inView = ((top-h) <= 0 && bottom >= 0)
 				const scrollableMax = (height + h) - paddingTop
 				const currentScrolled = -1 * computedTop
 				const scale = (inView) ? Number(bgScaleMin + (bgScaleMaxToAdd * Number(currentScrolled / scrollableMax).toFixed(3))).toFixed(3) : bgScaleMin

@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
+    "@mystroken/g": "^0.0.16",
     "lottie-web": "^5.7.3"
   }
 }
