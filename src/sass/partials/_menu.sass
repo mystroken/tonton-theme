@@ -115,13 +115,13 @@
 
     &__close
         font-family: 'pangramlight'
-        width: 4vw
-        height: 4vw
+        width: 48px
+        height: 48px
         border: 1px solid rgba(0, 0, 0, .15)
         border-radius: 50%
         left: 3vw
         top: 4vw
-        font-size: 10px
+        font-size: .3125rem
         cursor: pointer
         transition: .5s border ease-out
         &:hover
@@ -238,9 +238,11 @@
         justify-content: space-between
         margin-top: 14vh
         @include desk
-            height: 25vw
-            width: 27vw
-            margin-top: 2vw
+            margin-top: 0
+            padding: 3vw 0
+            // height: 25vw
+            // width: 27vw
+            // margin-top: 2vw
 
     &__email
         a, span
@@ -274,7 +276,8 @@
     &__social-right
         margin-top: 16vh
         @include desk
-            margin-top: auto
+            font-size: 1.19rem
+            // margin-top: auto
             display: flex
             justify-content: space-between
             align-items: flex-end
@@ -283,15 +286,13 @@
             display: none
             @include desk
                 display: block
+                font-size: .474em
 
             & > *
                 padding: 0.6vw 0 0.2vw
 
             &:last-child
-                margin-top: 1.5vw
                 position: relative
-                @include mobile
-                    display: block !important
                 &:after
                     position: absolute
                     content: ''
@@ -314,7 +315,7 @@
 
         &__each-soc
             a, span
-                font-size: 2.1vw
+                font-size: inherit
                 padding: 0.7vw 0px
                 &:after
                     position: absolute
