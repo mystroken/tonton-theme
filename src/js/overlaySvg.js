@@ -20,24 +20,30 @@ class ShapeOverlays {
 			this.delayPointsArray[i] = 0;
 		}
 		if (this.isOpened === false) {
-			this.open();
+			return this.open();
 		} else {
-			this.close();
+			return this.close();
 		}
 	}
 
 	open() {
-		this.isOpened = true;
-		this.elm.classList.add('is-opened');
-		this.timeStart = Date.now();
-		this.renderLoop();
+		return new Promise(resolve => {
+			this.isOpened = true;
+			this.elm.classList.add('is-opened');
+			this.timeStart = Date.now();
+			this.renderLoop();
+			resolve();
+		});
 	}
 
 	close() {
-		this.isOpened = true;
-		this.elm.classList.remove('is-opened');
-		this.timeStart = Date.now();
-		this.renderLoop();
+		return new Promise(resolve => {
+			this.isOpened = true;
+			this.elm.classList.remove('is-opened');
+			this.timeStart = Date.now();
+			this.renderLoop();
+			resolve();
+		});
 	}
 
 	updatePath(time) {

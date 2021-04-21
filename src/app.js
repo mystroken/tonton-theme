@@ -162,6 +162,7 @@ let homeBase = Barba.BaseView.extend({
 		window.scrollTo(0, 0);
 		if (firstEntry) {
 			lottiejs.init(scroll.init());
+			// firstEntry = false;
 		} else {
 			TweenMax.set("body", { overflowY: "auto" });
 			home.init(document.querySelector(".page-home"));

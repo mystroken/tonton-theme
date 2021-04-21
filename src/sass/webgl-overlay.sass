@@ -1,63 +1,57 @@
 @import './partials/alias-mixins'
 
 #webgl
-    left: 0;
-    top: 0;
-    width: 100vw;
-    z-index: 1;
+    left: 0
+    top: 0
+    width: 100vw
+    z-index: 1
     pointer-events: none
     //margin-top: -453px
     //border: 1px aqua
-    
 
 .ctn-titles
     position: relative
-    left: 0;
-    top: 0;
-    width: 100vw;
-    display: flex;
-    flex-direction:  column;
-    align-items: flex-end;
-    justify-content: center;   
-    z-index: 5;
-    padding-top: 5vh;
-    padding-right: 8vw;
-    box-sizing: border-box;
+    left: 0
+    top: 0
+    width: 100vw
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    justify-content: center
+    z-index: 5
+    padding-top: 5vh
+    padding-right: 8vw
+    box-sizing: border-box
 
 .ctn-titles h1
-    @include sans;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 5vh;
-    font-size: 145px;
-    font-weight: lighter;
+    @include sans
+    margin: 0
+    padding: 0
+    margin-bottom: 5vh
+    font-size: 145px
+    font-weight: lighter
     //line-height: 0px;
     //-margin-top: -38px;
-    color: #fff;
+    color: #fff
     //opacity: 0;
-    cursor: pointer;
+    cursor: pointer
 
 .ctn-overlay
     position: fixed
-    width: 100vw;
-    height: 100vh;
-    z-index: 0
-    top: 0 ;
-    left: 0;
+    width: 100vw
+    height: 100vh
+    z-index: 1
+    top: 0
+    left: 0
 
 .shape-overlays
-    width: 100vw;
-    height: 100vh;
-    top: 0 ;
-    left: 0;
-
-
+    width: 100vw
+    height: 100vh
+    top: 0
+    left: 0
 
 .shape-overlays path:nth-of-type(1)
-    fill: #999;
-
+    fill: #999
 
 .shape-overlays path:nth-of-type(2)
-    fill: #fff;
-
-
+    fill: #fff

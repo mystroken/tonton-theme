@@ -75,19 +75,19 @@ class GooeyMenu {
 					menufs.activeDarkMenu()
 				}
 				TweenMax.set([$pathOverlay0, $pathOverlay1], { fill: swiftColor })
-				overlay.toggle()
+				overlay.toggle().then(() => {
+					TweenMax.delayedCall(1, () => {
+						that.options.mode == 'light' ? that.options.mode = 'light' : that.options.mode = 'dark'
+						that.options.mode == 'light' ? TweenMax.set(that.gooey.moon, { opacity: 1 }) && TweenMax.set(that.gooey.sun, { opacity: 0 }) : TweenMax.set(that.gooey.moon, { opacity: 0 }) && TweenMax.set(that.gooey.sun, { opacity: 1 })
 
-				TweenMax.delayedCall(1, () => {
-					that.options.mode == 'light' ? that.options.mode = 'light' : that.options.mode = 'dark'
-					that.options.mode == 'light' ? TweenMax.set(that.gooey.moon, { opacity: 1 }) && TweenMax.set(that.gooey.sun, { opacity: 0 }) : TweenMax.set(that.gooey.moon, { opacity: 0 }) && TweenMax.set(that.gooey.sun, { opacity: 1 })
+						TweenMax.set('body', { backgroundColor: swiftColor })
+						TweenMax.to(that.gooey.svg, .5, { fill: swiftBg })
+						TweenMax.to(that.gooey.sun, .5, { fill: swiftBg })
 
-					TweenMax.set('body', { backgroundColor: swiftColor })
-					TweenMax.to(that.gooey.svg, .5, { fill: swiftBg })
-					TweenMax.to(that.gooey.sun, .5, { fill: swiftBg })
-
-					$('.shape-overlays').find('path').removeAttr("d")
-					that.options.animating = false
-					TweenMax.to(that.gooey.general, .5, { pointerEvents: 'auto', autoAlpha: 1 })
+						$('.shape-overlays').find('path').removeAttr("d")
+						that.options.animating = false
+						TweenMax.to(that.gooey.general, .5, { pointerEvents: 'auto', autoAlpha: 1 })
+					})
 				})
 			}
 
@@ -101,17 +101,18 @@ class GooeyMenu {
 			$eSwitch = $('.e-switch'),
 			$tSwitchGray = $('.t-switch-gray'),
 			$eSwitchGray = $('.e-switch-gray'),
-			timeSwitch = .8,
+			timeColorSwitch = 0.1,
+			timeBgSwitch = 1.5,
 			videoSource = $('.about video').attr('src'),
 			$video = $('.about video');
 
-		TweenMax.to($tSwitch, timeSwitch, { color: swiftColor, ease: Power3.easeInOut })
+		TweenMax.to($tSwitch, timeColorSwitch, { color: swiftColor, ease: Power3.easeInOut })
 		//TweenMax.to($eSwitch, timeSwitch, { backgroundColor: swiftColor, ease: Power3.easeInOut })
-		TweenMax.to('.awards', timeSwitch, { backgroundColor: swiftBg, ease: Power3.easeInOut })
+		TweenMax.to('.awards', timeBgSwitch, { backgroundColor: swiftBg, ease: Power3.easeInOut })
 		//TweenMax.to('.svg-logo path', timeSwitch, { fill: swiftColor, ease: Power3.easeInOut })
-		TweenMax.to('footer .t-switch', timeSwitch, { color: swiftBg, ease: Power3.easeInOut })
-		TweenMax.to('footer ', timeSwitch, { backgroundColor: swiftColor, ease: Power3.easeInOut })
-		TweenMax.to('footer .footer__fader, .gap-black', timeSwitch, { backgroundColor: swiftBg, ease: Power3.easeInOut })
+		TweenMax.to('footer .t-switch', timeColorSwitch, { color: swiftBg, ease: Power3.easeInOut })
+		TweenMax.to('footer ', timeBgSwitch, { backgroundColor: swiftColor, ease: Power3.easeInOut })
+		TweenMax.to('footer .footer__fader, .gap-black', timeBgSwitch, { backgroundColor: swiftBg, ease: Power3.easeInOut })
 
 		const videoWasPlaying = ($video.length === 1) ? !$video[0].paused : null;
 
@@ -140,7 +141,7 @@ class GooeyMenu {
 		}
 
 		if ($video.length === 1) {
-			TweenMax.to('.about video', timeSwitch, { x: -350, opacity: 0, ease: Power3.easeOut, onComplete: replaceVideo })
+			TweenMax.to('.about video', timeBgSwitch, { x: -350, opacity: 0, ease: Power3.easeOut, onComplete: replaceVideo })
 		}
 	}
 
